@@ -1,0 +1,445 @@
+lockVersion: 2.0.0
+id: 65580a77-97f6-4def-b468-bd8444f16661
+management:
+  docChecksum: 71b8147142ccd4bbcdad168b94f90da8
+  docVersion: 0.1.0
+  speakeasyVersion: 1.421.0
+  generationVersion: 2.438.15
+  releaseVersion: 0.1.1
+  configChecksum: e4d8316cad5197cdae224a59131c2a49
+features:
+  python:
+    additionalDependencies: 1.0.0
+    core: 5.6.0
+    defaultEnabledRetries: 0.2.0
+    devContainers: 3.0.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.1
+    flattening: 3.1.0
+    globalSecurity: 3.0.2
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.0.0
+    groups: 3.0.0
+    methodArguments: 1.0.2
+    nameOverrides: 3.0.0
+    responseFormat: 1.0.1
+    retries: 3.0.2
+    sdkHooks: 1.0.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .python-version
+  - .vscode/settings.json
+  - CONTRIBUTING.md
+  - USAGE.md
+  - docs/models/apierrorinvalidinput.md
+  - docs/models/apierrornotfound.md
+  - docs/models/apierrorunauthorized.md
+  - docs/models/basemodelsummary.md
+  - docs/models/canceldeploymentbyidrequest.md
+  - docs/models/canceltrainingjobbyidrequest.md
+  - docs/models/createdatasetrequest.md
+  - docs/models/createdatasetrequestbody.md
+  - docs/models/createdeploymentrequest.md
+  - docs/models/createdeploymentrequestbody.md
+  - docs/models/createprojectrequestbody.md
+  - docs/models/createtrainingjobrequest.md
+  - docs/models/createtrainingjobrequestbody.md
+  - docs/models/datasetdetail.md
+  - docs/models/datasetsummary.md
+  - docs/models/deletedatasetbyidrequest.md
+  - docs/models/deletedeploymentbyidrequest.md
+  - docs/models/deleteprojectbyidrequest.md
+  - docs/models/deletetrainingjobbyidrequest.md
+  - docs/models/deploymentdetail.md
+  - docs/models/deploymentdetailstatus.md
+  - docs/models/deploymentsummary.md
+  - docs/models/deploymentsummarystatus.md
+  - docs/models/embeddings.md
+  - docs/models/getchatcompletionsfromdeploymentrequest.md
+  - docs/models/getchatcompletionsfromdeploymentrequestbody.md
+  - docs/models/getchatcompletionsfromdeploymentresponsebody.md
+  - docs/models/getclassificationfromdeploymentrequest.md
+  - docs/models/getclassificationfromdeploymentrequestbody.md
+  - docs/models/getclassificationfromdeploymentresponsebody.md
+  - docs/models/getcompletionsfromdeploymentrequest.md
+  - docs/models/getcompletionsfromdeploymentrequestbody.md
+  - docs/models/getcompletionsfromdeploymentresponsebody.md
+  - docs/models/getembeddingsfromdeploymentrequest.md
+  - docs/models/getembeddingsfromdeploymentrequestbody.md
+  - docs/models/getembeddingsfromdeploymentresponsebody.md
+  - docs/models/listcheckpointsrequest.md
+  - docs/models/listdatasetsrequest.md
+  - docs/models/listdatasetsresponsebody.md
+  - docs/models/listdeploymentsrequest.md
+  - docs/models/listdeploymentsresponsebody.md
+  - docs/models/listtrainingjobsrequest.md
+  - docs/models/messages.md
+  - docs/models/projectdetail.md
+  - docs/models/projectsummary.md
+  - docs/models/response.md
+  - docs/models/retrievedatasetbyidrequest.md
+  - docs/models/retrievedeploymentbyidrequest.md
+  - docs/models/retrieveprojectbyidrequest.md
+  - docs/models/retrievetrainingjobbyidrequest.md
+  - docs/models/role.md
+  - docs/models/security.md
+  - docs/models/servertype.md
+  - docs/models/status.md
+  - docs/models/testresults.md
+  - docs/models/trainingjobcheckpoint.md
+  - docs/models/trainingjobdetail.md
+  - docs/models/trainingjobdetailstatus.md
+  - docs/models/trainingjobsummary.md
+  - docs/models/trainingloss.md
+  - docs/models/type.md
+  - docs/models/utils/retryconfig.md
+  - docs/sdks/basemodels/README.md
+  - docs/sdks/chat/README.md
+  - docs/sdks/classification/README.md
+  - docs/sdks/datasets/README.md
+  - docs/sdks/deployments/README.md
+  - docs/sdks/emissaryclient/README.md
+  - docs/sdks/projects/README.md
+  - docs/sdks/trainingjobs/README.md
+  - poetry.toml
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/compile.sh
+  - scripts/prepare-readme.py
+  - scripts/publish.sh
+  - src/emissary_client_sdk/__init__.py
+  - src/emissary_client_sdk/_hooks/__init__.py
+  - src/emissary_client_sdk/_hooks/sdkhooks.py
+  - src/emissary_client_sdk/_hooks/types.py
+  - src/emissary_client_sdk/_version.py
+  - src/emissary_client_sdk/basemodels.py
+  - src/emissary_client_sdk/basesdk.py
+  - src/emissary_client_sdk/chat.py
+  - src/emissary_client_sdk/classification.py
+  - src/emissary_client_sdk/datasets.py
+  - src/emissary_client_sdk/deployments.py
+  - src/emissary_client_sdk/httpclient.py
+  - src/emissary_client_sdk/models/__init__.py
+  - src/emissary_client_sdk/models/apierrorinvalidinput.py
+  - src/emissary_client_sdk/models/apierrornotfound.py
+  - src/emissary_client_sdk/models/apierrorunauthorized.py
+  - src/emissary_client_sdk/models/basemodelsummary.py
+  - src/emissary_client_sdk/models/canceldeploymentbyidop.py
+  - src/emissary_client_sdk/models/canceltrainingjobbyidop.py
+  - src/emissary_client_sdk/models/createdatasetop.py
+  - src/emissary_client_sdk/models/createdeploymentop.py
+  - src/emissary_client_sdk/models/createprojectop.py
+  - src/emissary_client_sdk/models/createtrainingjobop.py
+  - src/emissary_client_sdk/models/datasetdetail.py
+  - src/emissary_client_sdk/models/datasetsummary.py
+  - src/emissary_client_sdk/models/deletedatasetbyidop.py
+  - src/emissary_client_sdk/models/deletedeploymentbyidop.py
+  - src/emissary_client_sdk/models/deleteprojectbyidop.py
+  - src/emissary_client_sdk/models/deletetrainingjobbyidop.py
+  - src/emissary_client_sdk/models/deploymentdetail.py
+  - src/emissary_client_sdk/models/deploymentsummary.py
+  - src/emissary_client_sdk/models/getchatcompletionsfromdeploymentop.py
+  - src/emissary_client_sdk/models/getclassificationfromdeploymentop.py
+  - src/emissary_client_sdk/models/getcompletionsfromdeploymentop.py
+  - src/emissary_client_sdk/models/getembeddingsfromdeploymentop.py
+  - src/emissary_client_sdk/models/listcheckpointsop.py
+  - src/emissary_client_sdk/models/listdatasetsop.py
+  - src/emissary_client_sdk/models/listdeploymentsop.py
+  - src/emissary_client_sdk/models/listtrainingjobsop.py
+  - src/emissary_client_sdk/models/projectdetail.py
+  - src/emissary_client_sdk/models/projectsummary.py
+  - src/emissary_client_sdk/models/retrievedatasetbyidop.py
+  - src/emissary_client_sdk/models/retrievedeploymentbyidop.py
+  - src/emissary_client_sdk/models/retrieveprojectbyidop.py
+  - src/emissary_client_sdk/models/retrievetrainingjobbyidop.py
+  - src/emissary_client_sdk/models/sdkerror.py
+  - src/emissary_client_sdk/models/security.py
+  - src/emissary_client_sdk/models/trainingjobcheckpoint.py
+  - src/emissary_client_sdk/models/trainingjobdetail.py
+  - src/emissary_client_sdk/models/trainingjobsummary.py
+  - src/emissary_client_sdk/projects.py
+  - src/emissary_client_sdk/py.typed
+  - src/emissary_client_sdk/sdk.py
+  - src/emissary_client_sdk/sdkconfiguration.py
+  - src/emissary_client_sdk/trainingjobs.py
+  - src/emissary_client_sdk/types/__init__.py
+  - src/emissary_client_sdk/types/basemodel.py
+  - src/emissary_client_sdk/utils/__init__.py
+  - src/emissary_client_sdk/utils/annotations.py
+  - src/emissary_client_sdk/utils/enums.py
+  - src/emissary_client_sdk/utils/eventstreaming.py
+  - src/emissary_client_sdk/utils/forms.py
+  - src/emissary_client_sdk/utils/headers.py
+  - src/emissary_client_sdk/utils/logger.py
+  - src/emissary_client_sdk/utils/metadata.py
+  - src/emissary_client_sdk/utils/queryparams.py
+  - src/emissary_client_sdk/utils/requestbodies.py
+  - src/emissary_client_sdk/utils/retries.py
+  - src/emissary_client_sdk/utils/security.py
+  - src/emissary_client_sdk/utils/serializers.py
+  - src/emissary_client_sdk/utils/url.py
+  - src/emissary_client_sdk/utils/values.py
+examples:
+  listBaseModels:
+    speakeasy-default-list-base-models:
+      responses:
+        "200":
+          application/json: [{"name": "Llama-3.2-1B-Instruct", "type": "completion", "support_serverless": false}, {"name": "Llama-3.2-1B-Instruct", "type": "completion", "support_serverless": false}]
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+  createProject:
+    speakeasy-default-create-project:
+      requestBody:
+        application/json: {"name": "my_project"}
+      responses:
+        "201":
+          application/json: {"id": "ms-12345", "name": "my_project"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+  listProjects:
+    speakeasy-default-list-projects:
+      responses:
+        "200":
+          application/json: [{"id": "ms-12345", "name": "my_project"}, {"id": "ms-12345", "name": "my_project"}, {"id": "ms-12345", "name": "my_project"}]
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+  retrieveProjectById:
+    speakeasy-default-retrieve-project-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "ms-12345", "name": "my_project", "datasets": [{"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}], "training_jobs": [{"id": "tr-12345", "name": "training-1", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}, {"id": "tr-12345", "name": "training-1", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}], "deployments": []}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  deleteProjectById:
+    speakeasy-default-delete-project-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  createDataset:
+    speakeasy-default-create-dataset:
+      parameters:
+        path:
+          project_id: "<id>"
+      requestBody:
+        application/json: {"file": "0xCB970DaDdF", "name": "my_dataset"}
+      responses:
+        "201":
+          application/json: {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+  listDatasets:
+    speakeasy-default-list-datasets:
+      parameters:
+        path:
+          project_id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": []}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+  retrieveDatasetById:
+    speakeasy-default-retrieve-dataset-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          dataset_id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "ds-12345", "name": "my_dataset", "is_uploaded": true, "dataset_download_url": "s3:/my_dataset", "upload_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  deleteDatasetById:
+    speakeasy-default-delete-dataset-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          dataset_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  createTrainingJob:
+    speakeasy-default-create-training-job:
+      parameters:
+        path:
+          project_id: "<id>"
+      requestBody:
+        application/json: {"base_model": "Llama-3.2-1B-Instruct", "train_dataset_id": "ds-12345", "test_dataset_id": "ds-67890", "train_test_split_ratio": 0.2, "name": "training-1", "description": "Fine-tuning the model on my dataset", "hf_model_link": "https://huggingface.co/my_model"}
+      responses:
+        "201":
+          application/json: {"id": "tr-12345", "name": "training-1", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+  listTrainingJobs:
+    speakeasy-default-list-training-jobs:
+      parameters:
+        path:
+          project_id: "<id>"
+      responses:
+        "200":
+          application/json: []
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+  retrieveTrainingJobById:
+    speakeasy-default-retrieve-training-job-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          training_job_id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "tr-12345", "name": "training-1", "description": "Fine-tuning the model on my dataset", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "train_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "test_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "training_loss": [{"timestamp": 1633036800, "loss": 0.1234}, {"timestamp": 1633036800, "loss": 0.1234}], "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  deleteTrainingJobById:
+    speakeasy-default-delete-training-job-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          training_job_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  cancelTrainingJobById:
+    speakeasy-default-cancel-training-job-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          training_job_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  listCheckpoints:
+    speakeasy-default-list-checkpoints:
+      parameters:
+        path:
+          project_id: "<id>"
+          training_job_id: "<id>"
+      responses:
+        "200":
+          application/json: [{"checkpoint": 3, "model_download_url": "s3:/my_model", "test_results": {"general_test_result": "s3://"}, "created_at": 1633036800, "updated_at": 1633036800}]
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  createDeployment:
+    speakeasy-default-create-deployment:
+      parameters:
+        path:
+          project_id: "<id>"
+      requestBody:
+        application/json: {"training_job_id": "tr-12345", "checkpoint": 4, "server_type": "on-demand", "name": "deployment-1", "description": "Deployment for my training job"}
+      responses:
+        "201":
+          application/json: {"id": "dp-12345", "name": "deployment-1", "status": "Deployed", "created_at": 1633036800}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+  listDeployments:
+    speakeasy-default-list-deployments:
+      parameters:
+        path:
+          project_id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": []}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+  retrieveDeploymentById:
+    speakeasy-default-retrieve-deployment-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "dp-12345", "name": "deployment-1", "description": "Deployment for my training job", "base_model": "Llama-3.2-1B-Instruct", "status": "Deployed", "training_id": "tr-12345", "checkpoint": 4, "created_at": 1633036800, "updated_at": 1633036800}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  deleteDeploymentById:
+    speakeasy-default-delete-deployment-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  cancelDeploymentById:
+    speakeasy-default-cancel-deployment-by-id:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      responses:
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  getCompletionsFromDeployment:
+    speakeasy-default-get-completions-from-deployment:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      requestBody:
+        application/json: {"prompt": "What is the capital of France?", "temperature": 0.7, "max_new_tokens": 500, "top_p": 0.9, "top_k": 50, "no_repeat_ngram_size": 2, "do_sample": true}
+      responses:
+        "200":
+          application/json: {"id": "completion-12345", "response": "The capital of France is Paris."}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  getChatCompletionsFromDeployment:
+    speakeasy-default-get-chat-completions-from-deployment:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      requestBody:
+        application/json: {"messages": [], "streaming": false, "temperature": 0.7, "max_new_tokens": 500, "top_p": 0.9, "top_k": 50, "no_repeat_ngram_size": 2, "do_sample": true}
+      responses:
+        "200":
+          application/json: {"id": "chat-completion-12345", "response": "I'm doing well, thank you!"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  getEmbeddingsFromDeployment:
+    speakeasy-default-get-embeddings-from-deployment:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      requestBody:
+        application/json: {"source_sentence": "What is the capital of France?", "target_sentence": "Paris is the capital of France.", "cosine": true, "manhattan": false, "euclidean": false}
+      responses:
+        "200":
+          application/json: {"id": "embedding-12345"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  getClassificationFromDeployment:
+    speakeasy-default-get-classification-from-deployment:
+      parameters:
+        path:
+          project_id: "<id>"
+          deployment_id: "<id>"
+      requestBody:
+        application/json: {"source_sentence": "What is the capital of France?"}
+      responses:
+        "200":
+          application/json: {"id": "classification-12345", "response": "Paris"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}

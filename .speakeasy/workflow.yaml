@@ -1,0 +1,13 @@
+workflowVersion: 1.0.0
+sources:
+    EmissaryClient-OAS:
+        inputs:
+            - location: ../openapi.yaml
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas
+targets:
+    emissary-client:
+        target: python
+        source: EmissaryClient-OAS

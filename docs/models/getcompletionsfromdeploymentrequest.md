@@ -1,0 +1,10 @@
+# GetCompletionsFromDeploymentRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `project_id`                                                                                           | *str*                                                                                                  | :heavy_check_mark:                                                                                     | The ID of the project to retrieve deployments for                                                      |
+| `deployment_id`                                                                                        | *str*                                                                                                  | :heavy_check_mark:                                                                                     | The ID of the deployment to get completions from                                                       |
+| `request_body`                                                                                         | [models.GetCompletionsFromDeploymentRequestBody](../models/getcompletionsfromdeploymentrequestbody.md) | :heavy_check_mark:                                                                                     | Provide you prompt input for completions                                                               |

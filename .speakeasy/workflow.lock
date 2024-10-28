@@ -1,0 +1,28 @@
+speakeasyVersion: 1.421.0
+sources:
+    EmissaryClient-OAS:
+        sourceNamespace: emissary-client-oas
+        sourceRevisionDigest: sha256:c673b49eb810d5406f8756793d422e556ddf07454c08d0ee964d41acf75f7f8f
+        sourceBlobDigest: sha256:7f5b2a07376b618009a18a588fbbc78aa3e0a09447fa770dc485fed7e59428bd
+        tags:
+            - latest
+targets:
+    emissary-client:
+        source: EmissaryClient-OAS
+        sourceNamespace: emissary-client-oas
+        sourceRevisionDigest: sha256:c673b49eb810d5406f8756793d422e556ddf07454c08d0ee964d41acf75f7f8f
+        sourceBlobDigest: sha256:7f5b2a07376b618009a18a588fbbc78aa3e0a09447fa770dc485fed7e59428bd
+workflow:
+    workflowVersion: 1.0.0
+    sources:
+        EmissaryClient-OAS:
+            inputs:
+                - location: ../openapi.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas
+    targets:
+        emissary-client:
+            target: python
+            source: EmissaryClient-OAS

@@ -1,0 +1,16 @@
+# GetCompletionsFromDeploymentRequestBody
+
+Provide you prompt input for completions
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `prompt`                                                             | *str*                                                                | :heavy_check_mark:                                                   | The input prompt for the deployment                                  | What is the capital of France?                                       |
+| `temperature`                                                        | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | The sampling temperature to use                                      | 0.7                                                                  |
+| `max_new_tokens`                                                     | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The maximum number of new tokens to generate                         | 500                                                                  |
+| `top_p`                                                              | *Optional[float]*                                                    | :heavy_minus_sign:                                                   | The cumulative probability for token selection                       | 0.9                                                                  |
+| `top_k`                                                              | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The number of highest probability tokens to keep for top-k-filtering | 50                                                                   |
+| `no_repeat_ngram_size`                                               | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The size of n-grams to avoid repeating                               | 2                                                                    |
+| `do_sample`                                                          | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | Whether to use sampling or not                                       | true                                                                 |

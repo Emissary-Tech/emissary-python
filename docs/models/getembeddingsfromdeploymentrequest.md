@@ -1,0 +1,10 @@
+# GetEmbeddingsFromDeploymentRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `project_id`                                                                                         | *str*                                                                                                | :heavy_check_mark:                                                                                   | The ID of the project to retrieve deployments for                                                    |
+| `deployment_id`                                                                                      | *str*                                                                                                | :heavy_check_mark:                                                                                   | The ID of the deployment to get embeddings from                                                      |
+| `request_body`                                                                                       | [models.GetEmbeddingsFromDeploymentRequestBody](../models/getembeddingsfromdeploymentrequestbody.md) | :heavy_check_mark:                                                                                   | Provide your input for embeddings                                                                    |

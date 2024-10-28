@@ -1,0 +1,13 @@
+# DeploymentSummary
+
+Deployment Summary Object
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `id`                                                                             | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | The unique identifier for the deployment                                         | dp-12345                                                                         |
+| `name`                                                                           | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | The name of the deployment                                                       | deployment-1                                                                     |
+| `status`                                                                         | [Optional[models.DeploymentSummaryStatus]](../models/deploymentsummarystatus.md) | :heavy_minus_sign:                                                               | The current status of the deployment                                             | Deployed                                                                         |
+| `created_at`                                                                     | *Optional[int]*                                                                  | :heavy_minus_sign:                                                               | The timestamp when the deployment was created                                    | 1633036800                                                                       |
