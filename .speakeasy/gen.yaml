@@ -38,6 +38,6 @@ python:
   maxMethodParams: 4
   methodArguments: infer-optional-args
   outputModelSuffix: output
-  packageName: emissary
+  packageName: emissary-client-sdk
   responseFormat: flat
   templateVersion: v2
