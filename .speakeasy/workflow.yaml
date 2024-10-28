@@ -2,7 +2,7 @@ workflowVersion: 1.0.0
 sources:
     EmissaryClient-OAS:
         inputs:
-            - location: ../openapi.yaml
+            - location: openapi.yaml
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:
