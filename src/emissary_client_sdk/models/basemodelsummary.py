@@ -3,7 +3,7 @@
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from enum import Enum
-from typing import Dict, Optional
+from typing import Dict, Optional, Union
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -14,10 +14,16 @@ class Type(str, Enum):
     CHAT = "chat"
 
 
+ParameterTemplateTypedDict = Union[str, float, int]
+
+
+ParameterTemplate = Union[str, float, int]
+
+
 class BaseModelSummaryTypedDict(TypedDict):
     name: NotRequired[str]
     type: NotRequired[Type]
-    parameter_template: NotRequired[Dict[str, str]]
+    parameter_template: NotRequired[Dict[str, ParameterTemplateTypedDict]]
     support_serverless: NotRequired[bool]
 
 
@@ -26,6 +32,6 @@ class BaseModelSummary(BaseModel):
 
     type: Optional[Type] = None
 
-    parameter_template: Optional[Dict[str, str]] = None
+    parameter_template: Optional[Dict[str, ParameterTemplate]] = None
 
     support_serverless: Optional[bool] = None
