@@ -13,6 +13,9 @@ targets:
         target: python
         source: EmissaryClient-OAS
         codeSamples:
-            registry:
-                location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-code-samples
-            blocking: false
+          registry:
+              location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-code-samples
+          blocking: false
+        publish:
+            pypi:
+                token: $pypi_token
