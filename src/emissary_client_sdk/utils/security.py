@@ -64,8 +64,8 @@ def get_security_from_env(security: Any, security_class: Any) -> Optional[BaseMo
 
     security_dict: Any = {}
 
-    if os.getenv("EMISSARYCLIENT_API_KEY"):
-        security_dict["api_key"] = os.getenv("EMISSARYCLIENT_API_KEY")
+    if os.getenv("EMISSARY_CLIENT_API_KEY"):
+        security_dict["api_key"] = os.getenv("EMISSARY_CLIENT_API_KEY")
 
     return security_class(**security_dict) if security_dict else None
 

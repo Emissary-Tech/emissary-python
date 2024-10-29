@@ -25,7 +25,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.create(project_id="<id>", request_body={
@@ -72,7 +72,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.list(project_id="<id>")
@@ -112,7 +112,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.get(project_id="<id>", deployment_id="<id>")
@@ -153,7 +153,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 s.deployments.delete(project_id="<id>", deployment_id="<id>")
@@ -188,7 +188,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 s.deployments.cancel(project_id="<id>", deployment_id="<id>")
@@ -223,7 +223,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.get_completions(project_id="<id>", deployment_id="<id>", request_body={
@@ -274,7 +274,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.get_embeddings(project_id="<id>", deployment_id="<id>", request_body={

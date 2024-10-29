@@ -23,7 +23,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.training_jobs.create(project_id="<id>", request_body={
@@ -33,6 +33,9 @@ res = s.training_jobs.create(project_id="<id>", request_body={
     "train_test_split_ratio": 0.2,
     "name": "training-1",
     "description": "Fine-tuning the model on my dataset",
+    "parameters": {
+        "key": "<value>",
+    },
     "hf_model_link": "https://huggingface.co/my_model",
 })
 
@@ -72,7 +75,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.training_jobs.list(project_id="<id>")
@@ -112,7 +115,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.training_jobs.retrieve(project_id="<id>", training_job_id="<id>")
@@ -153,7 +156,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 s.training_jobs.delete(project_id="<id>", training_job_id="<id>")
@@ -188,7 +191,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 s.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
@@ -223,7 +226,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.training_jobs.list_checkpoints(project_id="<id>", training_job_id="<id>")

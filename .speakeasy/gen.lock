@@ -3,16 +3,17 @@ id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
   docChecksum: 71b8147142ccd4bbcdad168b94f90da8
   docVersion: 0.1.0
-  speakeasyVersion: 1.421.0
-  generationVersion: 2.438.15
-  releaseVersion: 0.1.1
-  configChecksum: e4d8316cad5197cdae224a59131c2a49
+  speakeasyVersion: 1.423.1
+  generationVersion: 2.442.11
+  releaseVersion: 0.2.0
+  configChecksum: 95ce61303b10dcbc90e2c0fa1d85b235
+  repoURL: https://github.com/Emissary-Tech/emissary-python.git
+  installationURL: https://github.com/Emissary-Tech/emissary-python.git
 features:
   python:
     additionalDependencies: 1.0.0
     core: 5.6.0
     defaultEnabledRetries: 0.2.0
-    devContainers: 3.0.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.1
     flattening: 3.1.0
@@ -26,10 +27,8 @@ features:
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
+    tests: 1.6.0
 generatedFiles:
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
   - .gitattributes
   - .python-version
   - .vscode/settings.json
@@ -189,7 +188,7 @@ examples:
     speakeasy-default-list-base-models:
       responses:
         "200":
-          application/json: [{"name": "Llama-3.2-1B-Instruct", "type": "completion", "support_serverless": false}, {"name": "Llama-3.2-1B-Instruct", "type": "completion", "support_serverless": false}]
+          application/json: [{"name": "Llama-3.2-1B-Instruct", "type": "completion", "parameter_template": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "support_serverless": false}, {"name": "Llama-3.2-1B-Instruct", "type": "completion", "parameter_template": {"key": "<value>", "key1": "<value>"}, "support_serverless": false}]
         "400":
           application/json: {"status": 400, "error": "Bad request"}
         "401":
@@ -276,7 +275,7 @@ examples:
         path:
           project_id: "<id>"
       requestBody:
-        application/json: {"base_model": "Llama-3.2-1B-Instruct", "train_dataset_id": "ds-12345", "test_dataset_id": "ds-67890", "train_test_split_ratio": 0.2, "name": "training-1", "description": "Fine-tuning the model on my dataset", "hf_model_link": "https://huggingface.co/my_model"}
+        application/json: {"base_model": "Llama-3.2-1B-Instruct", "train_dataset_id": "ds-12345", "test_dataset_id": "ds-67890", "train_test_split_ratio": 0.2, "name": "training-1", "description": "Fine-tuning the model on my dataset", "parameters": {"key": "<value>"}, "hf_model_link": "https://huggingface.co/my_model"}
       responses:
         "201":
           application/json: {"id": "tr-12345", "name": "training-1", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
@@ -300,7 +299,7 @@ examples:
           training_job_id: "<id>"
       responses:
         "200":
-          application/json: {"id": "tr-12345", "name": "training-1", "description": "Fine-tuning the model on my dataset", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "train_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "test_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "training_loss": [{"timestamp": 1633036800, "loss": 0.1234}, {"timestamp": 1633036800, "loss": 0.1234}], "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
+          application/json: {"id": "tr-12345", "name": "training-1", "description": "Fine-tuning the model on my dataset", "base_model": "Llama-3.2-1B-Instruct", "status": "Running", "progress": 75, "train_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "test_dataset": {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}, "training_loss": [{"timestamp": 1633036800, "loss": 0.1234}, {"timestamp": 1633036800, "loss": 0.1234}], "hyper_parameters": {"key": "<value>"}, "created_by": "user-12345", "created_at": 1633036800, "updated_at": 1633036800}
         "404":
           application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
   deleteTrainingJobById:
@@ -329,7 +328,7 @@ examples:
           training_job_id: "<id>"
       responses:
         "200":
-          application/json: [{"checkpoint": 3, "model_download_url": "s3:/my_model", "test_results": {"general_test_result": "s3://"}, "created_at": 1633036800, "updated_at": 1633036800}]
+          application/json: [{"checkpoint": 3, "model_download_url": "s3:/my_model", "test_results": {"general_test_result": "s3://", "aggregated_test_result": {"key": "<value>"}}, "created_at": 1633036800, "updated_at": 1633036800}]
         "404":
           application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
   createDeployment:
@@ -423,7 +422,7 @@ examples:
         application/json: {"source_sentence": "What is the capital of France?", "target_sentence": "Paris is the capital of France.", "cosine": true, "manhattan": false, "euclidean": false}
       responses:
         "200":
-          application/json: {"id": "embedding-12345"}
+          application/json: {"id": "embedding-12345", "response": {"embeddings": {"text1": ["7778.70", "4980.88", "9199.64"], "text2": ["1199.59", "2818.94", "9675.44"]}, "cosine_score": "6066.94", "manhattan_distance": "8105.84", "euclidean_distance": "3295.76"}}
         "400":
           application/json: {"status": 400, "error": "Bad request"}
         "404":

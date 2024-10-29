@@ -18,7 +18,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.deployments.classification.get(project_id="<id>", deployment_id="<id>", request_body={

@@ -5,7 +5,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -26,7 +26,7 @@ import os
 
 async def main():
     s = EmissaryClient(
-        api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+        api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
     )
     res = await s.base_models.list_async()
     if res is not None:
