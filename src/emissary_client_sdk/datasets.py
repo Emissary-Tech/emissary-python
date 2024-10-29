@@ -5,7 +5,7 @@ from emissary_client_sdk import models, utils
 from emissary_client_sdk._hooks import HookContext
 from emissary_client_sdk.types import OptionalNullable, UNSET
 from emissary_client_sdk.utils import get_security_from_env
-from typing import Any, Optional, Union
+from typing import Any, List, Optional, Union
 
 
 class Datasets(BaseSDK):
@@ -216,7 +216,7 @@ class Datasets(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.ListDatasetsResponseBody:
+    ) -> List[models.DatasetSummary]:
         r"""List of Datasets
 
         Fetching a list of datasets
@@ -276,7 +276,7 @@ class Datasets(BaseSDK):
 
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.ListDatasetsResponseBody)
+            return utils.unmarshal_json(http_res.text, List[models.DatasetSummary])
         if utils.match_response(http_res, "401", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorUnauthorizedData)
             raise models.APIErrorUnauthorized(data=data)
@@ -302,7 +302,7 @@ class Datasets(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.ListDatasetsResponseBody:
+    ) -> List[models.DatasetSummary]:
         r"""List of Datasets
 
         Fetching a list of datasets
@@ -362,7 +362,7 @@ class Datasets(BaseSDK):
 
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.ListDatasetsResponseBody)
+            return utils.unmarshal_json(http_res.text, List[models.DatasetSummary])
         if utils.match_response(http_res, "401", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorUnauthorizedData)
             raise models.APIErrorUnauthorized(data=data)

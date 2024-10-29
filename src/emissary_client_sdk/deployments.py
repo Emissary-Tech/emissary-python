@@ -8,7 +8,7 @@ from emissary_client_sdk.chat import Chat
 from emissary_client_sdk.classification import Classification
 from emissary_client_sdk.types import OptionalNullable, UNSET
 from emissary_client_sdk.utils import get_security_from_env
-from typing import Any, Optional, Union
+from typing import Any, List, Optional, Union
 
 
 class Deployments(BaseSDK):
@@ -233,7 +233,7 @@ class Deployments(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.ListDeploymentsResponseBody:
+    ) -> List[models.DeploymentSummary]:
         r"""List of Deployments
 
         Fetching a list of deployments
@@ -293,9 +293,7 @@ class Deployments(BaseSDK):
 
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListDeploymentsResponseBody
-            )
+            return utils.unmarshal_json(http_res.text, List[models.DeploymentSummary])
         if utils.match_response(http_res, "401", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorUnauthorizedData)
             raise models.APIErrorUnauthorized(data=data)
@@ -321,7 +319,7 @@ class Deployments(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.ListDeploymentsResponseBody:
+    ) -> List[models.DeploymentSummary]:
         r"""List of Deployments
 
         Fetching a list of deployments
@@ -381,9 +379,7 @@ class Deployments(BaseSDK):
 
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListDeploymentsResponseBody
-            )
+            return utils.unmarshal_json(http_res.text, List[models.DeploymentSummary])
         if utils.match_response(http_res, "401", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorUnauthorizedData)
             raise models.APIErrorUnauthorized(data=data)

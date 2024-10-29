@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: 10a598fdb84722df463088ec8be13ba7
+  docChecksum: e69b397435d17aa242fe33ebc7ef5a59
   docVersion: 0.1.0
-  speakeasyVersion: 1.423.1
+  speakeasyVersion: 1.423.2
   generationVersion: 2.442.11
-  releaseVersion: 0.4.0
-  configChecksum: 567d8710d348070c1cf1cf7565779408
+  releaseVersion: 0.4.1
+  configChecksum: 33645bbdf269cffa54a01d2c424353c8
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -78,9 +78,7 @@ generatedFiles:
   - docs/models/hyperparameters.md
   - docs/models/listcheckpointsrequest.md
   - docs/models/listdatasetsrequest.md
-  - docs/models/listdatasetsresponsebody.md
   - docs/models/listdeploymentsrequest.md
-  - docs/models/listdeploymentsresponsebody.md
   - docs/models/listtrainingjobsrequest.md
   - docs/models/messages.md
   - docs/models/parameters.md
@@ -255,7 +253,7 @@ examples:
           project_id: "<id>"
       responses:
         "200":
-          application/json: {"data": []}
+          application/json: [{"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}]
         "401":
           application/json: {"status": 401, "error": "Unauthorized"}
   retrieveDatasetById:
@@ -359,7 +357,7 @@ examples:
           project_id: "<id>"
       responses:
         "200":
-          application/json: {"data": []}
+          application/json: [{"id": "dp-12345", "name": "deployment-1", "status": "Deployed", "created_at": 1633036800}]
         "401":
           application/json: {"status": 401, "error": "Unauthorized"}
   retrieveDeploymentById:

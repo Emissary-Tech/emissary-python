@@ -110,18 +110,8 @@ from .getembeddingsfromdeploymentop import (
     ResponseTypedDict,
 )
 from .listcheckpointsop import ListCheckpointsRequest, ListCheckpointsRequestTypedDict
-from .listdatasetsop import (
-    ListDatasetsRequest,
-    ListDatasetsRequestTypedDict,
-    ListDatasetsResponseBody,
-    ListDatasetsResponseBodyTypedDict,
-)
-from .listdeploymentsop import (
-    ListDeploymentsRequest,
-    ListDeploymentsRequestTypedDict,
-    ListDeploymentsResponseBody,
-    ListDeploymentsResponseBodyTypedDict,
-)
+from .listdatasetsop import ListDatasetsRequest, ListDatasetsRequestTypedDict
+from .listdeploymentsop import ListDeploymentsRequest, ListDeploymentsRequestTypedDict
 from .listtrainingjobsop import (
     ListTrainingJobsRequest,
     ListTrainingJobsRequestTypedDict,
@@ -242,12 +232,8 @@ __all__ = [
     "ListCheckpointsRequestTypedDict",
     "ListDatasetsRequest",
     "ListDatasetsRequestTypedDict",
-    "ListDatasetsResponseBody",
-    "ListDatasetsResponseBodyTypedDict",
     "ListDeploymentsRequest",
     "ListDeploymentsRequestTypedDict",
-    "ListDeploymentsResponseBody",
-    "ListDeploymentsResponseBodyTypedDict",
     "ListTrainingJobsRequest",
     "ListTrainingJobsRequestTypedDict",
     "Messages",
