@@ -18,7 +18,7 @@ servers:
     variables:
       destination_url:
         description: Destination Host URL
-        default: https://api.withemissary.com
+        default: https://d1d3-4-4-33-74.ngrok-free.app
         enum:
           - https://api.withemissary.com
           - https://api.staging.withemissary.com
