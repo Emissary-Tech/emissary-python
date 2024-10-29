@@ -270,7 +270,7 @@ You can override the default server globally by passing a server index to the `s
 
 | # | Server | Variables |
 | - | ------ | --------- |
-| 0 | `https://{destination_url}` | `destination_url` (default is `https://d1d3-4-4-33-74.ngrok-free.app`) |
+| 0 | `https://d1d3-4-4-33-74.ngrok-free.app` | None |
 
 #### Example
 
@@ -291,10 +291,6 @@ if res is not None:
 
 ```
 
-#### Variables
-
-Some of the server options above contain variables. If you want to set the values of those variables, the following optional parameters are available when initializing the SDK client instance:
- * `destination_url: models.ServerDestinationURL`
 
 ### Override Server URL Per-Client
 
@@ -304,7 +300,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    server_url="https://{destination_url}",
+    server_url="https://d1d3-4-4-33-74.ngrok-free.app",
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 

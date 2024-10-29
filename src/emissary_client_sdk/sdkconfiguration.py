@@ -3,27 +3,18 @@
 from ._hooks import SDKHooks
 from .httpclient import AsyncHttpClient, HttpClient
 from .utils import Logger, RetryConfig, remove_suffix
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from emissary_client_sdk import models
 from emissary_client_sdk.types import OptionalNullable, UNSET
-from enum import Enum
 from pydantic import Field
-from typing import Callable, Dict, List, Optional, Tuple, Union
+from typing import Callable, Dict, Optional, Tuple, Union
 
 
 SERVERS = [
-    "https://{destination_url}",
-    # Production API Server
+    "https://d1d3-4-4-33-74.ngrok-free.app",
+    # Test API Server
 ]
 """Contains the list of servers available to the SDK"""
-
-
-class ServerDestinationURL(str, Enum):
-    r"""Destination Host URL"""
-
-    HTTPS_API_WITHEMISSARY_COM = "https://api.withemissary.com"
-    HTTPS_API_STAGING_WITHEMISSARY_COM = "https://api.staging.withemissary.com"
-    HTTPS_D1D3_4_4_33_74_NGROK_FREE_APP = "https://d1d3-4-4-33-74.ngrok-free.app"
 
 
 @dataclass
@@ -34,12 +25,11 @@ class SDKConfiguration:
     security: Optional[Union[models.Security, Callable[[], models.Security]]] = None
     server_url: Optional[str] = ""
     server_idx: Optional[int] = 0
-    server_defaults: List[Dict[str, str]] = field(default_factory=List)
     language: str = "python"
     openapi_doc_version: str = "0.1.0"
-    sdk_version: str = "0.2.1"
+    sdk_version: str = "0.2.2"
     gen_version: str = "2.442.11"
-    user_agent: str = "speakeasy-sdk/python 0.2.1 2.442.11 0.1.0 emissary-client-sdk"
+    user_agent: str = "speakeasy-sdk/python 0.2.2 2.442.11 0.1.0 emissary-client-sdk"
     retry_config: OptionalNullable[RetryConfig] = Field(default_factory=lambda: UNSET)
     timeout_ms: Optional[int] = None
 
@@ -52,7 +42,7 @@ class SDKConfiguration:
         if self.server_idx is None:
             self.server_idx = 0
 
-        return SERVERS[self.server_idx], self.server_defaults[self.server_idx]
+        return SERVERS[self.server_idx], {}
 
     def get_hooks(self) -> SDKHooks:
         return self._hooks
