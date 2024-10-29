@@ -21,7 +21,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.projects.create(request={
@@ -64,7 +64,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.projects.list()
@@ -103,7 +103,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.projects.get(project_id="<id>")
@@ -143,7 +143,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 s.projects.delete(project_id="<id>")

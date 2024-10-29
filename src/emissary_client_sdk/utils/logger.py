@@ -21,7 +21,7 @@ def get_body_content(req: httpx.Request) -> str:
 
 
 def get_default_logger() -> Logger:
-    if os.getenv("EMISSARYCLIENT_DEBUG"):
+    if os.getenv("EMISSARY_CLIENT_DEBUG"):
         logging.basicConfig(level=logging.DEBUG)
         return logging.getLogger("emissary_client_sdk")
     return NoOpLogger()

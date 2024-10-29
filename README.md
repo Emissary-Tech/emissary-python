@@ -45,7 +45,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+<UNSET>.git
+pip install git+https://github.com/Emissary-Tech/emissary-python.git
 ```
 
 ### Poetry
@@ -53,7 +53,7 @@ pip install git+<UNSET>.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+<UNSET>.git
+poetry add git+https://github.com/Emissary-Tech/emissary-python.git
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -78,7 +78,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -99,7 +99,7 @@ import os
 
 async def main():
     s = EmissaryClient(
-        api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+        api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
     )
     res = await s.base_models.list_async()
     if res is not None:
@@ -177,7 +177,7 @@ from emissaryclient.utils import BackoffStrategy, RetryConfig
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list(,
@@ -197,7 +197,7 @@ import os
 
 s = EmissaryClient(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -238,7 +238,7 @@ from emissary_client_sdk import EmissaryClient, models
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = None
@@ -280,7 +280,7 @@ import os
 
 s = EmissaryClient(
     server_idx=0,
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -305,7 +305,7 @@ import os
 
 s = EmissaryClient(
     server_url="https://{destination_url}",
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -405,9 +405,9 @@ s = EmissaryClient(async_client=CustomClient(httpx.AsyncClient()))
 
 This SDK supports the following security scheme globally:
 
-| Name                     | Type                     | Scheme                   | Environment Variable     |
-| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
-| `api_key`                | apiKey                   | API key                  | `EMISSARYCLIENT_API_KEY` |
+| Name                      | Type                      | Scheme                    | Environment Variable      |
+| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
+| `api_key`                 | apiKey                    | API key                   | `EMISSARY_CLIENT_API_KEY` |
 
 To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
 ```python
@@ -415,7 +415,7 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 s = EmissaryClient(
-    api_key=os.getenv("EMISSARYCLIENT_API_KEY", ""),
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
 res = s.base_models.list()
@@ -441,7 +441,7 @@ logging.basicConfig(level=logging.DEBUG)
 s = EmissaryClient(debug_logger=logging.getLogger("emissary_client_sdk"))
 ```
 
-You can also enable a default debug logger by setting an environment variable `EMISSARYCLIENT_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `EMISSARY_CLIENT_DEBUG` to true.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

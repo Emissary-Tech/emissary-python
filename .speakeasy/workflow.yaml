@@ -1,4 +1,5 @@
 workflowVersion: 1.0.0
+speakeasyVersion: latest
 sources:
     EmissaryClient-OAS:
         inputs:
@@ -11,3 +12,7 @@ targets:
     emissary-client:
         target: python
         source: EmissaryClient-OAS
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-code-samples
+            blocking: false
