@@ -970,7 +970,10 @@ components:
         parameter_template:
           type: object
           additionalProperties:
-            type: string
+            oneOf:
+              - type: string
+              - type: number
+              - type: integer
         support_serverless:
           type: boolean
           example: false
@@ -1362,4 +1365,15 @@ components:
       type: apiKey
       name: X-API-Key
       in: header
+
+  x-speakeasy-retries:
+    strategy: backoff
+    backoff:
+      initialInterval: 500 # 500 milliseconds
+      maxInterval: 60000 # 60 seconds
+      maxElapsedTime: 3600000 # 5 minutes
+      exponent: 1.5
+    statusCodes:
+      - 5XX
+    retryConnectionErrors: true
   
