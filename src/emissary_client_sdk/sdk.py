@@ -79,7 +79,8 @@ class EmissaryClient(BaseSDK):
                 server_url = utils.template_url(server_url, url_params)
         server_defaults: List[Dict[str, str]] = [
             {
-                "destination_url": destination_url or "https://api.withemissary.com",
+                "destination_url": destination_url
+                or "https://d1d3-4-4-33-74.ngrok-free.app",
             },
         ]
 

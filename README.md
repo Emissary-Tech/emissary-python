@@ -45,7 +45,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+https://github.com/Emissary-Tech/emissary-python.git
+pip install emissary-client-sdk
 ```
 
 ### Poetry
@@ -53,7 +53,7 @@ pip install git+https://github.com/Emissary-Tech/emissary-python.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+https://github.com/Emissary-Tech/emissary-python.git
+poetry add emissary-client-sdk
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -270,7 +270,7 @@ You can override the default server globally by passing a server index to the `s
 
 | # | Server | Variables |
 | - | ------ | --------- |
-| 0 | `https://{destination_url}` | `destination_url` (default is `https://api.withemissary.com`) |
+| 0 | `https://{destination_url}` | `destination_url` (default is `https://d1d3-4-4-33-74.ngrok-free.app`) |
 
 #### Example
 
