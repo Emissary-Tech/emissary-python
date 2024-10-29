@@ -964,7 +964,7 @@ components:
           enum:
             - completion
             - classification
-            - embedding
+            - embeddings
             - chat
           example: "completion"
         parameter_template:
