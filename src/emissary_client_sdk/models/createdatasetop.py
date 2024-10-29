@@ -2,28 +2,63 @@
 
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
-from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing import Optional
+from emissary_client_sdk.utils import (
+    FieldMetadata,
+    MultipartFormMetadata,
+    PathParamMetadata,
+    RequestMetadata,
+)
+import io
+import pydantic
+from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class FileTypedDict(TypedDict):
+    file_name: str
+    content: Union[bytes, IO[bytes], io.BufferedReader]
+    content_type: NotRequired[str]
+
+
+class File(BaseModel):
+    file_name: Annotated[
+        str, pydantic.Field(alias="file"), FieldMetadata(multipart=True)
+    ]
+
+    content: Annotated[
+        Union[bytes, IO[bytes], io.BufferedReader],
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(content=True)),
+    ]
+
+    content_type: Annotated[
+        Optional[str],
+        pydantic.Field(alias="Content-Type"),
+        FieldMetadata(multipart=True),
+    ] = None
 
 
 class CreateDatasetRequestBodyTypedDict(TypedDict):
     r"""Provide your project name if you want to specify it."""
 
-    file: bytes
-    r"""The file to be uploaded"""
+    file: NotRequired[FileTypedDict]
+    r"""The dataset file to upload"""
     name: NotRequired[str]
-    r"""The name of the dataset (auto generated if not provided)"""
+    r"""The name of the dataset"""
 
 
 class CreateDatasetRequestBody(BaseModel):
     r"""Provide your project name if you want to specify it."""
 
-    file: bytes
-    r"""The file to be uploaded"""
+    file: Annotated[
+        Optional[File],
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
+    ] = None
+    r"""The dataset file to upload"""
 
-    name: Optional[str] = None
-    r"""The name of the dataset (auto generated if not provided)"""
+    name: Annotated[Optional[str], FieldMetadata(multipart=True)] = None
+    r"""The name of the dataset"""
 
 
 class CreateDatasetRequestTypedDict(TypedDict):
@@ -41,6 +76,6 @@ class CreateDatasetRequest(BaseModel):
 
     request_body: Annotated[
         CreateDatasetRequestBody,
-        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+        FieldMetadata(request=RequestMetadata(media_type="multipart/form-data")),
     ]
     r"""Provide your project name if you want to specify it."""

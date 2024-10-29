@@ -23,6 +23,8 @@ from .createdatasetop import (
     CreateDatasetRequestBody,
     CreateDatasetRequestBodyTypedDict,
     CreateDatasetRequestTypedDict,
+    File,
+    FileTypedDict,
 )
 from .createdeploymentop import (
     CreateDeploymentRequest,
@@ -37,6 +39,8 @@ from .createtrainingjobop import (
     CreateTrainingJobRequestBody,
     CreateTrainingJobRequestBodyTypedDict,
     CreateTrainingJobRequestTypedDict,
+    Parameters,
+    ParametersTypedDict,
 )
 from .datasetdetail import DatasetDetail, DatasetDetailTypedDict
 from .datasetsummary import DatasetSummary, DatasetSummaryTypedDict
@@ -149,6 +153,8 @@ from .trainingjobcheckpoint import (
     TrainingJobCheckpointTypedDict,
 )
 from .trainingjobdetail import (
+    HyperParameters,
+    HyperParametersTypedDict,
     TrainingJobDetail,
     TrainingJobDetailStatus,
     TrainingJobDetailTypedDict,
@@ -204,6 +210,8 @@ __all__ = [
     "DeploymentSummaryTypedDict",
     "Embeddings",
     "EmbeddingsTypedDict",
+    "File",
+    "FileTypedDict",
     "GetChatCompletionsFromDeploymentRequest",
     "GetChatCompletionsFromDeploymentRequestBody",
     "GetChatCompletionsFromDeploymentRequestBodyTypedDict",
@@ -228,6 +236,8 @@ __all__ = [
     "GetEmbeddingsFromDeploymentRequestTypedDict",
     "GetEmbeddingsFromDeploymentResponseBody",
     "GetEmbeddingsFromDeploymentResponseBodyTypedDict",
+    "HyperParameters",
+    "HyperParametersTypedDict",
     "ListCheckpointsRequest",
     "ListCheckpointsRequestTypedDict",
     "ListDatasetsRequest",
@@ -244,6 +254,8 @@ __all__ = [
     "MessagesTypedDict",
     "ParameterTemplate",
     "ParameterTemplateTypedDict",
+    "Parameters",
+    "ParametersTypedDict",
     "ProjectDetail",
     "ProjectDetailTypedDict",
     "ProjectSummary",

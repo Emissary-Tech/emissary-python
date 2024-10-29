@@ -7,5 +7,5 @@
 | ---------------- | ---------------- |
 | `COMPLETION`     | completion       |
 | `CLASSIFICATION` | classification   |
-| `EMBEDDING`      | embedding        |
+| `EMBEDDINGS`     | embeddings       |
 | `CHAT`           | chat             |

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: 57acf3e3a8c69ed3058586fad64e7294
+  docChecksum: 10a598fdb84722df463088ec8be13ba7
   docVersion: 0.1.0
   speakeasyVersion: 1.423.1
   generationVersion: 2.442.11
-  releaseVersion: 0.3.0
-  configChecksum: 27b11cad140d30ee80aa08a13b2ce840
+  releaseVersion: 0.4.0
+  configChecksum: 567d8710d348070c1cf1cf7565779408
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -24,12 +24,14 @@ features:
     globalServerURLs: 3.0.0
     groups: 3.0.0
     methodArguments: 1.0.2
+    multipartFileContentType: 1.0.0
     nameOverrides: 3.0.0
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
     tests: 1.6.0
     unions: 3.0.2
+    uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
   - .python-version
@@ -60,6 +62,7 @@ generatedFiles:
   - docs/models/deploymentsummary.md
   - docs/models/deploymentsummarystatus.md
   - docs/models/embeddings.md
+  - docs/models/file.md
   - docs/models/getchatcompletionsfromdeploymentrequest.md
   - docs/models/getchatcompletionsfromdeploymentrequestbody.md
   - docs/models/getchatcompletionsfromdeploymentresponsebody.md
@@ -72,6 +75,7 @@ generatedFiles:
   - docs/models/getembeddingsfromdeploymentrequest.md
   - docs/models/getembeddingsfromdeploymentrequestbody.md
   - docs/models/getembeddingsfromdeploymentresponsebody.md
+  - docs/models/hyperparameters.md
   - docs/models/listcheckpointsrequest.md
   - docs/models/listdatasetsrequest.md
   - docs/models/listdatasetsresponsebody.md
@@ -79,6 +83,7 @@ generatedFiles:
   - docs/models/listdeploymentsresponsebody.md
   - docs/models/listtrainingjobsrequest.md
   - docs/models/messages.md
+  - docs/models/parameters.md
   - docs/models/parametertemplate.md
   - docs/models/projectdetail.md
   - docs/models/projectsummary.md
@@ -237,6 +242,7 @@ examples:
           project_id: "<id>"
       requestBody:
         application/json: {"file": "0xCB970DaDdF", "name": "my_dataset"}
+        multipart/form-data: {"file": {"": "<value>"}, "name": "my_dataset"}
       responses:
         "201":
           application/json: {"id": "ds-12345", "name": "my_dataset", "created_at": 1633036800, "is_uploaded": true}
