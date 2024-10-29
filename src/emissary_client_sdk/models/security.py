@@ -19,7 +19,7 @@ class Security(BaseModel):
                 scheme=True,
                 scheme_type="apiKey",
                 sub_type="header",
-                field_name="api_key",
+                field_name="X-API-Key",
             )
         ),
     ] = None
