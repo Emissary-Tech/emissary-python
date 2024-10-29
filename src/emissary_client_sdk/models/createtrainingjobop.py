@@ -3,8 +3,14 @@
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing import Dict, Optional
+from typing import Dict, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+ParametersTypedDict = Union[str, float, int]
+
+
+Parameters = Union[str, float, int]
 
 
 class CreateTrainingJobRequestBodyTypedDict(TypedDict):
@@ -22,7 +28,7 @@ class CreateTrainingJobRequestBodyTypedDict(TypedDict):
     r"""The name of the training job"""
     description: NotRequired[str]
     r"""A description of the training job"""
-    parameters: NotRequired[Dict[str, str]]
+    parameters: NotRequired[Dict[str, ParametersTypedDict]]
     r"""Additional parameters for the training job"""
     hf_model_link: NotRequired[str]
     r"""Link to the Hugging Face model / Use only when you use the HF_MODEL as a base"""
@@ -49,7 +55,7 @@ class CreateTrainingJobRequestBody(BaseModel):
     description: Optional[str] = None
     r"""A description of the training job"""
 
-    parameters: Optional[Dict[str, str]] = None
+    parameters: Optional[Dict[str, Parameters]] = None
     r"""Additional parameters for the training job"""
 
     hf_model_link: Optional[str] = None

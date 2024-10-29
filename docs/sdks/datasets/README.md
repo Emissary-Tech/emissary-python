@@ -25,7 +25,11 @@ s = EmissaryClient(
 )
 
 res = s.datasets.create(project_id="<id>", request_body={
-    "file": "0xae921BE031".encode(),
+    "file": {
+        "file_name": "example.file",
+        "content": open("example.file", "rb"),
+        "content_type": "<value>",
+    },
     "name": "my_dataset",
 })
 

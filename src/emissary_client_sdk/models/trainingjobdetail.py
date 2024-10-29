@@ -4,7 +4,7 @@ from __future__ import annotations
 from .datasetsummary import DatasetSummary, DatasetSummaryTypedDict
 from emissary_client_sdk.types import BaseModel
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -30,6 +30,12 @@ class TrainingLoss(BaseModel):
     loss: Optional[float] = None
 
 
+HyperParametersTypedDict = Union[str, float, int]
+
+
+HyperParameters = Union[str, float, int]
+
+
 class TrainingJobDetailTypedDict(TypedDict):
     r"""Training Job Object"""
 
@@ -50,7 +56,7 @@ class TrainingJobDetailTypedDict(TypedDict):
     test_dataset: NotRequired[DatasetSummaryTypedDict]
     r"""Dataset Summary Object"""
     training_loss: NotRequired[List[TrainingLossTypedDict]]
-    hyper_parameters: NotRequired[Dict[str, str]]
+    hyper_parameters: NotRequired[Dict[str, HyperParametersTypedDict]]
     created_by: NotRequired[str]
     r"""The user ID who created the training job"""
     created_at: NotRequired[int]
@@ -88,7 +94,7 @@ class TrainingJobDetail(BaseModel):
 
     training_loss: Optional[List[TrainingLoss]] = None
 
-    hyper_parameters: Optional[Dict[str, str]] = None
+    hyper_parameters: Optional[Dict[str, HyperParameters]] = None
 
     created_by: Optional[str] = None
     r"""The user ID who created the training job"""

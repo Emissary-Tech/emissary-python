@@ -27,6 +27,7 @@ Emissary - OpenAPI 3.1: This is a Emissary Platform API specification.
 * [IDE Support](#ide-support)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
+* [File uploads](#file-uploads)
 * [Retries](#retries)
 * [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
@@ -164,6 +165,40 @@ asyncio.run(main())
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start File uploads [file-upload] -->
+## File uploads
+
+Certain SDK methods accept file objects as part of a request body or multi-part request. It is possible and typically recommended to upload files as a stream rather than reading the entire contents into memory. This avoids excessive memory consumption and potentially crashing with out-of-memory errors when working with very large files. The following example demonstrates how to attach a file stream to a request.
+
+> [!TIP]
+>
+> For endpoints that handle file uploads bytes arrays can also be used. However, using streams is recommended for large files.
+>
+
+```python
+from emissary_client_sdk import EmissaryClient
+import os
+
+s = EmissaryClient(
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+)
+
+res = s.datasets.create(project_id="<id>", request_body={
+    "file": {
+        "file_name": "example.file",
+        "content": open("example.file", "rb"),
+        "content_type": "<value>",
+    },
+    "name": "my_dataset",
+})
+
+if res is not None:
+    # handle response
+    pass
+
+```
+<!-- End File uploads [file-upload] -->
 
 <!-- Start Retries [retries] -->
 ## Retries

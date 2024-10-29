@@ -10,7 +10,7 @@ from typing_extensions import NotRequired, TypedDict
 class Type(str, Enum):
     COMPLETION = "completion"
     CLASSIFICATION = "classification"
-    EMBEDDING = "embedding"
+    EMBEDDINGS = "embeddings"
     CHAT = "chat"
 
 
