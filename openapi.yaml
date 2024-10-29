@@ -196,12 +196,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      "$ref": "#/components/schemas/DatasetSummary"
+                type: array
+                items:
+                  "$ref": "#/components/schemas/DatasetSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
   '/v1/projects/{project_id}/datasets/{dataset_id}':
@@ -541,12 +538,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      "$ref": "#/components/schemas/DeploymentSummary"
+                type: array
+                items:
+                  "$ref": "#/components/schemas/DeploymentSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
   '/v1/projects/{project_id}/deployments/{deployment_id}':
