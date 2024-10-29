@@ -92,7 +92,7 @@ if res is not None:
 
 ### Response
 
-**[models.ListDeploymentsResponseBody](../../models/listdeploymentsresponsebody.md)**
+**[List[models.DeploymentSummary]](../../models/.md)**
 
 ### Errors
 

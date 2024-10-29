@@ -89,7 +89,7 @@ if res is not None:
 
 ### Response
 
-**[models.ListDatasetsResponseBody](../../models/listdatasetsresponsebody.md)**
+**[List[models.DatasetSummary]](../../models/.md)**
 
 ### Errors
 

@@ -1,9 +1,9 @@
-speakeasyVersion: 1.423.1
+speakeasyVersion: 1.423.2
 sources:
     EmissaryClient-OAS:
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:996f3432cbd780eb043bbdbc43a5087e615f70e5cccfc2d3b1ec888119671edf
-        sourceBlobDigest: sha256:602f39d3d2eabb1bd214604cb96209134d9254cad3f824a9cf071b6093a9803d
+        sourceRevisionDigest: sha256:ab9d8b0e9ff069f5bc4f15664a020689cb9269bb0d16e89a469b3f7372e196d5
+        sourceBlobDigest: sha256:a9950acb13da053acd21b6ef2adee45e782604e436d7dd522e4a8aabf6d8e2c3
         tags:
             - latest
             - main
@@ -11,10 +11,10 @@ targets:
     emissary-client:
         source: EmissaryClient-OAS
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:996f3432cbd780eb043bbdbc43a5087e615f70e5cccfc2d3b1ec888119671edf
-        sourceBlobDigest: sha256:602f39d3d2eabb1bd214604cb96209134d9254cad3f824a9cf071b6093a9803d
+        sourceRevisionDigest: sha256:ab9d8b0e9ff069f5bc4f15664a020689cb9269bb0d16e89a469b3f7372e196d5
+        sourceBlobDigest: sha256:a9950acb13da053acd21b6ef2adee45e782604e436d7dd522e4a8aabf6d8e2c3
         codeSamplesNamespace: emissary-client-oas-code-samples
-        codeSamplesRevisionDigest: sha256:c3b8b07478890abe6e3f34ff4e3f3561ccbeb7c9987d63804e875222d1a3f051
+        codeSamplesRevisionDigest: sha256:e359018d56c4683a4fe01b13dd72594bec6d383ebda72e1e8ca2883b08faab01
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
