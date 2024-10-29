@@ -2,7 +2,7 @@
 
 from .basesdk import BaseSDK
 from .httpclient import AsyncHttpClient, HttpClient
-from .sdkconfiguration import SDKConfiguration, ServerDestinationURL
+from .sdkconfiguration import SDKConfiguration
 from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 from emissary_client_sdk import models, utils
@@ -14,7 +14,7 @@ from emissary_client_sdk.projects import Projects
 from emissary_client_sdk.trainingjobs import TrainingJobs
 from emissary_client_sdk.types import OptionalNullable, UNSET
 import httpx
-from typing import Any, Callable, Dict, List, Optional, Union
+from typing import Any, Callable, Dict, Optional, Union
 
 
 class EmissaryClient(BaseSDK):
@@ -29,7 +29,6 @@ class EmissaryClient(BaseSDK):
     def __init__(
         self,
         api_key: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
-        destination_url: Optional[ServerDestinationURL] = None,
         server_idx: Optional[int] = None,
         server_url: Optional[str] = None,
         url_params: Optional[Dict[str, str]] = None,
@@ -42,7 +41,6 @@ class EmissaryClient(BaseSDK):
         r"""Instantiates the SDK configuring it with the provided parameters.
 
         :param api_key: The api_key required for authentication
-        :param destination_url: Allows setting the destination_url variable for url substitution
         :param server_idx: The index of the server to use for all methods
         :param server_url: The server URL to use for all methods
         :param url_params: Parameters to optionally template the server URL with
@@ -77,12 +75,6 @@ class EmissaryClient(BaseSDK):
         if server_url is not None:
             if url_params is not None:
                 server_url = utils.template_url(server_url, url_params)
-        server_defaults: List[Dict[str, str]] = [
-            {
-                "destination_url": destination_url
-                or "https://d1d3-4-4-33-74.ngrok-free.app",
-            },
-        ]
 
         BaseSDK.__init__(
             self,
@@ -92,7 +84,6 @@ class EmissaryClient(BaseSDK):
                 security=security,
                 server_url=server_url,
                 server_idx=server_idx,
-                server_defaults=server_defaults,
                 retry_config=retry_config,
                 timeout_ms=timeout_ms,
                 debug_logger=debug_logger,
