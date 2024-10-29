@@ -3,7 +3,13 @@
 from .apierrorinvalidinput import APIErrorInvalidInput, APIErrorInvalidInputData
 from .apierrornotfound import APIErrorNotFound, APIErrorNotFoundData
 from .apierrorunauthorized import APIErrorUnauthorized, APIErrorUnauthorizedData
-from .basemodelsummary import BaseModelSummary, BaseModelSummaryTypedDict, Type
+from .basemodelsummary import (
+    BaseModelSummary,
+    BaseModelSummaryTypedDict,
+    ParameterTemplate,
+    ParameterTemplateTypedDict,
+    Type,
+)
 from .canceldeploymentbyidop import (
     CancelDeploymentByIDRequest,
     CancelDeploymentByIDRequestTypedDict,
@@ -236,6 +242,8 @@ __all__ = [
     "ListTrainingJobsRequestTypedDict",
     "Messages",
     "MessagesTypedDict",
+    "ParameterTemplate",
+    "ParameterTemplateTypedDict",
     "ProjectDetail",
     "ProjectDetailTypedDict",
     "ProjectSummary",

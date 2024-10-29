@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: 4cea51696e6c8fc2db9515906e35d3da
+  docChecksum: 57acf3e3a8c69ed3058586fad64e7294
   docVersion: 0.1.0
   speakeasyVersion: 1.423.1
   generationVersion: 2.442.11
-  releaseVersion: 0.2.3
-  configChecksum: b5abbeac93fa590b9928ed9454fb6a52
+  releaseVersion: 0.3.0
+  configChecksum: 27b11cad140d30ee80aa08a13b2ce840
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -29,6 +29,7 @@ features:
     retries: 3.0.2
     sdkHooks: 1.0.0
     tests: 1.6.0
+    unions: 3.0.2
 generatedFiles:
   - .gitattributes
   - .python-version
@@ -78,6 +79,7 @@ generatedFiles:
   - docs/models/listdeploymentsresponsebody.md
   - docs/models/listtrainingjobsrequest.md
   - docs/models/messages.md
+  - docs/models/parametertemplate.md
   - docs/models/projectdetail.md
   - docs/models/projectsummary.md
   - docs/models/response.md

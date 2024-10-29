@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "emissary-client-sdk"
-version = "0.2.3"
+version = "0.3.0"
 description = "Python Client SDK for emissary.dev."
 authors = ["Emissary",]
 readme = "README-PYPI.md"
