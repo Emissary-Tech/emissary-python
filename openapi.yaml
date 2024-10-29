@@ -155,20 +155,19 @@ paths:
         required: true
         description: Provide your project name if you want to specify it.
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 file:
                   type: string
                   format: binary
-                  description: The file to be uploaded
+                  description: The dataset file to upload
                 name:
                   type: string
                   example: my_dataset
-                  description: The name of the dataset (auto generated if not provided)
-              required:
-                - file
+                  description: The name of the dataset
+              required: file
       responses:
         '201':
           description: Dataset created successfully
@@ -266,12 +265,12 @@ paths:
       description: Create a new training job for the project.
       operationId: createTrainingJob
       parameters:
-          - name: project_id
-            in: path
-            required: true
-            description: The ID of the project to create a training job for
-            schema:
-              type: string
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to create a training job for
+          schema:
+            type: string
       requestBody:
         required: true
         description: Provide your training job details
@@ -309,7 +308,10 @@ paths:
                 parameters:
                   type: object
                   additionalProperties:
-                    type: string
+                    oneOf:
+                      - type: string
+                      - type: number
+                      - type: integer
                   description: Additional parameters for the training job
                 hf_model_link:
                   type: string
@@ -1160,7 +1162,10 @@ components:
         hyper_parameters:
           type: object
           additionalProperties:
-              type: string
+            oneOf:
+              - type: string
+              - type: number
+              - type: integer
         created_by:
           type: string
           example: "user-12345"
