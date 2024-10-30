@@ -8,27 +8,27 @@ from emissary_client_sdk.utils import get_security_from_env
 from typing import Any, Optional, Union
 
 
-class Classification(BaseSDK):
+class Completions(BaseSDK):
     def create(
         self,
         *,
         project_id: str,
         deployment_id: str,
         request_body: Union[
-            models.GetClassificationFromDeploymentRequestBody,
-            models.GetClassificationFromDeploymentRequestBodyTypedDict,
+            models.GetCompletionsFromDeploymentRequestBody,
+            models.GetCompletionsFromDeploymentRequestBodyTypedDict,
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.GetClassificationFromDeploymentResponseBody:
-        r"""Get Classification from a Deployment
+    ) -> models.GetCompletionsFromDeploymentResponseBody:
+        r"""Get Completions from a Deployment
 
-        Get classification from a deployment using the provided input.
+        Get completions from a deployment using the provided input.
 
         :param project_id: The ID of the project to retrieve deployments for
-        :param deployment_id: The ID of the deployment to get classification from
-        :param request_body: Provide your input for classification
+        :param deployment_id: The ID of the deployment to get completions from
+        :param request_body: Provide you prompt input for completions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -41,17 +41,17 @@ class Classification(BaseSDK):
         if server_url is not None:
             base_url = server_url
 
-        request = models.GetClassificationFromDeploymentRequest(
+        request = models.GetCompletionsFromDeploymentRequest(
             project_id=project_id,
             deployment_id=deployment_id,
             request_body=utils.get_pydantic_model(
-                request_body, models.GetClassificationFromDeploymentRequestBody
+                request_body, models.GetCompletionsFromDeploymentRequestBody
             ),
         )
 
         req = self.build_request(
             method="POST",
-            path="/v1/projects/{project_id}/deployments/{deployment_id}/classification",
+            path="/v1/projects/{project_id}/deployments/{deployment_id}/completions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -66,7 +66,7 @@ class Classification(BaseSDK):
                 False,
                 False,
                 "json",
-                models.GetClassificationFromDeploymentRequestBody,
+                models.GetCompletionsFromDeploymentRequestBody,
             ),
             timeout_ms=timeout_ms,
         )
@@ -81,7 +81,7 @@ class Classification(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
-                operation_id="getClassificationFromDeployment",
+                operation_id="getCompletionsFromDeployment",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -95,7 +95,7 @@ class Classification(BaseSDK):
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.GetClassificationFromDeploymentResponseBody
+                http_res.text, models.GetCompletionsFromDeploymentResponseBody
             )
         if utils.match_response(http_res, "400", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorInvalidInputData)
@@ -124,20 +124,20 @@ class Classification(BaseSDK):
         project_id: str,
         deployment_id: str,
         request_body: Union[
-            models.GetClassificationFromDeploymentRequestBody,
-            models.GetClassificationFromDeploymentRequestBodyTypedDict,
+            models.GetCompletionsFromDeploymentRequestBody,
+            models.GetCompletionsFromDeploymentRequestBodyTypedDict,
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> models.GetClassificationFromDeploymentResponseBody:
-        r"""Get Classification from a Deployment
+    ) -> models.GetCompletionsFromDeploymentResponseBody:
+        r"""Get Completions from a Deployment
 
-        Get classification from a deployment using the provided input.
+        Get completions from a deployment using the provided input.
 
         :param project_id: The ID of the project to retrieve deployments for
-        :param deployment_id: The ID of the deployment to get classification from
-        :param request_body: Provide your input for classification
+        :param deployment_id: The ID of the deployment to get completions from
+        :param request_body: Provide you prompt input for completions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -150,17 +150,17 @@ class Classification(BaseSDK):
         if server_url is not None:
             base_url = server_url
 
-        request = models.GetClassificationFromDeploymentRequest(
+        request = models.GetCompletionsFromDeploymentRequest(
             project_id=project_id,
             deployment_id=deployment_id,
             request_body=utils.get_pydantic_model(
-                request_body, models.GetClassificationFromDeploymentRequestBody
+                request_body, models.GetCompletionsFromDeploymentRequestBody
             ),
         )
 
         req = self.build_request_async(
             method="POST",
-            path="/v1/projects/{project_id}/deployments/{deployment_id}/classification",
+            path="/v1/projects/{project_id}/deployments/{deployment_id}/completions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -175,7 +175,7 @@ class Classification(BaseSDK):
                 False,
                 False,
                 "json",
-                models.GetClassificationFromDeploymentRequestBody,
+                models.GetCompletionsFromDeploymentRequestBody,
             ),
             timeout_ms=timeout_ms,
         )
@@ -190,7 +190,7 @@ class Classification(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
-                operation_id="getClassificationFromDeployment",
+                operation_id="getCompletionsFromDeployment",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -204,7 +204,7 @@ class Classification(BaseSDK):
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.GetClassificationFromDeploymentResponseBody
+                http_res.text, models.GetCompletionsFromDeploymentResponseBody
             )
         if utils.match_response(http_res, "400", "application/json"):
             data = utils.unmarshal_json(http_res.text, models.APIErrorInvalidInputData)

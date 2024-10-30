@@ -67,3 +67,13 @@ Based on:
 - [python v0.4.1] .
 ### Releases
 - [PyPI v0.4.1] https://pypi.org/project/emissary-client-sdk/0.4.1 - .
+
+## 2024-10-30 20:30:32
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.423.4 (2.445.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.4.2] .
+### Releases
+- [PyPI v0.4.2] https://pypi.org/project/emissary-client-sdk/0.4.2 - .

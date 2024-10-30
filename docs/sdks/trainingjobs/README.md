@@ -7,7 +7,7 @@
 
 * [create](#create) - Create a new Training Job
 * [list](#list) - List of Training Jobs
-* [retrieve](#retrieve) - Retrieve a training job by ID
+* [get](#get) - Retrieve a training job by ID
 * [delete](#delete) - Delete a training job by ID
 * [cancel](#cancel) - Cancel a training job by ID
 * [list_checkpoints](#list_checkpoints) - List of Checkpoints
@@ -104,7 +104,7 @@ if res is not None:
 | models.APIErrorUnauthorized | 401                         | application/json            |
 | models.SDKError             | 4XX, 5XX                    | \*/\*                       |
 
-## retrieve
+## get
 
 Retrieve a training job by its unique identifier.
 
@@ -118,7 +118,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.training_jobs.retrieve(project_id="<id>", training_job_id="<id>")
+res = s.training_jobs.get(project_id="<id>", training_job_id="<id>")
 
 if res is not None:
     # handle response

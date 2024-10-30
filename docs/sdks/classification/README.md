@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [get](#get) - Get Classification from a Deployment
+* [create](#create) - Get Classification from a Deployment
 
-## get
+## create
 
 Get classification from a deployment using the provided input.
 
@@ -21,7 +21,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.deployments.classification.get(project_id="<id>", deployment_id="<id>", request_body={
+res = s.deployments.classification.create(project_id="<id>", deployment_id="<id>", request_body={
     "source_sentence": "What is the capital of France?",
 })
 

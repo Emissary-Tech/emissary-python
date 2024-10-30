@@ -135,16 +135,25 @@ asyncio.run(main())
 * [get](docs/sdks/deployments/README.md#get) - Retrieve a deployment by ID
 * [delete](docs/sdks/deployments/README.md#delete) - Delete a deployment by ID
 * [cancel](docs/sdks/deployments/README.md#cancel) - Cancel a deployment by ID
-* [get_completions](docs/sdks/deployments/README.md#get_completions) - Get Completions from a Deployment
-* [get_embeddings](docs/sdks/deployments/README.md#get_embeddings) - Get Embeddings from a Deployment
 
 #### [deployments.chat](docs/sdks/chat/README.md)
 
-* [complete](docs/sdks/chat/README.md#complete) - Get Chat Completions from a Deployment
+
+#### [deployments.chat.completions](docs/sdks/emissaryclientcompletions/README.md)
+
+* [create](docs/sdks/emissaryclientcompletions/README.md#create) - Get Chat Completions from a Deployment
 
 #### [deployments.classification](docs/sdks/classification/README.md)
 
-* [get](docs/sdks/classification/README.md#get) - Get Classification from a Deployment
+* [create](docs/sdks/classification/README.md#create) - Get Classification from a Deployment
+
+#### [deployments.completions](docs/sdks/completions/README.md)
+
+* [create](docs/sdks/completions/README.md#create) - Get Completions from a Deployment
+
+#### [deployments.embeddings](docs/sdks/embeddings/README.md)
+
+* [create](docs/sdks/embeddings/README.md#create) - Get Embeddings from a Deployment
 
 
 ### [projects](docs/sdks/projects/README.md)
@@ -158,7 +167,7 @@ asyncio.run(main())
 
 * [create](docs/sdks/trainingjobs/README.md#create) - Create a new Training Job
 * [list](docs/sdks/trainingjobs/README.md#list) - List of Training Jobs
-* [retrieve](docs/sdks/trainingjobs/README.md#retrieve) - Retrieve a training job by ID
+* [get](docs/sdks/trainingjobs/README.md#get) - Retrieve a training job by ID
 * [delete](docs/sdks/trainingjobs/README.md#delete) - Delete a training job by ID
 * [cancel](docs/sdks/trainingjobs/README.md#cancel) - Cancel a training job by ID
 * [list_checkpoints](docs/sdks/trainingjobs/README.md#list_checkpoints) - List of Checkpoints
