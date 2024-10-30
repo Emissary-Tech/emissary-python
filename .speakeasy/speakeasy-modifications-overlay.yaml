@@ -29,11 +29,21 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/classification"]["post"]
     update:
       x-speakeasy-group: deployments.classification
-      x-speakeasy-name-override: get
+      x-speakeasy-name-override: Classification
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getClassificationFromDeployment()
-      after: sdk.deployments.classification.get()
+      after: sdk.deployments.Classification()
+      reviewed_at: 1730155984845
+      created_at: 1730155964565
+  - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/embeddings"]["post"]
+    update:
+      x-speakeasy-group: deployments.embeddings
+      x-speakeasy-name-override: Embeddings
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Deployment.getEmbeddingsFromDeployment()
+      after: sdk.deployments.Embeddings()
       reviewed_at: 1730155984845
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel"]["post"]
@@ -156,16 +166,6 @@ actions:
       after: sdk.baseModels.list()
       reviewed_at: 1730155984845
       created_at: 1730155964565
-  - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/embeddings"]["post"]
-    update:
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: getEmbeddings
-    x-speakeasy-metadata:
-      type: method-name
-      before: sdk.Deployment.getEmbeddingsFromDeployment()
-      after: sdk.deployments.getEmbeddings()
-      reviewed_at: 1730155984845
-      created_at: 1730155964564
   - target: $["paths"]["/v1/projects/{project_id}/training-jobs/{training_job_id}"]["get"]
     update:
       x-speakeasy-group: trainingJobs
@@ -186,16 +186,6 @@ actions:
       after: sdk.deployments.get()
       reviewed_at: 1730155984845
       created_at: 1730155964564
-  - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/completions"]["post"]
-    update:
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: getCompletions
-    x-speakeasy-metadata:
-      type: method-name
-      before: sdk.Deployment.getCompletionsFromDeployment()
-      after: sdk.deployments.getCompletions()
-      reviewed_at: 1730155984845
-      created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/deployments"]["get"]
     update:
       x-speakeasy-group: deployments
