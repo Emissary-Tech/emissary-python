@@ -47,6 +47,29 @@ paths:
           $ref: '#/components/responses/InvalidInput'
         '401':
           $ref: '#/components/responses/Unauthorized'
+  '/v1/models/{base_model_name}':
+    get:
+      tags:
+        - Base Model
+      summary: Retrieve a base model
+      description: Retrieve a base model by its name.
+      operationId: retrieveBaseModelByName
+      parameters:
+        - name: base_model_name
+          in: path
+          required: true
+          description: The name of the base model to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/BaseModelSummary"
+        '404':
+          $ref: '#/components/responses/NotFound'
   '/v1/projects': # path parameter in curly braces
     post:
       tags:
