@@ -28,7 +28,7 @@ actions:
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/classification"]["post"]
     update:
-      x-speakeasy-group: deployments.classification
+      x-speakeasy-group: deployments
       x-speakeasy-name-override: Classification
     x-speakeasy-metadata:
       type: method-name
@@ -38,7 +38,7 @@ actions:
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/embeddings"]["post"]
     update:
-      x-speakeasy-group: deployments.embeddings
+      x-speakeasy-group: deployments
       x-speakeasy-name-override: Embeddings
     x-speakeasy-metadata:
       type: method-name
