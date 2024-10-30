@@ -29,7 +29,7 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/classification"]["post"]
     update:
       x-speakeasy-group: deployments.classification
-      x-speakeasy-name-override: Classification
+      x-speakeasy-name-override: create
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getClassificationFromDeployment()
@@ -39,7 +39,7 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/embeddings"]["post"]
     update:
       x-speakeasy-group: deployments.embeddings
-      x-speakeasy-name-override: Embeddings
+      x-speakeasy-name-override: create
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getEmbeddingsFromDeployment()
@@ -49,7 +49,7 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/completions"]["post"]
     update:
       x-speakeasy-group: deployments.completions
-      x-speakeasy-name-override: Completions
+      x-speakeasy-name-override: create
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getEmbeddingsFromDeployment()
@@ -119,7 +119,7 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/chat/completions"]["post"]
     update:
       x-speakeasy-group: deployments.chat.completions
-      x-speakeasy-name-override: completions
+      x-speakeasy-name-override: create
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getChatCompletionsFromDeployment()
