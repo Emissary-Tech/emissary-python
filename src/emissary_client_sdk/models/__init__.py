@@ -98,8 +98,8 @@ from .getcompletionsfromdeploymentop import (
     GetCompletionsFromDeploymentResponseBodyTypedDict,
 )
 from .getembeddingsfromdeploymentop import (
-    Embeddings,
-    EmbeddingsTypedDict,
+    GetEmbeddingsFromDeploymentEmbeddings,
+    GetEmbeddingsFromDeploymentEmbeddingsTypedDict,
     GetEmbeddingsFromDeploymentRequest,
     GetEmbeddingsFromDeploymentRequestBody,
     GetEmbeddingsFromDeploymentRequestBodyTypedDict,
@@ -198,8 +198,6 @@ __all__ = [
     "DeploymentSummary",
     "DeploymentSummaryStatus",
     "DeploymentSummaryTypedDict",
-    "Embeddings",
-    "EmbeddingsTypedDict",
     "File",
     "FileTypedDict",
     "GetChatCompletionsFromDeploymentRequest",
@@ -220,6 +218,8 @@ __all__ = [
     "GetCompletionsFromDeploymentRequestTypedDict",
     "GetCompletionsFromDeploymentResponseBody",
     "GetCompletionsFromDeploymentResponseBodyTypedDict",
+    "GetEmbeddingsFromDeploymentEmbeddings",
+    "GetEmbeddingsFromDeploymentEmbeddingsTypedDict",
     "GetEmbeddingsFromDeploymentRequest",
     "GetEmbeddingsFromDeploymentRequestBody",
     "GetEmbeddingsFromDeploymentRequestBodyTypedDict",

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: e69b397435d17aa242fe33ebc7ef5a59
+  docChecksum: c204072ac236204d314b5e94881660e4
   docVersion: 0.1.0
-  speakeasyVersion: 1.423.2
-  generationVersion: 2.442.11
-  releaseVersion: 0.4.1
-  configChecksum: 33645bbdf269cffa54a01d2c424353c8
+  speakeasyVersion: 1.423.4
+  generationVersion: 2.445.1
+  releaseVersion: 0.4.2
+  configChecksum: ca652adf3a60c61cac2f8ebbc2602c2d
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.6.0
+    core: 5.6.1
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.1
@@ -61,7 +61,6 @@ generatedFiles:
   - docs/models/deploymentdetailstatus.md
   - docs/models/deploymentsummary.md
   - docs/models/deploymentsummarystatus.md
-  - docs/models/embeddings.md
   - docs/models/file.md
   - docs/models/getchatcompletionsfromdeploymentrequest.md
   - docs/models/getchatcompletionsfromdeploymentrequestbody.md
@@ -72,6 +71,7 @@ generatedFiles:
   - docs/models/getcompletionsfromdeploymentrequest.md
   - docs/models/getcompletionsfromdeploymentrequestbody.md
   - docs/models/getcompletionsfromdeploymentresponsebody.md
+  - docs/models/getembeddingsfromdeploymentembeddings.md
   - docs/models/getembeddingsfromdeploymentrequest.md
   - docs/models/getembeddingsfromdeploymentrequestbody.md
   - docs/models/getembeddingsfromdeploymentresponsebody.md
@@ -105,9 +105,12 @@ generatedFiles:
   - docs/sdks/basemodels/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/classification/README.md
+  - docs/sdks/completions/README.md
   - docs/sdks/datasets/README.md
   - docs/sdks/deployments/README.md
+  - docs/sdks/embeddings/README.md
   - docs/sdks/emissaryclient/README.md
+  - docs/sdks/emissaryclientcompletions/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/trainingjobs/README.md
   - poetry.toml
@@ -126,8 +129,11 @@ generatedFiles:
   - src/emissary_client_sdk/basesdk.py
   - src/emissary_client_sdk/chat.py
   - src/emissary_client_sdk/classification.py
+  - src/emissary_client_sdk/completions.py
   - src/emissary_client_sdk/datasets.py
   - src/emissary_client_sdk/deployments.py
+  - src/emissary_client_sdk/embeddings.py
+  - src/emissary_client_sdk/emissaryclient_completions.py
   - src/emissary_client_sdk/httpclient.py
   - src/emissary_client_sdk/models/__init__.py
   - src/emissary_client_sdk/models/apierrorinvalidinput.py

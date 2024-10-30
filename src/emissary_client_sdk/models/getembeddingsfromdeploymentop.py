@@ -68,14 +68,14 @@ class GetEmbeddingsFromDeploymentRequest(BaseModel):
     r"""Provide your input for embeddings"""
 
 
-class EmbeddingsTypedDict(TypedDict):
+class GetEmbeddingsFromDeploymentEmbeddingsTypedDict(TypedDict):
     text1: NotRequired[List[float]]
     r"""The embedding vector for the source sentence"""
     text2: NotRequired[List[float]]
     r"""The embedding vector for the target sentence"""
 
 
-class Embeddings(BaseModel):
+class GetEmbeddingsFromDeploymentEmbeddings(BaseModel):
     text1: Optional[List[float]] = None
     r"""The embedding vector for the source sentence"""
 
@@ -84,7 +84,7 @@ class Embeddings(BaseModel):
 
 
 class ResponseTypedDict(TypedDict):
-    embeddings: NotRequired[EmbeddingsTypedDict]
+    embeddings: NotRequired[GetEmbeddingsFromDeploymentEmbeddingsTypedDict]
     cosine_score: NotRequired[float]
     r"""The cosine similarity between the embeddings if cosine = true"""
     manhattan_distance: NotRequired[float]
@@ -94,7 +94,7 @@ class ResponseTypedDict(TypedDict):
 
 
 class Response(BaseModel):
-    embeddings: Optional[Embeddings] = None
+    embeddings: Optional[GetEmbeddingsFromDeploymentEmbeddings] = None
 
     cosine_score: Optional[float] = None
     r"""The cosine similarity between the embeddings if cosine = true"""

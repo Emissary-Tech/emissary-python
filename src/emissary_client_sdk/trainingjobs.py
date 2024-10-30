@@ -383,7 +383,7 @@ class TrainingJobs(BaseSDK):
             http_res,
         )
 
-    def retrieve(
+    def get(
         self,
         *,
         project_id: str,
@@ -472,7 +472,7 @@ class TrainingJobs(BaseSDK):
             http_res,
         )
 
-    async def retrieve_async(
+    async def get_async(
         self,
         *,
         project_id: str,
