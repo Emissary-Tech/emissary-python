@@ -28,22 +28,32 @@ actions:
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/classification"]["post"]
     update:
-      x-speakeasy-group: deployments
+      x-speakeasy-group: deployments.classification
       x-speakeasy-name-override: Classification
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getClassificationFromDeployment()
-      after: sdk.deployments.Classification()
+      after: sdk.deployments.classification.create()
       reviewed_at: 1730155984845
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/embeddings"]["post"]
     update:
-      x-speakeasy-group: deployments
+      x-speakeasy-group: deployments.embeddings
       x-speakeasy-name-override: Embeddings
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getEmbeddingsFromDeployment()
-      after: sdk.deployments.Embeddings()
+      after: sdk.deployments.embeddings.create()
+      reviewed_at: 1730155984845
+      created_at: 1730155964565
+  - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/completions"]["post"]
+    update:
+      x-speakeasy-group: deployments.completions
+      x-speakeasy-name-override: Completions
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Deployment.getEmbeddingsFromDeployment()
+      after: sdk.deployments.completions.create()
       reviewed_at: 1730155984845
       created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel"]["post"]
@@ -108,12 +118,12 @@ actions:
       created_at: 1730155964564
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}/chat/completions"]["post"]
     update:
-      x-speakeasy-group: deployments.chat
-      x-speakeasy-name-override: complete
+      x-speakeasy-group: deployments.chat.completions
+      x-speakeasy-name-override: completions
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Deployment.getChatCompletionsFromDeployment()
-      after: sdk.deployments.chat.complete()
+      after: sdk.deployments.chat.completions.create()
       reviewed_at: 1730155984845
       created_at: 1730155964564
   - target: $["paths"]["/v1/projects/{project_id}"]["get"]
