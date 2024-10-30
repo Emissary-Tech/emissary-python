@@ -169,11 +169,11 @@ actions:
   - target: $["paths"]["/v1/projects/{project_id}/training-jobs/{training_job_id}"]["get"]
     update:
       x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: retrieve
+      x-speakeasy-name-override: get
     x-speakeasy-metadata:
       type: method-name
       before: sdk.Training Job.retrieveTrainingJobById()
-      after: sdk.trainingJobs.retrieve()
+      after: sdk.trainingJobs.get()
       reviewed_at: 1730155984845
       created_at: 1730155964564
   - target: $["paths"]["/v1/projects/{project_id}/deployments/{deployment_id}"]["get"]
