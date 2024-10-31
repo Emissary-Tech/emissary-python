@@ -8,6 +8,17 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class CreateDeploymentGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class CreateDeploymentGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
+
+
 class ServerType(str, Enum):
     SERVERLESS = "serverless"
     ON_DEMAND = "on-demand"
@@ -46,20 +57,19 @@ class CreateDeploymentRequestBody(BaseModel):
 
 
 class CreateDeploymentRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to create a deployment for"""
     request_body: CreateDeploymentRequestBodyTypedDict
     r"""Provide you deployment details"""
+    project_id: NotRequired[str]
 
 
 class CreateDeploymentRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to create a deployment for"""
-
     request_body: Annotated[
         CreateDeploymentRequestBody,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
     r"""Provide you deployment details"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None

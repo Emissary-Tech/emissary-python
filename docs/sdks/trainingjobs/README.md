@@ -24,9 +24,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.training_jobs.create(project_id="<id>", request_body={
+res = s.training_jobs.create(request_body={
     "base_model": "Llama-3.2-1B-Instruct",
     "train_dataset_id": "ds-12345",
     "test_dataset_id": "ds-67890",
@@ -37,7 +38,7 @@ res = s.training_jobs.create(project_id="<id>", request_body={
         "key": "<value>",
     },
     "hf_model_link": "https://huggingface.co/my_model",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -49,8 +50,8 @@ if res is not None:
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `project_id`                                                                        | *str*                                                                               | :heavy_check_mark:                                                                  | The ID of the project to create a training job for                                  |
 | `request_body`                                                                      | [models.CreateTrainingJobRequestBody](../../models/createtrainingjobrequestbody.md) | :heavy_check_mark:                                                                  | Provide your training job details                                                   |
+| `project_id`                                                                        | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | N/A                                                                                 |
 | `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
 ### Response
@@ -76,6 +77,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.training_jobs.list(project_id="<id>")
@@ -90,7 +92,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -116,9 +118,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.training_jobs.get(project_id="<id>", training_job_id="<id>")
+res = s.training_jobs.get(training_job_id="<id>", project_id="<id>")
 
 if res is not None:
     # handle response
@@ -130,8 +133,8 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to retrieve                              |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -157,9 +160,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-s.training_jobs.delete(project_id="<id>", training_job_id="<id>")
+s.training_jobs.delete(training_job_id="<id>", project_id="<id>")
 
 # Use the SDK ...
 
@@ -169,8 +173,8 @@ s.training_jobs.delete(project_id="<id>", training_job_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to delete                                |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
@@ -192,9 +196,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-s.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
+s.training_jobs.cancel(training_job_id="<id>", project_id="<id>")
 
 # Use the SDK ...
 
@@ -204,8 +209,8 @@ s.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to cancel                                |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
@@ -227,9 +232,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.training_jobs.list_checkpoints(project_id="<id>", training_job_id="<id>")
+res = s.training_jobs.list_checkpoints(training_job_id="<id>", project_id="<id>")
 
 if res is not None:
     # handle response
@@ -241,8 +247,8 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve checkpoints for                   |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to retrieve checkpoints for              |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

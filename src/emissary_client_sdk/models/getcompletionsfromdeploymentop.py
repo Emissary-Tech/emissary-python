@@ -7,6 +7,17 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class GetCompletionsFromDeploymentGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class GetCompletionsFromDeploymentGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
+
+
 class GetCompletionsFromDeploymentRequestBodyTypedDict(TypedDict):
     r"""Provide you prompt input for completions"""
 
@@ -52,20 +63,14 @@ class GetCompletionsFromDeploymentRequestBody(BaseModel):
 
 
 class GetCompletionsFromDeploymentRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to get completions from"""
     request_body: GetCompletionsFromDeploymentRequestBodyTypedDict
     r"""Provide you prompt input for completions"""
+    project_id: NotRequired[str]
 
 
 class GetCompletionsFromDeploymentRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve deployments for"""
-
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
@@ -76,6 +81,11 @@ class GetCompletionsFromDeploymentRequest(BaseModel):
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
     r"""Provide you prompt input for completions"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class GetCompletionsFromDeploymentResponseBodyTypedDict(TypedDict):

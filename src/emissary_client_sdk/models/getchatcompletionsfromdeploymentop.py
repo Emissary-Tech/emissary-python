@@ -8,6 +8,17 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class GetChatCompletionsFromDeploymentGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class GetChatCompletionsFromDeploymentGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
+
+
 class Role(str, Enum):
     r"""The role of the message sender"""
 
@@ -79,20 +90,14 @@ class GetChatCompletionsFromDeploymentRequestBody(BaseModel):
 
 
 class GetChatCompletionsFromDeploymentRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to get chat completions from"""
     request_body: GetChatCompletionsFromDeploymentRequestBodyTypedDict
     r"""Provide your chat input for completions"""
+    project_id: NotRequired[str]
 
 
 class GetChatCompletionsFromDeploymentRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve deployments for"""
-
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
@@ -103,6 +108,11 @@ class GetChatCompletionsFromDeploymentRequest(BaseModel):
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
     r"""Provide your chat input for completions"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class GetChatCompletionsFromDeploymentResponseBodyTypedDict(TypedDict):

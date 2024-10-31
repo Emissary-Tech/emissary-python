@@ -27,6 +27,7 @@ Emissary - OpenAPI 3.1: This is a Emissary Platform API specification.
 * [IDE Support](#ide-support)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
 * [File uploads](#file-uploads)
 * [Retries](#retries)
 * [Error Handling](#error-handling)
@@ -80,9 +81,12 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response
@@ -101,8 +105,11 @@ import os
 async def main():
     s = EmissaryClient(
         api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+        project_id="<id>",
     )
-    res = await s.base_models.list_async()
+    res = await s.create_project_async(request={
+        "name": "my_project",
+    })
     if res is not None:
         # handle response
         pass
@@ -156,13 +163,15 @@ asyncio.run(main())
 
 * [create](docs/sdks/embeddings/README.md#create) - Get Embeddings from a Deployment
 
+### [EmissaryClient SDK](docs/sdks/emissaryclient/README.md)
+
+* [create_project](docs/sdks/emissaryclient/README.md#create_project) - Create a new project
+* [list_projects](docs/sdks/emissaryclient/README.md#list_projects) - List of Projects
+* [delete_project](docs/sdks/emissaryclient/README.md#delete_project) - Delete a project by ID
 
 ### [projects](docs/sdks/projects/README.md)
 
-* [create](docs/sdks/projects/README.md#create) - Create a new project
-* [list](docs/sdks/projects/README.md#list) - List of Projects
-* [get](docs/sdks/projects/README.md#get) - Retrieve a project by ID
-* [delete](docs/sdks/projects/README.md#delete) - Delete a project by ID
+* [get_project](docs/sdks/projects/README.md#get_project) - Retrieve a project by ID
 
 ### [training_jobs](docs/sdks/trainingjobs/README.md)
 
@@ -175,6 +184,43 @@ asyncio.run(main())
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `project_id` to `"<id>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `delete_project`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+Global parameters can also be set via environment variable.
+| Name | Type | Required | Description | Environment |
+| ---- | ---- |:--------:| ----------- | ----------- |
+| project_id | str |  | The project_id parameter. | EMISSARY_CLIENT_PROJECT_ID |
+
+
+
+### Example
+
+```python
+from emissary_client_sdk import EmissaryClient
+import os
+
+s = EmissaryClient(
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
+)
+
+s.delete_project(project_id="<id>")
+
+# Use the SDK ...
+
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start File uploads [file-upload] -->
 ## File uploads
@@ -192,16 +238,17 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.datasets.create(project_id="<id>", request_body={
+res = s.datasets.create(request_body={
     "file": {
         "file_name": "example.file",
         "content": open("example.file", "rb"),
         "content_type": "<value>",
     },
     "name": "my_dataset",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -223,9 +270,12 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list(,
+res = s.create_project(request={
+    "name": "my_project",
+},
     RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
 if res is not None:
@@ -243,9 +293,12 @@ import os
 s = EmissaryClient(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response
@@ -268,12 +321,11 @@ By default, an API error will raise a models.SDKError exception, which has the f
 | `.raw_response` | *httpx.Response* | The raw HTTP response |
 | `.body`         | *str*            | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `list_async` method may raise the following exceptions:
+When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `create_project_async` method may raise the following exceptions:
 
 | Error Type                  | Status Code                 | Content Type                |
 | --------------------------- | --------------------------- | --------------------------- |
 | models.APIErrorInvalidInput | 400                         | application/json            |
-| models.APIErrorUnauthorized | 401                         | application/json            |
 | models.SDKError             | 4XX, 5XX                    | \*/\*                       |
 
 ### Example
@@ -284,11 +336,14 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = None
 try:
-    res = s.base_models.list()
+    res = s.create_project(request={
+        "name": "my_project",
+    })
 
     if res is not None:
         # handle response
@@ -296,9 +351,6 @@ try:
 
 except models.APIErrorInvalidInput as e:
     # handle e.data: models.APIErrorInvalidInputData
-    raise(e)
-except models.APIErrorUnauthorized as e:
-    # handle e.data: models.APIErrorUnauthorizedData
     raise(e)
 except models.SDKError as e:
     # handle exception
@@ -326,9 +378,12 @@ import os
 s = EmissaryClient(
     server_idx=0,
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response
@@ -347,9 +402,12 @@ import os
 s = EmissaryClient(
     server_url="https://d1d3-4-4-33-74.ngrok-free.app",
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response
@@ -457,9 +515,12 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response

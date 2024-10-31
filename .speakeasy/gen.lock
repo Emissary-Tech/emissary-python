@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: 89025dc46997c7ee9b6bff65744a2335
+  docChecksum: 2f4a6451dd8b6da7636e4bc90d219a85
   docVersion: 0.1.0
   speakeasyVersion: 1.423.5
   generationVersion: 2.445.1
-  releaseVersion: 0.4.4
-  configChecksum: 014b76c449b6d405fa73f0f60362b936
+  releaseVersion: 0.5.0
+  configChecksum: a4e63b6eece6f3a7a79d91075403ac1d
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -22,6 +22,7 @@ features:
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.0.0
+    globals: 3.0.0
     groups: 3.0.0
     methodArguments: 1.0.2
     multipartFileContentType: 1.0.0
@@ -42,43 +43,61 @@ generatedFiles:
   - docs/models/apierrornotfound.md
   - docs/models/apierrorunauthorized.md
   - docs/models/basemodelsummary.md
+  - docs/models/canceldeploymentbyidglobals.md
   - docs/models/canceldeploymentbyidrequest.md
+  - docs/models/canceltrainingjobbyidglobals.md
   - docs/models/canceltrainingjobbyidrequest.md
+  - docs/models/createdatasetglobals.md
   - docs/models/createdatasetrequest.md
   - docs/models/createdatasetrequestbody.md
+  - docs/models/createdeploymentglobals.md
   - docs/models/createdeploymentrequest.md
   - docs/models/createdeploymentrequestbody.md
   - docs/models/createprojectrequestbody.md
+  - docs/models/createtrainingjobglobals.md
   - docs/models/createtrainingjobrequest.md
   - docs/models/createtrainingjobrequestbody.md
   - docs/models/datasetdetail.md
   - docs/models/datasetsummary.md
+  - docs/models/deletedatasetbyidglobals.md
   - docs/models/deletedatasetbyidrequest.md
+  - docs/models/deletedeploymentbyidglobals.md
   - docs/models/deletedeploymentbyidrequest.md
+  - docs/models/deleteprojectbyidglobals.md
   - docs/models/deleteprojectbyidrequest.md
+  - docs/models/deletetrainingjobbyidglobals.md
   - docs/models/deletetrainingjobbyidrequest.md
   - docs/models/deploymentdetail.md
   - docs/models/deploymentdetailstatus.md
   - docs/models/deploymentsummary.md
   - docs/models/deploymentsummarystatus.md
   - docs/models/file.md
+  - docs/models/getchatcompletionsfromdeploymentglobals.md
   - docs/models/getchatcompletionsfromdeploymentrequest.md
   - docs/models/getchatcompletionsfromdeploymentrequestbody.md
   - docs/models/getchatcompletionsfromdeploymentresponsebody.md
+  - docs/models/getclassificationfromdeploymentglobals.md
   - docs/models/getclassificationfromdeploymentrequest.md
   - docs/models/getclassificationfromdeploymentrequestbody.md
   - docs/models/getclassificationfromdeploymentresponsebody.md
+  - docs/models/getcompletionsfromdeploymentglobals.md
   - docs/models/getcompletionsfromdeploymentrequest.md
   - docs/models/getcompletionsfromdeploymentrequestbody.md
   - docs/models/getcompletionsfromdeploymentresponsebody.md
   - docs/models/getembeddingsfromdeploymentembeddings.md
+  - docs/models/getembeddingsfromdeploymentglobals.md
   - docs/models/getembeddingsfromdeploymentrequest.md
   - docs/models/getembeddingsfromdeploymentrequestbody.md
   - docs/models/getembeddingsfromdeploymentresponsebody.md
   - docs/models/hyperparameters.md
+  - docs/models/internal/globals.md
+  - docs/models/listcheckpointsglobals.md
   - docs/models/listcheckpointsrequest.md
+  - docs/models/listdatasetsglobals.md
   - docs/models/listdatasetsrequest.md
+  - docs/models/listdeploymentsglobals.md
   - docs/models/listdeploymentsrequest.md
+  - docs/models/listtrainingjobsglobals.md
   - docs/models/listtrainingjobsrequest.md
   - docs/models/messages.md
   - docs/models/parameters.md
@@ -87,9 +106,13 @@ generatedFiles:
   - docs/models/projectsummary.md
   - docs/models/response.md
   - docs/models/retrievebasemodelbynamerequest.md
+  - docs/models/retrievedatasetbyidglobals.md
   - docs/models/retrievedatasetbyidrequest.md
+  - docs/models/retrievedeploymentbyidglobals.md
   - docs/models/retrievedeploymentbyidrequest.md
+  - docs/models/retrieveprojectbyidglobals.md
   - docs/models/retrieveprojectbyidrequest.md
+  - docs/models/retrievetrainingjobbyidglobals.md
   - docs/models/retrievetrainingjobbyidrequest.md
   - docs/models/role.md
   - docs/models/security.md
@@ -159,6 +182,8 @@ generatedFiles:
   - src/emissary_client_sdk/models/getclassificationfromdeploymentop.py
   - src/emissary_client_sdk/models/getcompletionsfromdeploymentop.py
   - src/emissary_client_sdk/models/getembeddingsfromdeploymentop.py
+  - src/emissary_client_sdk/models/internal/__init__.py
+  - src/emissary_client_sdk/models/internal/globals.py
   - src/emissary_client_sdk/models/listcheckpointsop.py
   - src/emissary_client_sdk/models/listdatasetsop.py
   - src/emissary_client_sdk/models/listdeploymentsop.py

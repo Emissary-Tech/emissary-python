@@ -6,9 +6,12 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.base_models.list()
+res = s.create_project(request={
+    "name": "my_project",
+})
 
 if res is not None:
     # handle response
@@ -27,8 +30,11 @@ import os
 async def main():
     s = EmissaryClient(
         api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+        project_id="<id>",
     )
-    res = await s.base_models.list_async()
+    res = await s.create_project_async(request={
+        "name": "my_project",
+    })
     if res is not None:
         # handle response
         pass

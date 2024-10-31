@@ -3,7 +3,7 @@
 import importlib.metadata
 
 __title__: str = "emissary-client-sdk"
-__version__: str = "0.4.4"
+__version__: str = "0.5.0"
 
 try:
     if __package__ is not None:

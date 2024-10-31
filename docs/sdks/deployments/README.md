@@ -24,15 +24,16 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.deployments.create(project_id="<id>", request_body={
+res = s.deployments.create(request_body={
     "training_job_id": "tr-12345",
     "checkpoint": 4,
     "server_type": emissary_client_sdk.ServerType.ON_DEMAND,
     "name": "deployment-1",
     "description": "Deployment for my training job",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -44,8 +45,8 @@ if res is not None:
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `project_id`                                                                      | *str*                                                                             | :heavy_check_mark:                                                                | The ID of the project to create a deployment for                                  |
 | `request_body`                                                                    | [models.CreateDeploymentRequestBody](../../models/createdeploymentrequestbody.md) | :heavy_check_mark:                                                                | Provide you deployment details                                                    |
+| `project_id`                                                                      | *Optional[str]*                                                                   | :heavy_minus_sign:                                                                | N/A                                                                               |
 | `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |
 
 ### Response
@@ -71,6 +72,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.deployments.list(project_id="<id>")
@@ -85,7 +87,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -111,9 +113,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.deployments.get(project_id="<id>", deployment_id="<id>")
+res = s.deployments.get(deployment_id="<id>", project_id="<id>")
 
 if res is not None:
     # handle response
@@ -125,8 +128,8 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to retrieve                                |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -152,9 +155,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-s.deployments.delete(project_id="<id>", deployment_id="<id>")
+s.deployments.delete(deployment_id="<id>", project_id="<id>")
 
 # Use the SDK ...
 
@@ -164,8 +168,8 @@ s.deployments.delete(project_id="<id>", deployment_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to delete                                  |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
@@ -187,9 +191,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-s.deployments.cancel(project_id="<id>", deployment_id="<id>")
+s.deployments.cancel(deployment_id="<id>", project_id="<id>")
 
 # Use the SDK ...
 
@@ -199,8 +204,8 @@ s.deployments.cancel(project_id="<id>", deployment_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to cancel                                  |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors

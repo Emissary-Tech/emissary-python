@@ -3,23 +3,34 @@
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata
-from typing_extensions import Annotated, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class ListCheckpointsGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class ListCheckpointsGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class ListCheckpointsRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve checkpoints for"""
     training_job_id: str
     r"""The ID of the training job to retrieve checkpoints for"""
+    project_id: NotRequired[str]
 
 
 class ListCheckpointsRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve checkpoints for"""
-
     training_job_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the training job to retrieve checkpoints for"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None

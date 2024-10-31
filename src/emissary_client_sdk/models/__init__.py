@@ -11,14 +11,20 @@ from .basemodelsummary import (
     Type,
 )
 from .canceldeploymentbyidop import (
+    CancelDeploymentByIDGlobals,
+    CancelDeploymentByIDGlobalsTypedDict,
     CancelDeploymentByIDRequest,
     CancelDeploymentByIDRequestTypedDict,
 )
 from .canceltrainingjobbyidop import (
+    CancelTrainingJobByIDGlobals,
+    CancelTrainingJobByIDGlobalsTypedDict,
     CancelTrainingJobByIDRequest,
     CancelTrainingJobByIDRequestTypedDict,
 )
 from .createdatasetop import (
+    CreateDatasetGlobals,
+    CreateDatasetGlobalsTypedDict,
     CreateDatasetRequest,
     CreateDatasetRequestBody,
     CreateDatasetRequestBodyTypedDict,
@@ -27,6 +33,8 @@ from .createdatasetop import (
     FileTypedDict,
 )
 from .createdeploymentop import (
+    CreateDeploymentGlobals,
+    CreateDeploymentGlobalsTypedDict,
     CreateDeploymentRequest,
     CreateDeploymentRequestBody,
     CreateDeploymentRequestBodyTypedDict,
@@ -35,6 +43,8 @@ from .createdeploymentop import (
 )
 from .createprojectop import CreateProjectRequestBody, CreateProjectRequestBodyTypedDict
 from .createtrainingjobop import (
+    CreateTrainingJobGlobals,
+    CreateTrainingJobGlobalsTypedDict,
     CreateTrainingJobRequest,
     CreateTrainingJobRequestBody,
     CreateTrainingJobRequestBodyTypedDict,
@@ -45,18 +55,26 @@ from .createtrainingjobop import (
 from .datasetdetail import DatasetDetail, DatasetDetailTypedDict
 from .datasetsummary import DatasetSummary, DatasetSummaryTypedDict
 from .deletedatasetbyidop import (
+    DeleteDatasetByIDGlobals,
+    DeleteDatasetByIDGlobalsTypedDict,
     DeleteDatasetByIDRequest,
     DeleteDatasetByIDRequestTypedDict,
 )
 from .deletedeploymentbyidop import (
+    DeleteDeploymentByIDGlobals,
+    DeleteDeploymentByIDGlobalsTypedDict,
     DeleteDeploymentByIDRequest,
     DeleteDeploymentByIDRequestTypedDict,
 )
 from .deleteprojectbyidop import (
+    DeleteProjectByIDGlobals,
+    DeleteProjectByIDGlobalsTypedDict,
     DeleteProjectByIDRequest,
     DeleteProjectByIDRequestTypedDict,
 )
 from .deletetrainingjobbyidop import (
+    DeleteTrainingJobByIDGlobals,
+    DeleteTrainingJobByIDGlobalsTypedDict,
     DeleteTrainingJobByIDRequest,
     DeleteTrainingJobByIDRequestTypedDict,
 )
@@ -71,6 +89,8 @@ from .deploymentsummary import (
     DeploymentSummaryTypedDict,
 )
 from .getchatcompletionsfromdeploymentop import (
+    GetChatCompletionsFromDeploymentGlobals,
+    GetChatCompletionsFromDeploymentGlobalsTypedDict,
     GetChatCompletionsFromDeploymentRequest,
     GetChatCompletionsFromDeploymentRequestBody,
     GetChatCompletionsFromDeploymentRequestBodyTypedDict,
@@ -82,6 +102,8 @@ from .getchatcompletionsfromdeploymentop import (
     Role,
 )
 from .getclassificationfromdeploymentop import (
+    GetClassificationFromDeploymentGlobals,
+    GetClassificationFromDeploymentGlobalsTypedDict,
     GetClassificationFromDeploymentRequest,
     GetClassificationFromDeploymentRequestBody,
     GetClassificationFromDeploymentRequestBodyTypedDict,
@@ -90,6 +112,8 @@ from .getclassificationfromdeploymentop import (
     GetClassificationFromDeploymentResponseBodyTypedDict,
 )
 from .getcompletionsfromdeploymentop import (
+    GetCompletionsFromDeploymentGlobals,
+    GetCompletionsFromDeploymentGlobalsTypedDict,
     GetCompletionsFromDeploymentRequest,
     GetCompletionsFromDeploymentRequestBody,
     GetCompletionsFromDeploymentRequestBodyTypedDict,
@@ -100,6 +124,8 @@ from .getcompletionsfromdeploymentop import (
 from .getembeddingsfromdeploymentop import (
     GetEmbeddingsFromDeploymentEmbeddings,
     GetEmbeddingsFromDeploymentEmbeddingsTypedDict,
+    GetEmbeddingsFromDeploymentGlobals,
+    GetEmbeddingsFromDeploymentGlobalsTypedDict,
     GetEmbeddingsFromDeploymentRequest,
     GetEmbeddingsFromDeploymentRequestBody,
     GetEmbeddingsFromDeploymentRequestBodyTypedDict,
@@ -109,10 +135,27 @@ from .getembeddingsfromdeploymentop import (
     Response,
     ResponseTypedDict,
 )
-from .listcheckpointsop import ListCheckpointsRequest, ListCheckpointsRequestTypedDict
-from .listdatasetsop import ListDatasetsRequest, ListDatasetsRequestTypedDict
-from .listdeploymentsop import ListDeploymentsRequest, ListDeploymentsRequestTypedDict
+from .listcheckpointsop import (
+    ListCheckpointsGlobals,
+    ListCheckpointsGlobalsTypedDict,
+    ListCheckpointsRequest,
+    ListCheckpointsRequestTypedDict,
+)
+from .listdatasetsop import (
+    ListDatasetsGlobals,
+    ListDatasetsGlobalsTypedDict,
+    ListDatasetsRequest,
+    ListDatasetsRequestTypedDict,
+)
+from .listdeploymentsop import (
+    ListDeploymentsGlobals,
+    ListDeploymentsGlobalsTypedDict,
+    ListDeploymentsRequest,
+    ListDeploymentsRequestTypedDict,
+)
 from .listtrainingjobsop import (
+    ListTrainingJobsGlobals,
+    ListTrainingJobsGlobalsTypedDict,
     ListTrainingJobsRequest,
     ListTrainingJobsRequestTypedDict,
 )
@@ -123,18 +166,26 @@ from .retrievebasemodelbynameop import (
     RetrieveBaseModelByNameRequestTypedDict,
 )
 from .retrievedatasetbyidop import (
+    RetrieveDatasetByIDGlobals,
+    RetrieveDatasetByIDGlobalsTypedDict,
     RetrieveDatasetByIDRequest,
     RetrieveDatasetByIDRequestTypedDict,
 )
 from .retrievedeploymentbyidop import (
+    RetrieveDeploymentByIDGlobals,
+    RetrieveDeploymentByIDGlobalsTypedDict,
     RetrieveDeploymentByIDRequest,
     RetrieveDeploymentByIDRequestTypedDict,
 )
 from .retrieveprojectbyidop import (
+    RetrieveProjectByIDGlobals,
+    RetrieveProjectByIDGlobalsTypedDict,
     RetrieveProjectByIDRequest,
     RetrieveProjectByIDRequestTypedDict,
 )
 from .retrievetrainingjobbyidop import (
+    RetrieveTrainingJobByIDGlobals,
+    RetrieveTrainingJobByIDGlobalsTypedDict,
     RetrieveTrainingJobByIDRequest,
     RetrieveTrainingJobByIDRequestTypedDict,
 )
@@ -166,20 +217,30 @@ __all__ = [
     "APIErrorUnauthorizedData",
     "BaseModelSummary",
     "BaseModelSummaryTypedDict",
+    "CancelDeploymentByIDGlobals",
+    "CancelDeploymentByIDGlobalsTypedDict",
     "CancelDeploymentByIDRequest",
     "CancelDeploymentByIDRequestTypedDict",
+    "CancelTrainingJobByIDGlobals",
+    "CancelTrainingJobByIDGlobalsTypedDict",
     "CancelTrainingJobByIDRequest",
     "CancelTrainingJobByIDRequestTypedDict",
+    "CreateDatasetGlobals",
+    "CreateDatasetGlobalsTypedDict",
     "CreateDatasetRequest",
     "CreateDatasetRequestBody",
     "CreateDatasetRequestBodyTypedDict",
     "CreateDatasetRequestTypedDict",
+    "CreateDeploymentGlobals",
+    "CreateDeploymentGlobalsTypedDict",
     "CreateDeploymentRequest",
     "CreateDeploymentRequestBody",
     "CreateDeploymentRequestBodyTypedDict",
     "CreateDeploymentRequestTypedDict",
     "CreateProjectRequestBody",
     "CreateProjectRequestBodyTypedDict",
+    "CreateTrainingJobGlobals",
+    "CreateTrainingJobGlobalsTypedDict",
     "CreateTrainingJobRequest",
     "CreateTrainingJobRequestBody",
     "CreateTrainingJobRequestBodyTypedDict",
@@ -188,12 +249,20 @@ __all__ = [
     "DatasetDetailTypedDict",
     "DatasetSummary",
     "DatasetSummaryTypedDict",
+    "DeleteDatasetByIDGlobals",
+    "DeleteDatasetByIDGlobalsTypedDict",
     "DeleteDatasetByIDRequest",
     "DeleteDatasetByIDRequestTypedDict",
+    "DeleteDeploymentByIDGlobals",
+    "DeleteDeploymentByIDGlobalsTypedDict",
     "DeleteDeploymentByIDRequest",
     "DeleteDeploymentByIDRequestTypedDict",
+    "DeleteProjectByIDGlobals",
+    "DeleteProjectByIDGlobalsTypedDict",
     "DeleteProjectByIDRequest",
     "DeleteProjectByIDRequestTypedDict",
+    "DeleteTrainingJobByIDGlobals",
+    "DeleteTrainingJobByIDGlobalsTypedDict",
     "DeleteTrainingJobByIDRequest",
     "DeleteTrainingJobByIDRequestTypedDict",
     "DeploymentDetail",
@@ -204,18 +273,24 @@ __all__ = [
     "DeploymentSummaryTypedDict",
     "File",
     "FileTypedDict",
+    "GetChatCompletionsFromDeploymentGlobals",
+    "GetChatCompletionsFromDeploymentGlobalsTypedDict",
     "GetChatCompletionsFromDeploymentRequest",
     "GetChatCompletionsFromDeploymentRequestBody",
     "GetChatCompletionsFromDeploymentRequestBodyTypedDict",
     "GetChatCompletionsFromDeploymentRequestTypedDict",
     "GetChatCompletionsFromDeploymentResponseBody",
     "GetChatCompletionsFromDeploymentResponseBodyTypedDict",
+    "GetClassificationFromDeploymentGlobals",
+    "GetClassificationFromDeploymentGlobalsTypedDict",
     "GetClassificationFromDeploymentRequest",
     "GetClassificationFromDeploymentRequestBody",
     "GetClassificationFromDeploymentRequestBodyTypedDict",
     "GetClassificationFromDeploymentRequestTypedDict",
     "GetClassificationFromDeploymentResponseBody",
     "GetClassificationFromDeploymentResponseBodyTypedDict",
+    "GetCompletionsFromDeploymentGlobals",
+    "GetCompletionsFromDeploymentGlobalsTypedDict",
     "GetCompletionsFromDeploymentRequest",
     "GetCompletionsFromDeploymentRequestBody",
     "GetCompletionsFromDeploymentRequestBodyTypedDict",
@@ -224,6 +299,8 @@ __all__ = [
     "GetCompletionsFromDeploymentResponseBodyTypedDict",
     "GetEmbeddingsFromDeploymentEmbeddings",
     "GetEmbeddingsFromDeploymentEmbeddingsTypedDict",
+    "GetEmbeddingsFromDeploymentGlobals",
+    "GetEmbeddingsFromDeploymentGlobalsTypedDict",
     "GetEmbeddingsFromDeploymentRequest",
     "GetEmbeddingsFromDeploymentRequestBody",
     "GetEmbeddingsFromDeploymentRequestBodyTypedDict",
@@ -232,12 +309,20 @@ __all__ = [
     "GetEmbeddingsFromDeploymentResponseBodyTypedDict",
     "HyperParameters",
     "HyperParametersTypedDict",
+    "ListCheckpointsGlobals",
+    "ListCheckpointsGlobalsTypedDict",
     "ListCheckpointsRequest",
     "ListCheckpointsRequestTypedDict",
+    "ListDatasetsGlobals",
+    "ListDatasetsGlobalsTypedDict",
     "ListDatasetsRequest",
     "ListDatasetsRequestTypedDict",
+    "ListDeploymentsGlobals",
+    "ListDeploymentsGlobalsTypedDict",
     "ListDeploymentsRequest",
     "ListDeploymentsRequestTypedDict",
+    "ListTrainingJobsGlobals",
+    "ListTrainingJobsGlobalsTypedDict",
     "ListTrainingJobsRequest",
     "ListTrainingJobsRequestTypedDict",
     "Messages",
@@ -254,12 +339,20 @@ __all__ = [
     "ResponseTypedDict",
     "RetrieveBaseModelByNameRequest",
     "RetrieveBaseModelByNameRequestTypedDict",
+    "RetrieveDatasetByIDGlobals",
+    "RetrieveDatasetByIDGlobalsTypedDict",
     "RetrieveDatasetByIDRequest",
     "RetrieveDatasetByIDRequestTypedDict",
+    "RetrieveDeploymentByIDGlobals",
+    "RetrieveDeploymentByIDGlobalsTypedDict",
     "RetrieveDeploymentByIDRequest",
     "RetrieveDeploymentByIDRequestTypedDict",
+    "RetrieveProjectByIDGlobals",
+    "RetrieveProjectByIDGlobalsTypedDict",
     "RetrieveProjectByIDRequest",
     "RetrieveProjectByIDRequestTypedDict",
+    "RetrieveTrainingJobByIDGlobals",
+    "RetrieveTrainingJobByIDGlobalsTypedDict",
     "RetrieveTrainingJobByIDRequest",
     "RetrieveTrainingJobByIDRequestTypedDict",
     "Role",

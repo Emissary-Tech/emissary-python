@@ -12,10 +12,10 @@ class Datasets(BaseSDK):
     def create(
         self,
         *,
-        project_id: str,
         request_body: Union[
             models.CreateDatasetRequestBody, models.CreateDatasetRequestBodyTypedDict
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -24,8 +24,8 @@ class Datasets(BaseSDK):
 
         Create a new dataset which will be used in the project.
 
-        :param project_id: The ID of the project to delete
         :param request_body: Provide your project name if you want to specify it.
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -56,6 +56,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CreateDatasetGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -112,10 +115,10 @@ class Datasets(BaseSDK):
     async def create_async(
         self,
         *,
-        project_id: str,
         request_body: Union[
             models.CreateDatasetRequestBody, models.CreateDatasetRequestBodyTypedDict
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -124,8 +127,8 @@ class Datasets(BaseSDK):
 
         Create a new dataset which will be used in the project.
 
-        :param project_id: The ID of the project to delete
         :param request_body: Provide your project name if you want to specify it.
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -156,6 +159,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CreateDatasetGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -212,7 +218,7 @@ class Datasets(BaseSDK):
     def list(
         self,
         *,
-        project_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -221,7 +227,7 @@ class Datasets(BaseSDK):
 
         Fetching a list of datasets
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -249,6 +255,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.ListDatasetsGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -298,7 +307,7 @@ class Datasets(BaseSDK):
     async def list_async(
         self,
         *,
-        project_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -307,7 +316,7 @@ class Datasets(BaseSDK):
 
         Fetching a list of datasets
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -335,6 +344,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.ListDatasetsGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -384,8 +396,8 @@ class Datasets(BaseSDK):
     def get(
         self,
         *,
-        project_id: str,
         dataset_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -394,8 +406,8 @@ class Datasets(BaseSDK):
 
         Retrieve a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
         :param dataset_id: The ID of the dataset to retrieve
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -424,6 +436,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.RetrieveDatasetByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -473,8 +488,8 @@ class Datasets(BaseSDK):
     async def get_async(
         self,
         *,
-        project_id: str,
         dataset_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -483,8 +498,8 @@ class Datasets(BaseSDK):
 
         Retrieve a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
         :param dataset_id: The ID of the dataset to retrieve
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -513,6 +528,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.RetrieveDatasetByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -562,8 +580,8 @@ class Datasets(BaseSDK):
     def delete(
         self,
         *,
-        project_id: str,
         dataset_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -572,8 +590,8 @@ class Datasets(BaseSDK):
 
         Delete a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
         :param dataset_id: The ID of the dataset to delete
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -602,6 +620,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.DeleteDatasetByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -651,8 +672,8 @@ class Datasets(BaseSDK):
     async def delete_async(
         self,
         *,
-        project_id: str,
         dataset_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -661,8 +682,8 @@ class Datasets(BaseSDK):
 
         Delete a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
         :param dataset_id: The ID of the dataset to delete
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -691,6 +712,9 @@ class Datasets(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.DeleteDatasetByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )

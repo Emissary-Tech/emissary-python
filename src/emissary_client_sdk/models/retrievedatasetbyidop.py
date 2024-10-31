@@ -3,23 +3,34 @@
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata
-from typing_extensions import Annotated, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class RetrieveDatasetByIDGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class RetrieveDatasetByIDGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class RetrieveDatasetByIDRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve datasets for"""
     dataset_id: str
     r"""The ID of the dataset to retrieve"""
+    project_id: NotRequired[str]
 
 
 class RetrieveDatasetByIDRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve datasets for"""
-
     dataset_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the dataset to retrieve"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None

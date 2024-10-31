@@ -7,6 +7,17 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class GetEmbeddingsFromDeploymentGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class GetEmbeddingsFromDeploymentGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
+
+
 class GetEmbeddingsFromDeploymentRequestBodyTypedDict(TypedDict):
     r"""Provide your input for embeddings"""
 
@@ -42,20 +53,14 @@ class GetEmbeddingsFromDeploymentRequestBody(BaseModel):
 
 
 class GetEmbeddingsFromDeploymentRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to get embeddings from"""
     request_body: GetEmbeddingsFromDeploymentRequestBodyTypedDict
     r"""Provide your input for embeddings"""
+    project_id: NotRequired[str]
 
 
 class GetEmbeddingsFromDeploymentRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve deployments for"""
-
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
@@ -66,6 +71,11 @@ class GetEmbeddingsFromDeploymentRequest(BaseModel):
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
     r"""Provide your input for embeddings"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class GetEmbeddingsFromDeploymentEmbeddingsTypedDict(TypedDict):

@@ -12,12 +12,12 @@ class Completions(BaseSDK):
     def create(
         self,
         *,
-        project_id: str,
         deployment_id: str,
         request_body: Union[
             models.GetCompletionsFromDeploymentRequestBody,
             models.GetCompletionsFromDeploymentRequestBodyTypedDict,
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -26,9 +26,9 @@ class Completions(BaseSDK):
 
         Get completions from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to get completions from
         :param request_body: Provide you prompt input for completions
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -60,6 +60,9 @@ class Completions(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.GetCompletionsFromDeploymentGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -121,12 +124,12 @@ class Completions(BaseSDK):
     async def create_async(
         self,
         *,
-        project_id: str,
         deployment_id: str,
         request_body: Union[
             models.GetCompletionsFromDeploymentRequestBody,
             models.GetCompletionsFromDeploymentRequestBodyTypedDict,
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -135,9 +138,9 @@ class Completions(BaseSDK):
 
         Get completions from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to get completions from
         :param request_body: Provide you prompt input for completions
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -169,6 +172,9 @@ class Completions(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.GetCompletionsFromDeploymentGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,

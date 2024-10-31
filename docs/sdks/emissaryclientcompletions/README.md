@@ -20,9 +20,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.deployments.chat.completions.create(project_id="<id>", deployment_id="<id>", request_body={
+res = s.deployments.chat.completions.create(deployment_id="<id>", request_body={
     "messages": [
         {
             "role": emissary_client_sdk.Role.USER,
@@ -36,7 +37,7 @@ res = s.deployments.chat.completions.create(project_id="<id>", deployment_id="<i
     "top_k": 50,
     "no_repeat_ngram_size": 2,
     "do_sample": True,
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -48,9 +49,9 @@ if res is not None:
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `project_id`                                                                                                      | *str*                                                                                                             | :heavy_check_mark:                                                                                                | The ID of the project to retrieve deployments for                                                                 |
 | `deployment_id`                                                                                                   | *str*                                                                                                             | :heavy_check_mark:                                                                                                | The ID of the deployment to get chat completions from                                                             |
 | `request_body`                                                                                                    | [models.GetChatCompletionsFromDeploymentRequestBody](../../models/getchatcompletionsfromdeploymentrequestbody.md) | :heavy_check_mark:                                                                                                | Provide your chat input for completions                                                                           |
+| `project_id`                                                                                                      | *Optional[str]*                                                                                                   | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
 | `retries`                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                  | :heavy_minus_sign:                                                                                                | Configuration to override the default retry behavior of the client.                                               |
 
 ### Response
