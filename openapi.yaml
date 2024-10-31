@@ -17,7 +17,11 @@ servers:
     description: Test API Server
 x-speakeasy-globals:
   parameters:
-    - $ref: '#/components/parameters/ProjectId'
+    - name: project_id
+      in: path
+      schema:
+        type: string
+      required: true
       x-speakeasy-globals-hidden: true
 tags:
   - name: Base Model
@@ -919,7 +923,7 @@ components:
       in: path
       schema:
         type: string
-      required: false
+      required: true
   schemas:
     BaseModelSummary:
       type: object
