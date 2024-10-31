@@ -15,9 +15,6 @@ security:
 servers:
   - url: https://d1d3-4-4-33-74.ngrok-free.app
     description: Test API Server
-x-speakeasy-globals:
-  parameters:
-    - $ref: '#/components/parameters/ProjectId'
 tags:
   - name: Base Model
     description: Deals with base models
@@ -50,8 +47,6 @@ paths:
           $ref: '#/components/responses/InvalidInput'
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: baseModels
-      x-speakeasy-name-override: list
   '/v1/models/{base_model_name}':
     get:
       tags:
@@ -75,8 +70,6 @@ paths:
                 "$ref": "#/components/schemas/BaseModelSummary"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: baseModels
-      x-speakeasy-name-override: get
   '/v1/projects': # path parameter in curly braces
     post:
       tags:
@@ -105,8 +98,6 @@ paths:
                 "$ref": "#/components/schemas/ProjectSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: projects
-      x-speakeasy-name-override: create
     get: # documentation for GET operation for this path
       tags:
         - Project
@@ -128,8 +119,6 @@ paths:
                   "$ref": "#/components/schemas/ProjectSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: projects
-      x-speakeasy-name-override: list
   '/v1/projects/{project_id}':
     get:
       tags:
@@ -138,7 +127,12 @@ paths:
       description: Retrieve a project by its unique identifier.
       operationId: retrieveProjectById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve
+          schema:
+            type: string
       responses:
         '200':
           description: Successful operation
@@ -148,8 +142,6 @@ paths:
                 "$ref": "#/components/schemas/ProjectDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects
-      x-speakeasy-name-override: get
     delete:
       tags:
         - Project
@@ -157,14 +149,17 @@ paths:
       description: Delete a project by its unique identifier.
       operationId: deleteProjectById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to delete
+          schema:
+            type: string
       responses:
         '204':
           description: Project deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects
-      x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/datasets':
     post:
       tags:
@@ -173,7 +168,12 @@ paths:
       description: Create a new dataset which will be used in the project.
       operationId: createDataset
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to delete
+          schema:
+            type: string
       requestBody:
         required: true
         description: Provide your project name if you want to specify it.
@@ -200,8 +200,6 @@ paths:
                 "$ref": "#/components/schemas/DatasetSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: datasets
-      x-speakeasy-name-override: create
     get:
       tags:
         - Dataset
@@ -209,7 +207,12 @@ paths:
       description: Fetching a list of datasets
       operationId: listDatasets
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve datasets for
+          schema:
+            type: string
       responses:
         '200':
           description: List of datasets with their ID and name
@@ -221,8 +224,6 @@ paths:
                   "$ref": "#/components/schemas/DatasetSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: datasets
-      x-speakeasy-name-override: list
   '/v1/projects/{project_id}/datasets/{dataset_id}':
     get:
       tags:
@@ -231,7 +232,12 @@ paths:
       description: Retrieve a dataset by its unique identifier.
       operationId: retrieveDatasetById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve datasets for
+          schema:
+            type: string
         - name: dataset_id
           in: path
           required: true
@@ -247,29 +253,30 @@ paths:
                 "$ref": "#/components/schemas/DatasetDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: datasets
-      x-speakeasy-name-override: get
     delete:
-      tags:
-        - Dataset
-      summary: Delete a dataset by ID
-      description: Delete a dataset by its unique identifier.
-      operationId: deleteDatasetById
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
-        - name: dataset_id
-          in: path
-          required: true
-          description: The ID of the dataset to delete
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Dataset deleted successfully
-        '404':
-          $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: datasets
-      x-speakeasy-name-override: delete
+        tags:
+            - Dataset
+        summary: Delete a dataset by ID
+        description: Delete a dataset by its unique identifier.
+        operationId: deleteDatasetById
+        parameters:
+            - name: project_id
+              in: path
+              required: true
+              description: The ID of the project to retrieve datasets for
+              schema:
+                type: string
+            - name: dataset_id
+              in: path
+              required: true
+              description: The ID of the dataset to delete
+              schema:
+                type: string
+        responses:
+          '204':
+            description: Dataset deleted successfully
+          '404':
+            $ref: '#/components/responses/NotFound'
   '/v1/projects/{project_id}/training-jobs':
     post:
       tags:
@@ -278,7 +285,12 @@ paths:
       description: Create a new training job for the project.
       operationId: createTrainingJob
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to create a training job for
+          schema:
+            type: string
       requestBody:
         required: true
         description: Provide your training job details
@@ -290,7 +302,9 @@ paths:
                 base_model:
                   type: string
                   example: "Llama-3.2-1B-Instruct"
-                  description: The base model to fine-tune. To see full list of supported base model please visit [Base Models](https://docs.withemissary.com/models)
+                  description: The base model to fine-tune. 
+                    To see full list of supported base model please visit 
+                    [Base Models](https://docs.withemissary.com/models)
                 train_dataset_id:
                   type: string
                   example: "ds-12345"
@@ -335,8 +349,6 @@ paths:
                 "$ref": "#/components/schemas/TrainingJobSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: create
     get:
       tags:
         - Training Job
@@ -344,7 +356,12 @@ paths:
       description: Fetching a list of training jobs
       operationId: listTrainingJobs
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve training jobs for
+          schema:
+            type: string
       responses:
         '200':
           description: List of training jobs with their ID and name
@@ -356,8 +373,6 @@ paths:
                   "$ref": "#/components/schemas/TrainingJobSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: list
   '/v1/projects/{project_id}/training-jobs/{training_job_id}':
     get:
       tags:
@@ -366,7 +381,12 @@ paths:
       description: Retrieve a training job by its unique identifier.
       operationId: retrieveTrainingJobById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve training jobs for
+          schema:
+            type: string
         - name: training_job_id
           in: path
           required: true
@@ -382,8 +402,6 @@ paths:
                 "$ref": "#/components/schemas/TrainingJobDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: get
     delete:
       tags:
         - Training Job
@@ -391,7 +409,12 @@ paths:
       description: Delete a training job by its unique identifier.
       operationId: deleteTrainingJobById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve training jobs for
+          schema:
+            type: string
         - name: training_job_id
           in: path
           required: true
@@ -400,20 +423,26 @@ paths:
             type: string
       responses:
         '204':
-          description: Training job deleted successfully
+          description:
+            Training job deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel':
     post:
       tags:
         - Training Job
-      summary: Cancel a training job by ID
-      description: Cancel a training job by its unique identifier.
+      summary:
+        Cancel a training job by ID
+      description:
+        Cancel a training job by its unique identifier.
       operationId: cancelTrainingJobById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve training jobs for
+          schema:
+            type: string
         - name: training_job_id
           in: path
           required: true
@@ -425,8 +454,6 @@ paths:
           description: Training job canceled successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
-      x-speakeasy-name-override: cancel
   '/v1/projects/{project_id}/training-jobs/{training_job_id}/checkpoints':
     get:
       tags:
@@ -435,7 +462,12 @@ paths:
       description: Fetching a list of checkpoints for a training job
       operationId: listCheckpoints
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve checkpoints for
+          schema:
+            type: string
         - name: training_job_id
           in: path
           required: true
@@ -453,7 +485,6 @@ paths:
                   "$ref": "#/components/schemas/TrainingJobCheckpoint"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
   '/v1/projects/{project_id}/deployments':
     post:
       tags:
@@ -462,7 +493,12 @@ paths:
       description: Create a new deployment for the project.
       operationId: createDeployment
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to create a deployment for
+          schema:
+            type: string
       requestBody:
         required: true
         description: Provide you deployment details
@@ -472,7 +508,8 @@ paths:
               type: object
               properties:
                 training_job_id:
-                  type: string
+                  type:
+                    string
                   example: "tr-12345"
                   description: The training job ID to use for deployment
                 checkpoint:
@@ -505,8 +542,6 @@ paths:
                 "$ref": "#/components/schemas/DeploymentSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: create
     get:
       tags:
         - Deployment
@@ -514,7 +549,12 @@ paths:
       description: Fetching a list of deployments
       operationId: listDeployments
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
       responses:
         '200':
           description: List of deployments with their ID and name
@@ -526,8 +566,6 @@ paths:
                   "$ref": "#/components/schemas/DeploymentSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: list
   '/v1/projects/{project_id}/deployments/{deployment_id}':
     get:
       tags:
@@ -536,7 +574,12 @@ paths:
       description: Retrieve a deployment by its unique identifier.
       operationId: retrieveDeploymentById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -552,8 +595,6 @@ paths:
                 "$ref": "#/components/schemas/DeploymentDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: get
     delete:
       tags:
         - Deployment
@@ -561,7 +602,12 @@ paths:
       description: Delete a deployment by its unique identifier.
       operationId: deleteDeploymentById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -573,8 +619,6 @@ paths:
           description: Deployment deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/deployments/{deployment_id}/cancel':
     post:
       tags:
@@ -583,7 +627,12 @@ paths:
       description: Cancel a deployment by its unique identifier.
       operationId: cancelDeploymentById
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -595,8 +644,6 @@ paths:
           description: Deployment canceled successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
-      x-speakeasy-name-override: cancel
   '/v1/projects/{project_id}/deployments/{deployment_id}/completions':
     post:
       tags:
@@ -605,7 +652,12 @@ paths:
       description: Get completions from a deployment using the provided input.
       operationId: getCompletionsFromDeployment
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -671,8 +723,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.completions
-      x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/chat/completions':
     post:
       tags:
@@ -681,7 +731,12 @@ paths:
       description: Get chat completions from a deployment using the provided input.
       operationId: getChatCompletionsFromDeployment
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -766,8 +821,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.chat.completions
-      x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/embeddings':
     post:
       tags:
@@ -776,7 +829,12 @@ paths:
       description: Get embeddings from a deployment using the provided input.
       operationId: getEmbeddingsFromDeployment
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -840,7 +898,7 @@ paths:
                           text2:
                             type: array
                             items:
-                              type: number
+                                type: number
                             description: The embedding vector for the target sentence
                       cosine_score:
                         type: number
@@ -855,8 +913,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.embeddings
-      x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/classification':
     post:
       tags:
@@ -865,7 +921,12 @@ paths:
       description: Get classification from a deployment using the provided input.
       operationId: getClassificationFromDeployment
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: project_id
+          in: path
+          required: true
+          description: The ID of the project to retrieve deployments for
+          schema:
+            type: string
         - name: deployment_id
           in: path
           required: true
@@ -906,16 +967,10 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.classification
-      x-speakeasy-name-override: create
+
+
 # An object to hold reusable parts that can be used across the definition
 components:
-  parameters:
-    ProjectId:
-      name: project_id
-      in: path
-      schema:
-        type: string
   schemas:
     BaseModelSummary:
       type: object
@@ -1144,10 +1199,10 @@ components:
       type: object
       description: Training Job Checkpoint Object
       properties:
-        #        id:
-        #          type: string
-        #          example: "ckpt-12345"
-        #          description: The unique identifier for the checkpoint
+#        id:
+#          type: string
+#          example: "ckpt-12345"
+#          description: The unique identifier for the checkpoint
         checkpoint:
           type: integer
           example: 3
@@ -1332,6 +1387,7 @@ components:
       type: apiKey
       name: X-API-Key
       in: header
+
   x-speakeasy-retries:
     strategy: backoff
     backoff:
@@ -1342,3 +1398,4 @@ components:
     statusCodes:
       - 5XX
     retryConnectionErrors: true
+  
