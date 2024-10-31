@@ -117,13 +117,10 @@ asyncio.run(main())
 <details open>
 <summary>Available methods</summary>
 
-### [base_model](docs/sdks/basemodel/README.md)
-
-* [retrieve_base_model_by_name](docs/sdks/basemodel/README.md#retrieve_base_model_by_name) - Retrieve a base model
-
 ### [base_models](docs/sdks/basemodels/README.md)
 
 * [list](docs/sdks/basemodels/README.md#list) - List of Base Models
+* [get](docs/sdks/basemodels/README.md#get) - Retrieve a base model
 
 ### [datasets](docs/sdks/datasets/README.md)
 

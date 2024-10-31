@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: a91d9b8f245bb5fb80f700101b2ad73e
+  docChecksum: 89025dc46997c7ee9b6bff65744a2335
   docVersion: 0.1.0
   speakeasyVersion: 1.423.5
   generationVersion: 2.445.1
-  releaseVersion: 0.4.3
-  configChecksum: 326518110eb63ca56dd14a4658c566f7
+  releaseVersion: 0.4.4
+  configChecksum: 014b76c449b6d405fa73f0f60362b936
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -103,7 +103,6 @@ generatedFiles:
   - docs/models/trainingloss.md
   - docs/models/type.md
   - docs/models/utils/retryconfig.md
-  - docs/sdks/basemodel/README.md
   - docs/sdks/basemodels/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/classification/README.md
@@ -127,7 +126,6 @@ generatedFiles:
   - src/emissary_client_sdk/_hooks/sdkhooks.py
   - src/emissary_client_sdk/_hooks/types.py
   - src/emissary_client_sdk/_version.py
-  - src/emissary_client_sdk/base_model.py
   - src/emissary_client_sdk/basemodels.py
   - src/emissary_client_sdk/basesdk.py
   - src/emissary_client_sdk/chat.py
