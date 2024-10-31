@@ -190,7 +190,8 @@ paths:
                   type: string
                   example: my_dataset
                   description: The name of the dataset
-              required: file
+              required:
+              - file
       responses:
         '201':
           description: Dataset created successfully
@@ -916,6 +917,8 @@ components:
       in: path
       schema:
         type: string
+      required: true
+      
   schemas:
     BaseModelSummary:
       type: object
