@@ -27,6 +27,7 @@ Emissary - OpenAPI 3.1: This is a Emissary Platform API specification.
 * [IDE Support](#ide-support)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
 * [File uploads](#file-uploads)
 * [Retries](#retries)
 * [Error Handling](#error-handling)
@@ -80,6 +81,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list()
@@ -101,6 +103,7 @@ import os
 async def main():
     s = EmissaryClient(
         api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+        project_id="<id>",
     )
     res = await s.base_models.list_async()
     if res is not None:
@@ -122,40 +125,6 @@ asyncio.run(main())
 * [list](docs/sdks/basemodels/README.md#list) - List of Base Models
 * [get](docs/sdks/basemodels/README.md#get) - Retrieve a base model
 
-### [datasets](docs/sdks/datasets/README.md)
-
-* [create](docs/sdks/datasets/README.md#create) - Create a new Dataset
-* [list](docs/sdks/datasets/README.md#list) - List of Datasets
-* [get](docs/sdks/datasets/README.md#get) - Retrieve a dataset by ID
-* [delete](docs/sdks/datasets/README.md#delete) - Delete a dataset by ID
-
-### [deployments](docs/sdks/deployments/README.md)
-
-* [create](docs/sdks/deployments/README.md#create) - Create a new Deployment
-* [list](docs/sdks/deployments/README.md#list) - List of Deployments
-* [get](docs/sdks/deployments/README.md#get) - Retrieve a deployment by ID
-* [delete](docs/sdks/deployments/README.md#delete) - Delete a deployment by ID
-* [cancel](docs/sdks/deployments/README.md#cancel) - Cancel a deployment by ID
-
-#### [deployments.chat](docs/sdks/chat/README.md)
-
-
-#### [deployments.chat.completions](docs/sdks/emissaryclientcompletions/README.md)
-
-* [create](docs/sdks/emissaryclientcompletions/README.md#create) - Get Chat Completions from a Deployment
-
-#### [deployments.classification](docs/sdks/classification/README.md)
-
-* [create](docs/sdks/classification/README.md#create) - Get Classification from a Deployment
-
-#### [deployments.completions](docs/sdks/completions/README.md)
-
-* [create](docs/sdks/completions/README.md#create) - Get Completions from a Deployment
-
-#### [deployments.embeddings](docs/sdks/embeddings/README.md)
-
-* [create](docs/sdks/embeddings/README.md#create) - Get Embeddings from a Deployment
-
 
 ### [projects](docs/sdks/projects/README.md)
 
@@ -164,7 +133,41 @@ asyncio.run(main())
 * [get](docs/sdks/projects/README.md#get) - Retrieve a project by ID
 * [delete](docs/sdks/projects/README.md#delete) - Delete a project by ID
 
-### [training_jobs](docs/sdks/trainingjobs/README.md)
+#### [projects.datasets](docs/sdks/datasets/README.md)
+
+* [create](docs/sdks/datasets/README.md#create) - Create a new Dataset
+* [list](docs/sdks/datasets/README.md#list) - List of Datasets
+* [get](docs/sdks/datasets/README.md#get) - Retrieve a dataset by ID
+* [delete](docs/sdks/datasets/README.md#delete) - Delete a dataset by ID
+
+#### [projects.deployments](docs/sdks/deployments/README.md)
+
+* [create](docs/sdks/deployments/README.md#create) - Create a new Deployment
+* [list](docs/sdks/deployments/README.md#list) - List of Deployments
+* [get](docs/sdks/deployments/README.md#get) - Retrieve a deployment by ID
+* [delete](docs/sdks/deployments/README.md#delete) - Delete a deployment by ID
+* [cancel](docs/sdks/deployments/README.md#cancel) - Cancel a deployment by ID
+
+#### [projects.deployments.chat](docs/sdks/chat/README.md)
+
+
+#### [projects.deployments.chat.completions](docs/sdks/emissaryclientcompletions/README.md)
+
+* [create](docs/sdks/emissaryclientcompletions/README.md#create) - Get Chat Completions from a Deployment
+
+#### [projects.deployments.classification](docs/sdks/classification/README.md)
+
+* [create](docs/sdks/classification/README.md#create) - Get Classification from a Deployment
+
+#### [projects.deployments.completions](docs/sdks/completions/README.md)
+
+* [create](docs/sdks/completions/README.md#create) - Get Completions from a Deployment
+
+#### [projects.deployments.embeddings](docs/sdks/embeddings/README.md)
+
+* [create](docs/sdks/embeddings/README.md#create) - Get Embeddings from a Deployment
+
+#### [projects.training_jobs](docs/sdks/trainingjobs/README.md)
 
 * [create](docs/sdks/trainingjobs/README.md#create) - Create a new Training Job
 * [list](docs/sdks/trainingjobs/README.md#list) - List of Training Jobs
@@ -175,6 +178,45 @@ asyncio.run(main())
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `project_id` to `"<id>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+Global parameters can also be set via environment variable.
+| Name | Type | Required | Description | Environment |
+| ---- | ---- |:--------:| ----------- | ----------- |
+| project_id | str |  | The project_id parameter. | EMISSARY_CLIENT_PROJECT_ID |
+
+
+
+### Example
+
+```python
+from emissary_client_sdk import EmissaryClient
+import os
+
+s = EmissaryClient(
+    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
+)
+
+res = s.projects.get(project_id="<id>")
+
+if res is not None:
+    # handle response
+    pass
+
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start File uploads [file-upload] -->
 ## File uploads
@@ -192,16 +234,17 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.datasets.create(project_id="<id>", request_body={
+res = s.projects.datasets.create(request_body={
     "file": {
         "file_name": "example.file",
         "content": open("example.file", "rb"),
         "content_type": "<value>",
     },
     "name": "my_dataset",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -223,6 +266,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list(,
@@ -243,6 +287,7 @@ import os
 s = EmissaryClient(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list()
@@ -284,6 +329,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = None
@@ -326,6 +372,7 @@ import os
 s = EmissaryClient(
     server_idx=0,
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list()
@@ -347,6 +394,7 @@ import os
 s = EmissaryClient(
     server_url="https://d1d3-4-4-33-74.ngrok-free.app",
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list()
@@ -457,6 +505,7 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
 res = s.base_models.list()

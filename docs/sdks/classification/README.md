@@ -1,5 +1,5 @@
 # Classification
-(*deployments.classification*)
+(*projects.deployments.classification*)
 
 ## Overview
 
@@ -19,11 +19,12 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.deployments.classification.create(project_id="<id>", deployment_id="<id>", request_body={
+res = s.projects.deployments.classification.create(deployment_id="<id>", request_body={
     "source_sentence": "What is the capital of France?",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -35,9 +36,9 @@ if res is not None:
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `project_id`                                                                                                    | *str*                                                                                                           | :heavy_check_mark:                                                                                              | The ID of the project to retrieve deployments for                                                               |
 | `deployment_id`                                                                                                 | *str*                                                                                                           | :heavy_check_mark:                                                                                              | The ID of the deployment to get classification from                                                             |
 | `request_body`                                                                                                  | [models.GetClassificationFromDeploymentRequestBody](../../models/getclassificationfromdeploymentrequestbody.md) | :heavy_check_mark:                                                                                              | Provide your input for classification                                                                           |
+| `project_id`                                                                                                    | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
 | `retries`                                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                | :heavy_minus_sign:                                                                                              | Configuration to override the default retry behavior of the client.                                             |
 
 ### Response

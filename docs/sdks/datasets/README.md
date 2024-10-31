@@ -1,5 +1,5 @@
 # Datasets
-(*datasets*)
+(*projects.datasets*)
 
 ## Overview
 
@@ -22,16 +22,17 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.datasets.create(project_id="<id>", request_body={
+res = s.projects.datasets.create(request_body={
     "file": {
         "file_name": "example.file",
         "content": open("example.file", "rb"),
         "content_type": "<value>",
     },
     "name": "my_dataset",
-})
+}, project_id="<id>")
 
 if res is not None:
     # handle response
@@ -43,8 +44,8 @@ if res is not None:
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `project_id`                                                                | *str*                                                                       | :heavy_check_mark:                                                          | The ID of the project to delete                                             |
 | `request_body`                                                              | [models.CreateDatasetRequestBody](../../models/createdatasetrequestbody.md) | :heavy_check_mark:                                                          | Provide your project name if you want to specify it.                        |
+| `project_id`                                                                | *Optional[str]*                                                             | :heavy_minus_sign:                                                          | N/A                                                                         |
 | `retries`                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)            | :heavy_minus_sign:                                                          | Configuration to override the default retry behavior of the client.         |
 
 ### Response
@@ -70,9 +71,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.datasets.list(project_id="<id>")
+res = s.projects.datasets.list(project_id="<id>")
 
 if res is not None:
     # handle response
@@ -84,7 +86,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -110,9 +112,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-res = s.datasets.get(project_id="<id>", dataset_id="<id>")
+res = s.projects.datasets.get(dataset_id="<id>", project_id="<id>")
 
 if res is not None:
     # handle response
@@ -124,8 +127,8 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
 | `dataset_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the dataset to retrieve                                   |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -151,9 +154,10 @@ import os
 
 s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
+    project_id="<id>",
 )
 
-s.datasets.delete(project_id="<id>", dataset_id="<id>")
+s.projects.datasets.delete(dataset_id="<id>", project_id="<id>")
 
 # Use the SDK ...
 
@@ -163,8 +167,8 @@ s.datasets.delete(project_id="<id>", dataset_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
 | `dataset_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the dataset to delete                                     |
+| `project_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors

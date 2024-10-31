@@ -1,2 +1,2 @@
 # Chat
-(*deployments.chat*)
+(*projects.deployments.chat*)

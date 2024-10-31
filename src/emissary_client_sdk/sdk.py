@@ -8,10 +8,8 @@ from .utils.retries import RetryConfig
 from emissary_client_sdk import models, utils
 from emissary_client_sdk._hooks import SDKHooks
 from emissary_client_sdk.basemodels import BaseModels
-from emissary_client_sdk.datasets import Datasets
-from emissary_client_sdk.deployments import Deployments
+from emissary_client_sdk.models import internal
 from emissary_client_sdk.projects import Projects
-from emissary_client_sdk.trainingjobs import TrainingJobs
 from emissary_client_sdk.types import OptionalNullable, UNSET
 import httpx
 from typing import Any, Callable, Dict, Optional, Union
@@ -22,13 +20,11 @@ class EmissaryClient(BaseSDK):
 
     base_models: BaseModels
     projects: Projects
-    datasets: Datasets
-    training_jobs: TrainingJobs
-    deployments: Deployments
 
     def __init__(
         self,
         api_key: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
+        project_id: Optional[str] = None,
         server_idx: Optional[int] = None,
         server_url: Optional[str] = None,
         url_params: Optional[Dict[str, str]] = None,
@@ -41,6 +37,7 @@ class EmissaryClient(BaseSDK):
         r"""Instantiates the SDK configuring it with the provided parameters.
 
         :param api_key: The api_key required for authentication
+        :param project_id: Configures the project_id parameter for all supported operations
         :param server_idx: The index of the server to use for all methods
         :param server_url: The server URL to use for all methods
         :param url_params: Parameters to optionally template the server URL with
@@ -76,11 +73,18 @@ class EmissaryClient(BaseSDK):
             if url_params is not None:
                 server_url = utils.template_url(server_url, url_params)
 
+        _globals = internal.Globals(
+            project_id=utils.get_global_from_env(
+                project_id, "EMISSARY_CLIENT_PROJECT_ID", str
+            ),
+        )
+
         BaseSDK.__init__(
             self,
             SDKConfiguration(
                 client=client,
                 async_client=async_client,
+                globals=_globals,
                 security=security,
                 server_url=server_url,
                 server_idx=server_idx,
@@ -107,6 +111,3 @@ class EmissaryClient(BaseSDK):
     def _init_sdks(self):
         self.base_models = BaseModels(self.sdk_configuration)
         self.projects = Projects(self.sdk_configuration)
-        self.datasets = Datasets(self.sdk_configuration)
-        self.training_jobs = TrainingJobs(self.sdk_configuration)
-        self.deployments = Deployments(self.sdk_configuration)

@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                                          | Type                                           | Required                                       | Description                                    |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| `project_id`                                   | *str*                                          | :heavy_check_mark:                             | The ID of the project to retrieve datasets for |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `project_id`       | *Optional[str]*    | :heavy_minus_sign: | N/A                |

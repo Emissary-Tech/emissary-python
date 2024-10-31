@@ -3,23 +3,34 @@
 from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata
-from typing_extensions import Annotated, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class DeleteTrainingJobByIDGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class DeleteTrainingJobByIDGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class DeleteTrainingJobByIDRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to retrieve training jobs for"""
     training_job_id: str
     r"""The ID of the training job to delete"""
+    project_id: NotRequired[str]
 
 
 class DeleteTrainingJobByIDRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to retrieve training jobs for"""
-
     training_job_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the training job to delete"""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None

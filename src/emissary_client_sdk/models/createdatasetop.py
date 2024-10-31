@@ -14,6 +14,17 @@ from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class CreateDatasetGlobalsTypedDict(TypedDict):
+    project_id: NotRequired[str]
+
+
+class CreateDatasetGlobals(BaseModel):
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None
+
+
 class FileTypedDict(TypedDict):
     file_name: str
     content: Union[bytes, IO[bytes], io.BufferedReader]
@@ -41,7 +52,7 @@ class File(BaseModel):
 class CreateDatasetRequestBodyTypedDict(TypedDict):
     r"""Provide your project name if you want to specify it."""
 
-    file: NotRequired[FileTypedDict]
+    file: FileTypedDict
     r"""The dataset file to upload"""
     name: NotRequired[str]
     r"""The name of the dataset"""
@@ -51,10 +62,10 @@ class CreateDatasetRequestBody(BaseModel):
     r"""Provide your project name if you want to specify it."""
 
     file: Annotated[
-        Optional[File],
+        File,
         pydantic.Field(alias=""),
         FieldMetadata(multipart=MultipartFormMetadata(file=True)),
-    ] = None
+    ]
     r"""The dataset file to upload"""
 
     name: Annotated[Optional[str], FieldMetadata(multipart=True)] = None
@@ -62,20 +73,19 @@ class CreateDatasetRequestBody(BaseModel):
 
 
 class CreateDatasetRequestTypedDict(TypedDict):
-    project_id: str
-    r"""The ID of the project to delete"""
     request_body: CreateDatasetRequestBodyTypedDict
     r"""Provide your project name if you want to specify it."""
+    project_id: NotRequired[str]
 
 
 class CreateDatasetRequest(BaseModel):
-    project_id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
-    ]
-    r"""The ID of the project to delete"""
-
     request_body: Annotated[
         CreateDatasetRequestBody,
         FieldMetadata(request=RequestMetadata(media_type="multipart/form-data")),
     ]
     r"""Provide your project name if you want to specify it."""
+
+    project_id: Annotated[
+        Optional[str],
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    ] = None

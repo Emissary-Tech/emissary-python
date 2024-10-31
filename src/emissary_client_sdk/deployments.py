@@ -33,11 +33,11 @@ class Deployments(BaseSDK):
     def create(
         self,
         *,
-        project_id: str,
         request_body: Union[
             models.CreateDeploymentRequestBody,
             models.CreateDeploymentRequestBodyTypedDict,
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -46,8 +46,8 @@ class Deployments(BaseSDK):
 
         Create a new deployment for the project.
 
-        :param project_id: The ID of the project to create a deployment for
         :param request_body: Provide you deployment details
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -78,6 +78,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CreateDeploymentGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -134,11 +137,11 @@ class Deployments(BaseSDK):
     async def create_async(
         self,
         *,
-        project_id: str,
         request_body: Union[
             models.CreateDeploymentRequestBody,
             models.CreateDeploymentRequestBodyTypedDict,
         ],
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -147,8 +150,8 @@ class Deployments(BaseSDK):
 
         Create a new deployment for the project.
 
-        :param project_id: The ID of the project to create a deployment for
         :param request_body: Provide you deployment details
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -179,6 +182,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CreateDeploymentGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -235,7 +241,7 @@ class Deployments(BaseSDK):
     def list(
         self,
         *,
-        project_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -244,7 +250,7 @@ class Deployments(BaseSDK):
 
         Fetching a list of deployments
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -272,6 +278,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.ListDeploymentsGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -321,7 +330,7 @@ class Deployments(BaseSDK):
     async def list_async(
         self,
         *,
-        project_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -330,7 +339,7 @@ class Deployments(BaseSDK):
 
         Fetching a list of deployments
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -358,6 +367,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.ListDeploymentsGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -407,8 +419,8 @@ class Deployments(BaseSDK):
     def get(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -417,8 +429,8 @@ class Deployments(BaseSDK):
 
         Retrieve a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to retrieve
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -447,6 +459,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.RetrieveDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -496,8 +511,8 @@ class Deployments(BaseSDK):
     async def get_async(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -506,8 +521,8 @@ class Deployments(BaseSDK):
 
         Retrieve a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to retrieve
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -536,6 +551,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.RetrieveDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -585,8 +603,8 @@ class Deployments(BaseSDK):
     def delete(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -595,8 +613,8 @@ class Deployments(BaseSDK):
 
         Delete a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to delete
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -625,6 +643,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.DeleteDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -674,8 +695,8 @@ class Deployments(BaseSDK):
     async def delete_async(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -684,8 +705,8 @@ class Deployments(BaseSDK):
 
         Delete a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to delete
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -714,6 +735,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.DeleteDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -763,8 +787,8 @@ class Deployments(BaseSDK):
     def cancel(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -773,8 +797,8 @@ class Deployments(BaseSDK):
 
         Cancel a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to cancel
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -803,6 +827,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CancelDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -852,8 +879,8 @@ class Deployments(BaseSDK):
     async def cancel_async(
         self,
         *,
-        project_id: str,
         deployment_id: str,
+        project_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -862,8 +889,8 @@ class Deployments(BaseSDK):
 
         Cancel a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
         :param deployment_id: The ID of the deployment to cancel
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -892,6 +919,9 @@ class Deployments(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            _globals=models.CancelDeploymentByIDGlobals(
+                project_id=self.sdk_configuration.globals.project_id,
+            ),
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
