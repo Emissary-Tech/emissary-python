@@ -919,7 +919,7 @@ components:
       in: path
       schema:
         type: string
-      required: true
+      required: false
   schemas:
     BaseModelSummary:
       type: object
