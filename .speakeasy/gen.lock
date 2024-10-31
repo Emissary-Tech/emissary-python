@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: c204072ac236204d314b5e94881660e4
+  docChecksum: a91d9b8f245bb5fb80f700101b2ad73e
   docVersion: 0.1.0
-  speakeasyVersion: 1.423.4
+  speakeasyVersion: 1.423.5
   generationVersion: 2.445.1
-  releaseVersion: 0.4.2
-  configChecksum: ca652adf3a60c61cac2f8ebbc2602c2d
+  releaseVersion: 0.4.3
+  configChecksum: 326518110eb63ca56dd14a4658c566f7
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
@@ -86,6 +86,7 @@ generatedFiles:
   - docs/models/projectdetail.md
   - docs/models/projectsummary.md
   - docs/models/response.md
+  - docs/models/retrievebasemodelbynamerequest.md
   - docs/models/retrievedatasetbyidrequest.md
   - docs/models/retrievedeploymentbyidrequest.md
   - docs/models/retrieveprojectbyidrequest.md
@@ -102,6 +103,7 @@ generatedFiles:
   - docs/models/trainingloss.md
   - docs/models/type.md
   - docs/models/utils/retryconfig.md
+  - docs/sdks/basemodel/README.md
   - docs/sdks/basemodels/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/classification/README.md
@@ -125,6 +127,7 @@ generatedFiles:
   - src/emissary_client_sdk/_hooks/sdkhooks.py
   - src/emissary_client_sdk/_hooks/types.py
   - src/emissary_client_sdk/_version.py
+  - src/emissary_client_sdk/base_model.py
   - src/emissary_client_sdk/basemodels.py
   - src/emissary_client_sdk/basesdk.py
   - src/emissary_client_sdk/chat.py
@@ -164,6 +167,7 @@ generatedFiles:
   - src/emissary_client_sdk/models/listtrainingjobsop.py
   - src/emissary_client_sdk/models/projectdetail.py
   - src/emissary_client_sdk/models/projectsummary.py
+  - src/emissary_client_sdk/models/retrievebasemodelbynameop.py
   - src/emissary_client_sdk/models/retrievedatasetbyidop.py
   - src/emissary_client_sdk/models/retrievedeploymentbyidop.py
   - src/emissary_client_sdk/models/retrieveprojectbyidop.py
@@ -453,5 +457,15 @@ examples:
           application/json: {"id": "classification-12345", "response": "Paris"}
         "400":
           application/json: {"status": 400, "error": "Bad request"}
+        "404":
+          application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+  retrieveBaseModelByName:
+    speakeasy-default-retrieve-base-model-by-name:
+      parameters:
+        path:
+          base_model_name: "<value>"
+      responses:
+        "200":
+          application/json: {"name": "Llama-3.2-1B-Instruct", "type": "completion", "parameter_template": {"key": "<value>"}, "support_serverless": false}
         "404":
           application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
