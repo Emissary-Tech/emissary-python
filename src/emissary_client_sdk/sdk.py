@@ -8,7 +8,6 @@ from .utils.retries import RetryConfig
 from emissary_client_sdk import models, utils
 from emissary_client_sdk._hooks import SDKHooks
 from emissary_client_sdk.basemodels import BaseModels
-from emissary_client_sdk.datasets import Datasets
 from emissary_client_sdk.deployments import Deployments
 from emissary_client_sdk.projects import Projects
 from emissary_client_sdk.trainingjobs import TrainingJobs
@@ -22,7 +21,6 @@ class EmissaryClient(BaseSDK):
 
     base_models: BaseModels
     projects: Projects
-    datasets: Datasets
     training_jobs: TrainingJobs
     deployments: Deployments
 
@@ -107,6 +105,5 @@ class EmissaryClient(BaseSDK):
     def _init_sdks(self):
         self.base_models = BaseModels(self.sdk_configuration)
         self.projects = Projects(self.sdk_configuration)
-        self.datasets = Datasets(self.sdk_configuration)
         self.training_jobs = TrainingJobs(self.sdk_configuration)
         self.deployments = Deployments(self.sdk_configuration)

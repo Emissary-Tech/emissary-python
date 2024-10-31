@@ -8,7 +8,6 @@ from typing_extensions import Annotated, TypedDict
 
 class DeleteDeploymentByIDRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to delete"""
 
@@ -17,7 +16,6 @@ class DeleteDeploymentByIDRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve deployments for"""
 
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))

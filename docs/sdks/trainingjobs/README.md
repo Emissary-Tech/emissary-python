@@ -49,7 +49,7 @@ if res is not None:
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `project_id`                                                                        | *str*                                                                               | :heavy_check_mark:                                                                  | The ID of the project to create a training job for                                  |
+| `project_id`                                                                        | *str*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `request_body`                                                                      | [models.CreateTrainingJobRequestBody](../../models/createtrainingjobrequestbody.md) | :heavy_check_mark:                                                                  | Provide your training job details                                                   |
 | `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
@@ -90,7 +90,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -130,7 +130,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to retrieve                              |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -169,7 +169,7 @@ s.training_jobs.delete(project_id="<id>", training_job_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to delete                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -204,7 +204,7 @@ s.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve training jobs for                 |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to cancel                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -241,7 +241,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve checkpoints for                   |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `training_job_id`                                                   | *str*                                                               | :heavy_check_mark:                                                  | The ID of the training job to retrieve checkpoints for              |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 

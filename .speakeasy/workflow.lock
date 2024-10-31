@@ -2,19 +2,19 @@ speakeasyVersion: 1.423.5
 sources:
     EmissaryClient-OAS:
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:108a000dac8b4a4f86cdb7323edcd4ca3e191146c5b80fe3eb8c873487710468
-        sourceBlobDigest: sha256:34080e7ffcdf9fd64ea40ec59407f83a073d7b4147d2978ce8d69ada688076d6
+        sourceRevisionDigest: sha256:cc893f1fe906c4b61bbaf847397aff5f28fd1c5a5d15e9946d24123e847f3123
+        sourceBlobDigest: sha256:eb9c994735157cc449d247649d2717acd800aab7a6ebca58b274e500c4892591
         tags:
             - latest
-            - main
+            - feature-global-path-parameter
 targets:
     emissary-client:
         source: EmissaryClient-OAS
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:108a000dac8b4a4f86cdb7323edcd4ca3e191146c5b80fe3eb8c873487710468
-        sourceBlobDigest: sha256:34080e7ffcdf9fd64ea40ec59407f83a073d7b4147d2978ce8d69ada688076d6
+        sourceRevisionDigest: sha256:cc893f1fe906c4b61bbaf847397aff5f28fd1c5a5d15e9946d24123e847f3123
+        sourceBlobDigest: sha256:eb9c994735157cc449d247649d2717acd800aab7a6ebca58b274e500c4892591
         codeSamplesNamespace: emissary-client-oas-code-samples
-        codeSamplesRevisionDigest: sha256:0eaae622441abf5b1f3f3883203aff58065a06c31826d09d01c8d4b4d3782fa2
+        codeSamplesRevisionDigest: sha256:3e885ee958a151a784cc70e7351f5b2f95be73e10ce8ee74717ac638980a2938
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,8 +22,6 @@ workflow:
         EmissaryClient-OAS:
             inputs:
                 - location: openapi.yaml
-            overlays:
-                - location: .speakeasy/speakeasy-modifications-overlay.yaml
             registry:
                 location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas
     targets:

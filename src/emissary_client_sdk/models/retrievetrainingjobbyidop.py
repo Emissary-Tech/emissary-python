@@ -8,7 +8,6 @@ from typing_extensions import Annotated, TypedDict
 
 class RetrieveTrainingJobByIDRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve training jobs for"""
     training_job_id: str
     r"""The ID of the training job to retrieve"""
 
@@ -17,7 +16,6 @@ class RetrieveTrainingJobByIDRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve training jobs for"""
 
     training_job_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))

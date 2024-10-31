@@ -47,7 +47,6 @@ class CreateDeploymentRequestBody(BaseModel):
 
 class CreateDeploymentRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to create a deployment for"""
     request_body: CreateDeploymentRequestBodyTypedDict
     r"""Provide you deployment details"""
 
@@ -56,7 +55,6 @@ class CreateDeploymentRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to create a deployment for"""
 
     request_body: Annotated[
         CreateDeploymentRequestBody,

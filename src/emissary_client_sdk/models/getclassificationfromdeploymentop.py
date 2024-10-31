@@ -23,7 +23,6 @@ class GetClassificationFromDeploymentRequestBody(BaseModel):
 
 class GetClassificationFromDeploymentRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to get classification from"""
     request_body: GetClassificationFromDeploymentRequestBodyTypedDict
@@ -34,7 +33,6 @@ class GetClassificationFromDeploymentRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve deployments for"""
 
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))

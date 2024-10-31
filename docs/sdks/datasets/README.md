@@ -1,5 +1,5 @@
 # Datasets
-(*datasets*)
+(*projects.datasets*)
 
 ## Overview
 
@@ -24,7 +24,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.datasets.create(project_id="<id>", request_body={
+res = s.projects.datasets.create(project_id="<id>", request_body={
     "file": {
         "file_name": "example.file",
         "content": open("example.file", "rb"),
@@ -43,7 +43,7 @@ if res is not None:
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `project_id`                                                                | *str*                                                                       | :heavy_check_mark:                                                          | The ID of the project to delete                                             |
+| `project_id`                                                                | *str*                                                                       | :heavy_check_mark:                                                          | N/A                                                                         |
 | `request_body`                                                              | [models.CreateDatasetRequestBody](../../models/createdatasetrequestbody.md) | :heavy_check_mark:                                                          | Provide your project name if you want to specify it.                        |
 | `retries`                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)            | :heavy_minus_sign:                                                          | Configuration to override the default retry behavior of the client.         |
 
@@ -72,7 +72,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.datasets.list(project_id="<id>")
+res = s.projects.datasets.list(project_id="<id>")
 
 if res is not None:
     # handle response
@@ -84,7 +84,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -112,7 +112,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.datasets.get(project_id="<id>", dataset_id="<id>")
+res = s.projects.datasets.get(project_id="<id>", dataset_id="<id>")
 
 if res is not None:
     # handle response
@@ -124,7 +124,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `dataset_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the dataset to retrieve                                   |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -153,7 +153,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-s.datasets.delete(project_id="<id>", dataset_id="<id>")
+s.projects.datasets.delete(project_id="<id>", dataset_id="<id>")
 
 # Use the SDK ...
 
@@ -163,7 +163,7 @@ s.datasets.delete(project_id="<id>", dataset_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve datasets for                      |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `dataset_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the dataset to delete                                     |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 

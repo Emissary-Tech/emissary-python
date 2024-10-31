@@ -64,7 +64,6 @@ class CreateTrainingJobRequestBody(BaseModel):
 
 class CreateTrainingJobRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to create a training job for"""
     request_body: CreateTrainingJobRequestBodyTypedDict
     r"""Provide your training job details"""
 
@@ -73,7 +72,6 @@ class CreateTrainingJobRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to create a training job for"""
 
     request_body: Annotated[
         CreateTrainingJobRequestBody,

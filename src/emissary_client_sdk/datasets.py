@@ -24,7 +24,7 @@ class Datasets(BaseSDK):
 
         Create a new dataset which will be used in the project.
 
-        :param project_id: The ID of the project to delete
+        :param project_id:
         :param request_body: Provide your project name if you want to specify it.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -124,7 +124,7 @@ class Datasets(BaseSDK):
 
         Create a new dataset which will be used in the project.
 
-        :param project_id: The ID of the project to delete
+        :param project_id:
         :param request_body: Provide your project name if you want to specify it.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -221,7 +221,7 @@ class Datasets(BaseSDK):
 
         Fetching a list of datasets
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -307,7 +307,7 @@ class Datasets(BaseSDK):
 
         Fetching a list of datasets
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -394,7 +394,7 @@ class Datasets(BaseSDK):
 
         Retrieve a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param dataset_id: The ID of the dataset to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -483,7 +483,7 @@ class Datasets(BaseSDK):
 
         Retrieve a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param dataset_id: The ID of the dataset to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -572,7 +572,7 @@ class Datasets(BaseSDK):
 
         Delete a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param dataset_id: The ID of the dataset to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -661,7 +661,7 @@ class Datasets(BaseSDK):
 
         Delete a dataset by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve datasets for
+        :param project_id:
         :param dataset_id: The ID of the dataset to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

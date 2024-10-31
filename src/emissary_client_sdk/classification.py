@@ -26,7 +26,7 @@ class Classification(BaseSDK):
 
         Get classification from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to get classification from
         :param request_body: Provide your input for classification
         :param retries: Override the default retry configuration for this method
@@ -135,7 +135,7 @@ class Classification(BaseSDK):
 
         Get classification from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to get classification from
         :param request_body: Provide your input for classification
         :param retries: Override the default retry configuration for this method

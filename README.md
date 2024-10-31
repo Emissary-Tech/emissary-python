@@ -122,13 +122,6 @@ asyncio.run(main())
 * [list](docs/sdks/basemodels/README.md#list) - List of Base Models
 * [get](docs/sdks/basemodels/README.md#get) - Retrieve a base model
 
-### [datasets](docs/sdks/datasets/README.md)
-
-* [create](docs/sdks/datasets/README.md#create) - Create a new Dataset
-* [list](docs/sdks/datasets/README.md#list) - List of Datasets
-* [get](docs/sdks/datasets/README.md#get) - Retrieve a dataset by ID
-* [delete](docs/sdks/datasets/README.md#delete) - Delete a dataset by ID
-
 ### [deployments](docs/sdks/deployments/README.md)
 
 * [create](docs/sdks/deployments/README.md#create) - Create a new Deployment
@@ -164,6 +157,13 @@ asyncio.run(main())
 * [get](docs/sdks/projects/README.md#get) - Retrieve a project by ID
 * [delete](docs/sdks/projects/README.md#delete) - Delete a project by ID
 
+#### [projects.datasets](docs/sdks/datasets/README.md)
+
+* [create](docs/sdks/datasets/README.md#create) - Create a new Dataset
+* [list](docs/sdks/datasets/README.md#list) - List of Datasets
+* [get](docs/sdks/datasets/README.md#get) - Retrieve a dataset by ID
+* [delete](docs/sdks/datasets/README.md#delete) - Delete a dataset by ID
+
 ### [training_jobs](docs/sdks/trainingjobs/README.md)
 
 * [create](docs/sdks/trainingjobs/README.md#create) - Create a new Training Job
@@ -194,7 +194,7 @@ s = EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
 )
 
-res = s.datasets.create(project_id="<id>", request_body={
+res = s.projects.datasets.create(project_id="<id>", request_body={
     "file": {
         "file_name": "example.file",
         "content": open("example.file", "rb"),

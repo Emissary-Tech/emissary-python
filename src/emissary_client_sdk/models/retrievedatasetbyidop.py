@@ -8,7 +8,6 @@ from typing_extensions import Annotated, TypedDict
 
 class RetrieveDatasetByIDRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve datasets for"""
     dataset_id: str
     r"""The ID of the dataset to retrieve"""
 
@@ -17,7 +16,6 @@ class RetrieveDatasetByIDRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve datasets for"""
 
     dataset_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))

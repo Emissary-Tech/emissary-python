@@ -44,7 +44,7 @@ if res is not None:
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `project_id`                                                                      | *str*                                                                             | :heavy_check_mark:                                                                | The ID of the project to create a deployment for                                  |
+| `project_id`                                                                      | *str*                                                                             | :heavy_check_mark:                                                                | N/A                                                                               |
 | `request_body`                                                                    | [models.CreateDeploymentRequestBody](../../models/createdeploymentrequestbody.md) | :heavy_check_mark:                                                                | Provide you deployment details                                                    |
 | `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |
 
@@ -85,7 +85,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -125,7 +125,7 @@ if res is not None:
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to retrieve                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -164,7 +164,7 @@ s.deployments.delete(project_id="<id>", deployment_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to delete                                  |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -199,7 +199,7 @@ s.deployments.cancel(project_id="<id>", deployment_id="<id>")
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the project to retrieve deployments for                   |
+| `project_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `deployment_id`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The ID of the deployment to cancel                                  |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 

@@ -26,7 +26,7 @@ class Completions(BaseSDK):
 
         Get completions from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to get completions from
         :param request_body: Provide you prompt input for completions
         :param retries: Override the default retry configuration for this method
@@ -135,7 +135,7 @@ class Completions(BaseSDK):
 
         Get completions from a deployment using the provided input.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to get completions from
         :param request_body: Provide you prompt input for completions
         :param retries: Override the default retry configuration for this method

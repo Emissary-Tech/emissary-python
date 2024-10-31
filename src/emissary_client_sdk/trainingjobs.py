@@ -25,7 +25,7 @@ class TrainingJobs(BaseSDK):
 
         Create a new training job for the project.
 
-        :param project_id: The ID of the project to create a training job for
+        :param project_id:
         :param request_body: Provide your training job details
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -126,7 +126,7 @@ class TrainingJobs(BaseSDK):
 
         Create a new training job for the project.
 
-        :param project_id: The ID of the project to create a training job for
+        :param project_id:
         :param request_body: Provide your training job details
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -223,7 +223,7 @@ class TrainingJobs(BaseSDK):
 
         Fetching a list of training jobs
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -309,7 +309,7 @@ class TrainingJobs(BaseSDK):
 
         Fetching a list of training jobs
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -396,7 +396,7 @@ class TrainingJobs(BaseSDK):
 
         Retrieve a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -485,7 +485,7 @@ class TrainingJobs(BaseSDK):
 
         Retrieve a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -574,7 +574,7 @@ class TrainingJobs(BaseSDK):
 
         Delete a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -663,7 +663,7 @@ class TrainingJobs(BaseSDK):
 
         Delete a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -752,7 +752,7 @@ class TrainingJobs(BaseSDK):
 
         Cancel a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to cancel
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -841,7 +841,7 @@ class TrainingJobs(BaseSDK):
 
         Cancel a training job by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve training jobs for
+        :param project_id:
         :param training_job_id: The ID of the training job to cancel
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -930,7 +930,7 @@ class TrainingJobs(BaseSDK):
 
         Fetching a list of checkpoints for a training job
 
-        :param project_id: The ID of the project to retrieve checkpoints for
+        :param project_id:
         :param training_job_id: The ID of the training job to retrieve checkpoints for
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1021,7 +1021,7 @@ class TrainingJobs(BaseSDK):
 
         Fetching a list of checkpoints for a training job
 
-        :param project_id: The ID of the project to retrieve checkpoints for
+        :param project_id:
         :param training_job_id: The ID of the training job to retrieve checkpoints for
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

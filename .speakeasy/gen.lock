@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
-  docChecksum: 89025dc46997c7ee9b6bff65744a2335
+  docChecksum: 66c1ce849ad24a8d0d3ceab942f5a146
   docVersion: 0.1.0
   speakeasyVersion: 1.423.5
   generationVersion: 2.445.1
-  releaseVersion: 0.4.4
-  configChecksum: 014b76c449b6d405fa73f0f60362b936
+  releaseVersion: 0.4.5
+  configChecksum: 4ff338ffad8617f9b7d1a1118c3d74f3
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true

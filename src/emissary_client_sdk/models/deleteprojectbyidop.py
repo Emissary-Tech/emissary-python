@@ -8,11 +8,9 @@ from typing_extensions import Annotated, TypedDict
 
 class DeleteProjectByIDRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to delete"""
 
 
 class DeleteProjectByIDRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to delete"""

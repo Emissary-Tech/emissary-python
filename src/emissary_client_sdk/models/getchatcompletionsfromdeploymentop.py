@@ -80,7 +80,6 @@ class GetChatCompletionsFromDeploymentRequestBody(BaseModel):
 
 class GetChatCompletionsFromDeploymentRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve deployments for"""
     deployment_id: str
     r"""The ID of the deployment to get chat completions from"""
     request_body: GetChatCompletionsFromDeploymentRequestBodyTypedDict
@@ -91,7 +90,6 @@ class GetChatCompletionsFromDeploymentRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve deployments for"""
 
     deployment_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))

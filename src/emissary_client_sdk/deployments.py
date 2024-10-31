@@ -46,7 +46,7 @@ class Deployments(BaseSDK):
 
         Create a new deployment for the project.
 
-        :param project_id: The ID of the project to create a deployment for
+        :param project_id:
         :param request_body: Provide you deployment details
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -147,7 +147,7 @@ class Deployments(BaseSDK):
 
         Create a new deployment for the project.
 
-        :param project_id: The ID of the project to create a deployment for
+        :param project_id:
         :param request_body: Provide you deployment details
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -244,7 +244,7 @@ class Deployments(BaseSDK):
 
         Fetching a list of deployments
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -330,7 +330,7 @@ class Deployments(BaseSDK):
 
         Fetching a list of deployments
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -417,7 +417,7 @@ class Deployments(BaseSDK):
 
         Retrieve a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -506,7 +506,7 @@ class Deployments(BaseSDK):
 
         Retrieve a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to retrieve
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -595,7 +595,7 @@ class Deployments(BaseSDK):
 
         Delete a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -684,7 +684,7 @@ class Deployments(BaseSDK):
 
         Delete a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to delete
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -773,7 +773,7 @@ class Deployments(BaseSDK):
 
         Cancel a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to cancel
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -862,7 +862,7 @@ class Deployments(BaseSDK):
 
         Cancel a deployment by its unique identifier.
 
-        :param project_id: The ID of the project to retrieve deployments for
+        :param project_id:
         :param deployment_id: The ID of the deployment to cancel
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

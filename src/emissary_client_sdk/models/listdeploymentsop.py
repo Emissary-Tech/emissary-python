@@ -8,11 +8,9 @@ from typing_extensions import Annotated, TypedDict
 
 class ListDeploymentsRequestTypedDict(TypedDict):
     project_id: str
-    r"""The ID of the project to retrieve deployments for"""
 
 
 class ListDeploymentsRequest(BaseModel):
     project_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the project to retrieve deployments for"""
