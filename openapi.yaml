@@ -15,9 +15,6 @@ security:
 servers:
   - url: https://d1d3-4-4-33-74.ngrok-free.app
     description: Test API Server
-x-speakeasy-globals:
-  parameters:
-    - $ref: '#/components/parameters/ProjectId'
 tags:
   - name: Base Model
     description: Deals with base models
