@@ -15,9 +15,6 @@ security:
 servers:
   - url: https://d1d3-4-4-33-74.ngrok-free.app
     description: Test API Server
-x-speakeasy-globals:
-  parameters:
-    - $ref: '#/components/parameters/ProjectId'
 tags:
   - name: Base Model
     description: Deals with base models
@@ -201,7 +198,7 @@ paths:
                 "$ref": "#/components/schemas/DatasetSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: datasets
+      x-speakeasy-group: projects.datasets
       x-speakeasy-name-override: create
     get:
       tags:
@@ -222,7 +219,7 @@ paths:
                   "$ref": "#/components/schemas/DatasetSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: datasets
+      x-speakeasy-group: projects.datasets
       x-speakeasy-name-override: list
   '/v1/projects/{project_id}/datasets/{dataset_id}':
     get:
@@ -248,7 +245,7 @@ paths:
                 "$ref": "#/components/schemas/DatasetDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: datasets
+      x-speakeasy-group: projects.datasets
       x-speakeasy-name-override: get
     delete:
       tags:
@@ -269,7 +266,7 @@ paths:
           description: Dataset deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: datasets
+      x-speakeasy-group: projects.datasets
       x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/training-jobs':
     post:
@@ -918,7 +915,7 @@ components:
       schema:
         type: string
       required: true
-      
+
   schemas:
     BaseModelSummary:
       type: object
