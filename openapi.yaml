@@ -278,6 +278,7 @@ paths:
   '/v1/projects/{project_id}/training-jobs':
     post:
       tags:
+        - Project
         - Training Job
       summary: Create a new Training Job
       description: Create a new training job for the project.
@@ -340,10 +341,11 @@ paths:
                 "$ref": "#/components/schemas/TrainingJobSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
       x-speakeasy-name-override: create
     get:
       tags:
+        - Project
         - Training Job
       summary: List of Training Jobs
       description: Fetching a list of training jobs
@@ -361,11 +363,12 @@ paths:
                   "$ref": "#/components/schemas/TrainingJobSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
       x-speakeasy-name-override: list
   '/v1/projects/{project_id}/training-jobs/{training_job_id}':
     get:
       tags:
+        - Project
         - Training Job
       summary: Retrieve a training job by ID
       description: Retrieve a training job by its unique identifier.
@@ -387,10 +390,11 @@ paths:
                 "$ref": "#/components/schemas/TrainingJobDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
       x-speakeasy-name-override: get
     delete:
       tags:
+        - Project
         - Training Job
       summary: Delete a training job by ID
       description: Delete a training job by its unique identifier.
@@ -408,11 +412,12 @@ paths:
           description: Training job deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
       x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel':
     post:
       tags:
+        - Project
         - Training Job
       summary: Cancel a training job by ID
       description: Cancel a training job by its unique identifier.
@@ -430,11 +435,12 @@ paths:
           description: Training job canceled successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
       x-speakeasy-name-override: cancel
   '/v1/projects/{project_id}/training-jobs/{training_job_id}/checkpoints':
     get:
       tags:
+        - Project
         - Training Job
       summary: List of Checkpoints
       description: Fetching a list of checkpoints for a training job
@@ -458,10 +464,11 @@ paths:
                   "$ref": "#/components/schemas/TrainingJobCheckpoint"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: trainingJobs
+      x-speakeasy-group: projects.trainingJobs
   '/v1/projects/{project_id}/deployments':
     post:
       tags:
+        - Project
         - Deployment
       summary: Create a new Deployment
       description: Create a new deployment for the project.
@@ -510,10 +517,11 @@ paths:
                 "$ref": "#/components/schemas/DeploymentSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments
+      x-speakeasy-group: projects.deployments
       x-speakeasy-name-override: create
     get:
       tags:
+        - Project
         - Deployment
       summary: List of Deployments
       description: Fetching a list of deployments
@@ -531,11 +539,12 @@ paths:
                   "$ref": "#/components/schemas/DeploymentSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: deployments
+      x-speakeasy-group: projects.deployments
       x-speakeasy-name-override: list
   '/v1/projects/{project_id}/deployments/{deployment_id}':
     get:
       tags:
+        - Project
         - Deployment
       summary: Retrieve a deployment by ID
       description: Retrieve a deployment by its unique identifier.
@@ -557,10 +566,11 @@ paths:
                 "$ref": "#/components/schemas/DeploymentDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
+      x-speakeasy-group: projects.deployments
       x-speakeasy-name-override: get
     delete:
       tags:
+        - Project
         - Deployment
       summary: Delete a deployment by ID
       description: Delete a deployment by its unique identifier.
@@ -578,11 +588,12 @@ paths:
           description: Deployment deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
+      x-speakeasy-group: projects.deployments
       x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/deployments/{deployment_id}/cancel':
     post:
       tags:
+        - Project
         - Deployment
       summary: Cancel a deployment by ID
       description: Cancel a deployment by its unique identifier.
@@ -600,11 +611,12 @@ paths:
           description: Deployment canceled successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: deployments
+      x-speakeasy-group: projects.deployments
       x-speakeasy-name-override: cancel
   '/v1/projects/{project_id}/deployments/{deployment_id}/completions':
     post:
       tags:
+        - Project
         - Deployment
       summary: Get Completions from a Deployment
       description: Get completions from a deployment using the provided input.
@@ -676,11 +688,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.completions
+      x-speakeasy-group: projects.deployments.completions
       x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/chat/completions':
     post:
       tags:
+        - Project
         - Deployment
       summary: Get Chat Completions from a Deployment
       description: Get chat completions from a deployment using the provided input.
@@ -771,11 +784,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.chat.completions
+      x-speakeasy-group: projects.deployments.chat.completions
       x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/embeddings':
     post:
       tags:
+        - Project
         - Deployment
       summary: Get Embeddings from a Deployment
       description: Get embeddings from a deployment using the provided input.
@@ -860,11 +874,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.embeddings
+      x-speakeasy-group: projects.deployments.embeddings
       x-speakeasy-name-override: create
   '/v1/projects/{project_id}/deployments/{deployment_id}/classification':
     post:
       tags:
+        - Project
         - Deployment
       summary: Get Classification from a Deployment
       description: Get classification from a deployment using the provided input.
@@ -911,7 +926,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: deployments.classification
+      x-speakeasy-group: projects.deployments.classification
       x-speakeasy-name-override: create
 # An object to hold reusable parts that can be used across the definition
 components:
