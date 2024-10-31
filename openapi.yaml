@@ -15,6 +15,9 @@ security:
 servers:
   - url: https://d1d3-4-4-33-74.ngrok-free.app
     description: Test API Server
+x-speakeasy-globals:
+  parameters:
+    - $ref: '#/components/parameters/ProjectId'
 tags:
   - name: Base Model
     description: Deals with base models
@@ -76,8 +79,6 @@ paths:
       x-speakeasy-name-override: get
   '/v1/projects': # path parameter in curly braces
     post:
-      tags:
-        - Project
       summary: Create a new project
       description: Create a new project which will be used as an your Fine-Tuning workspace.
       operationId: createProject
@@ -102,11 +103,8 @@ paths:
                 "$ref": "#/components/schemas/ProjectSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: projects
       x-speakeasy-name-override: create
     get: # documentation for GET operation for this path
-      tags:
-        - Project
       summary: List of Projects
       # you can use GFM in operation description too: https://guides.github.com/features/mastering-markdown
       description: |
@@ -125,12 +123,9 @@ paths:
                   "$ref": "#/components/schemas/ProjectSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: projects
       x-speakeasy-name-override: list
   '/v1/projects/{project_id}':
     get:
-      tags:
-        - Project
       summary: Retrieve a project by ID
       description: Retrieve a project by its unique identifier.
       operationId: retrieveProjectById
@@ -145,11 +140,8 @@ paths:
                 "$ref": "#/components/schemas/ProjectDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects
       x-speakeasy-name-override: get
     delete:
-      tags:
-        - Project
       summary: Delete a project by ID
       description: Delete a project by its unique identifier.
       operationId: deleteProjectById
@@ -160,7 +152,6 @@ paths:
           description: Project deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects
       x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/datasets':
     post:
@@ -198,7 +189,7 @@ paths:
                 "$ref": "#/components/schemas/DatasetSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
-      x-speakeasy-group: projects.datasets
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: create
     get:
       tags:
@@ -219,7 +210,7 @@ paths:
                   "$ref": "#/components/schemas/DatasetSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
-      x-speakeasy-group: projects.datasets
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: list
   '/v1/projects/{project_id}/datasets/{dataset_id}':
     get:
@@ -245,7 +236,7 @@ paths:
                 "$ref": "#/components/schemas/DatasetDetail"
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects.datasets
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: get
     delete:
       tags:
@@ -266,7 +257,7 @@ paths:
           description: Dataset deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
-      x-speakeasy-group: projects.datasets
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: delete
   '/v1/projects/{project_id}/training-jobs':
     post:
