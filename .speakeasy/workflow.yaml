@@ -3,9 +3,7 @@ speakeasyVersion: latest
 sources:
     EmissaryClient-OAS:
         inputs:
-            - location: openapi.yaml
-        overlays:
-            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            - location: customized.yaml
         registry:
             location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas
 targets:

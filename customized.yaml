@@ -15,6 +15,9 @@ security:
 servers:
   - url: https://d1d3-4-4-33-74.ngrok-free.app
     description: Test API Server
+x-speakeasy-globals:
+  parameters:
+    - $ref: '#/components/parameters/ProjectId'
 tags:
   - name: Base Model
     description: Deals with base models
@@ -135,12 +138,7 @@ paths:
       description: Retrieve a project by its unique identifier.
       operationId: retrieveProjectById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: Successful operation
@@ -159,12 +157,7 @@ paths:
       description: Delete a project by its unique identifier.
       operationId: deleteProjectById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to delete
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       responses:
         '204':
           description: Project deleted successfully
@@ -180,12 +173,7 @@ paths:
       description: Create a new dataset which will be used in the project.
       operationId: createDataset
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to delete
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       requestBody:
         required: true
         description: Provide your project name if you want to specify it.
@@ -221,12 +209,7 @@ paths:
       description: Fetching a list of datasets
       operationId: listDatasets
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve datasets for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: List of datasets with their ID and name
@@ -248,12 +231,7 @@ paths:
       description: Retrieve a dataset by its unique identifier.
       operationId: retrieveDatasetById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve datasets for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: dataset_id
           in: path
           required: true
@@ -278,12 +256,7 @@ paths:
       description: Delete a dataset by its unique identifier.
       operationId: deleteDatasetById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve datasets for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: dataset_id
           in: path
           required: true
@@ -305,12 +278,7 @@ paths:
       description: Create a new training job for the project.
       operationId: createTrainingJob
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to create a training job for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       requestBody:
         required: true
         description: Provide your training job details
@@ -376,12 +344,7 @@ paths:
       description: Fetching a list of training jobs
       operationId: listTrainingJobs
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve training jobs for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: List of training jobs with their ID and name
@@ -403,12 +366,7 @@ paths:
       description: Retrieve a training job by its unique identifier.
       operationId: retrieveTrainingJobById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve training jobs for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: training_job_id
           in: path
           required: true
@@ -433,12 +391,7 @@ paths:
       description: Delete a training job by its unique identifier.
       operationId: deleteTrainingJobById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve training jobs for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: training_job_id
           in: path
           required: true
@@ -460,12 +413,7 @@ paths:
       description: Cancel a training job by its unique identifier.
       operationId: cancelTrainingJobById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve training jobs for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: training_job_id
           in: path
           required: true
@@ -487,12 +435,7 @@ paths:
       description: Fetching a list of checkpoints for a training job
       operationId: listCheckpoints
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve checkpoints for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: training_job_id
           in: path
           required: true
@@ -519,12 +462,7 @@ paths:
       description: Create a new deployment for the project.
       operationId: createDeployment
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to create a deployment for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       requestBody:
         required: true
         description: Provide you deployment details
@@ -576,12 +514,7 @@ paths:
       description: Fetching a list of deployments
       operationId: listDeployments
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: List of deployments with their ID and name
@@ -603,12 +536,7 @@ paths:
       description: Retrieve a deployment by its unique identifier.
       operationId: retrieveDeploymentById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -633,12 +561,7 @@ paths:
       description: Delete a deployment by its unique identifier.
       operationId: deleteDeploymentById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -660,12 +583,7 @@ paths:
       description: Cancel a deployment by its unique identifier.
       operationId: cancelDeploymentById
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -687,12 +605,7 @@ paths:
       description: Get completions from a deployment using the provided input.
       operationId: getCompletionsFromDeployment
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -768,12 +681,7 @@ paths:
       description: Get chat completions from a deployment using the provided input.
       operationId: getChatCompletionsFromDeployment
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -868,12 +776,7 @@ paths:
       description: Get embeddings from a deployment using the provided input.
       operationId: getEmbeddingsFromDeployment
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -962,12 +865,7 @@ paths:
       description: Get classification from a deployment using the provided input.
       operationId: getClassificationFromDeployment
       parameters:
-        - name: project_id
-          in: path
-          required: true
-          description: The ID of the project to retrieve deployments for
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ProjectId'
         - name: deployment_id
           in: path
           required: true
@@ -1012,6 +910,12 @@ paths:
       x-speakeasy-name-override: create
 # An object to hold reusable parts that can be used across the definition
 components:
+  parameters:
+    ProjectId:
+      name: project_id
+      in: path
+      schema:
+        type: string
   schemas:
     BaseModelSummary:
       type: object
