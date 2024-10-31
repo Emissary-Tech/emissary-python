@@ -937,8 +937,7 @@ components:
       schema:
         type: string
       required: true
-      x-speakeasy-globals-hidden: true
-
+#      x-speakeasy-globals-hidden: true
   schemas:
     BaseModelSummary:
       type: object
