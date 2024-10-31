@@ -7,6 +7,7 @@ from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 from emissary_client_sdk import models, utils
 from emissary_client_sdk._hooks import SDKHooks
+from emissary_client_sdk.base_model import BaseModel
 from emissary_client_sdk.basemodels import BaseModels
 from emissary_client_sdk.datasets import Datasets
 from emissary_client_sdk.deployments import Deployments
@@ -21,6 +22,8 @@ class EmissaryClient(BaseSDK):
     r"""Emissary - OpenAPI 3.1: This is a Emissary Platform API specification."""
 
     base_models: BaseModels
+    base_model: BaseModel
+    r"""Deals with base models"""
     projects: Projects
     datasets: Datasets
     training_jobs: TrainingJobs
@@ -106,6 +109,7 @@ class EmissaryClient(BaseSDK):
 
     def _init_sdks(self):
         self.base_models = BaseModels(self.sdk_configuration)
+        self.base_model = BaseModel(self.sdk_configuration)
         self.projects = Projects(self.sdk_configuration)
         self.datasets = Datasets(self.sdk_configuration)
         self.training_jobs = TrainingJobs(self.sdk_configuration)

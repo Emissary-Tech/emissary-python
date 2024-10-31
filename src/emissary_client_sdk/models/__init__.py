@@ -118,6 +118,10 @@ from .listtrainingjobsop import (
 )
 from .projectdetail import ProjectDetail, ProjectDetailTypedDict
 from .projectsummary import ProjectSummary, ProjectSummaryTypedDict
+from .retrievebasemodelbynameop import (
+    RetrieveBaseModelByNameRequest,
+    RetrieveBaseModelByNameRequestTypedDict,
+)
 from .retrievedatasetbyidop import (
     RetrieveDatasetByIDRequest,
     RetrieveDatasetByIDRequestTypedDict,
@@ -248,6 +252,8 @@ __all__ = [
     "ProjectSummaryTypedDict",
     "Response",
     "ResponseTypedDict",
+    "RetrieveBaseModelByNameRequest",
+    "RetrieveBaseModelByNameRequestTypedDict",
     "RetrieveDatasetByIDRequest",
     "RetrieveDatasetByIDRequestTypedDict",
     "RetrieveDeploymentByIDRequest",
