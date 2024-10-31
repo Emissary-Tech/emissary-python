@@ -176,6 +176,16 @@ actions:
       after: sdk.baseModels.list()
       reviewed_at: 1730155984845
       created_at: 1730155964565
+  - target: $["paths"]["/v1/models/{base_model_name}"]["get"]
+    update:
+      x-speakeasy-group: baseModels
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Base Model.retrieveBaseModelByName()
+      after: sdk.baseModels.get()
+      reviewed_at: 1730155984845
+      created_at: 1730155964565
   - target: $["paths"]["/v1/projects/{project_id}/training-jobs/{training_job_id}"]["get"]
     update:
       x-speakeasy-group: trainingJobs
