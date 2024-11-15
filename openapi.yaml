@@ -318,6 +318,14 @@ paths:
                   type: string
                   example: "Fine-tuning the model on my dataset"
                   description: A description of the training job
+                task_type:
+                  type: string
+                  enum:
+                    - text-generation
+                    - classification
+                    - embedding
+                  example: "text-generation"
+                  description: The task type for the training job
                 parameters:
                   type: object
                   additionalProperties:
