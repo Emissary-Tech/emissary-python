@@ -111,7 +111,10 @@ paths:
         '400':
           $ref: '#/components/responses/InvalidInput'
       x-speakeasy-name-override: create_project
-    get: # documentation for GET operation for this path
+    get:
+      tags:
+        - Project
+      # documentation for GET operation for this path
       summary: List of Projects
       # you can use GFM in operation description too: https://guides.github.com/features/mastering-markdown
       description: |
@@ -133,6 +136,8 @@ paths:
       x-speakeasy-name-override: list_projects
   '/v1/projects/{project_id}':
     get:
+      tags:
+        - Project
       summary: Retrieve a project by ID
       description: Retrieve a project by its unique identifier.
       operationId: retrieveProjectById
@@ -155,6 +160,8 @@ paths:
       x-speakeasy-group: projects
       x-speakeasy-name-override: get_project
     delete:
+      tags:
+        - Project
       summary: Delete a project by ID
       description: Delete a project by its unique identifier.
       operationId: deleteProjectById
