@@ -84,8 +84,8 @@ paths:
       x-speakeasy-name-override: get
   '/v1/projects': # path parameter in curly braces
     post:
-#      tags:
-#        - Project
+      tags:
+        - Project
       summary: Create a new project
       description: Create a new project which will be used as an your Fine-Tuning workspace.
       operationId: createProject
