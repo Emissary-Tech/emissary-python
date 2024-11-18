@@ -110,6 +110,7 @@ paths:
                 "$ref": "#/components/schemas/ProjectSummary"
         '400':
           $ref: '#/components/responses/InvalidInput'
+      x-speakeasy-group: projects
       x-speakeasy-name-override: create_project
     get:
       tags:
@@ -133,6 +134,7 @@ paths:
                   "$ref": "#/components/schemas/ProjectSummary"
         '401':
           $ref: '#/components/responses/Unauthorized'
+      x-speakeasy-group: projects
       x-speakeasy-name-override: list_projects
   '/v1/projects/{project_id}':
     get:
@@ -177,6 +179,7 @@ paths:
           description: Project deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+      x-speakeasy-group: projects
       x-speakeasy-name-override: delete_project
   '/v1/projects/{project_id}/datasets':
     post:
