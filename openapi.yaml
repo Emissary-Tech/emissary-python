@@ -195,7 +195,7 @@ paths:
                 name:
                   type: string
                   example: my_dataset
-                  description: The name of the dataset
+                  description: The name of the dataset (optional)
               required:
               - file
       responses:
