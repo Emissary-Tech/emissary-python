@@ -22,21 +22,20 @@ import emissary_client_sdk
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.create(project_id="<id>", request_body={
-    "training_job_id": "tr-12345",
-    "checkpoint": 4,
-    "server_type": emissary_client_sdk.ServerType.ON_DEMAND,
-    "name": "deployment-1",
-    "description": "Deployment for my training job",
-})
+    res = emissary_client.deployments.create(project_id="<id>", request_body={
+        "training_job_id": "tr-12345",
+        "checkpoint": 4,
+        "server_type": emissary_client_sdk.ServerType.ON_DEMAND,
+        "name": "deployment-1",
+        "description": "Deployment for my training job",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -69,15 +68,14 @@ Fetching a list of deployments
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.list(project_id="<id>")
+    res = emissary_client.deployments.list(project_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -109,15 +107,14 @@ Retrieve a deployment by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.get(project_id="<id>", deployment_id="<id>")
+    res = emissary_client.deployments.get(project_id="<id>", deployment_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -150,13 +147,13 @@ Delete a deployment by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.deployments.delete(project_id="<id>", deployment_id="<id>")
+    emissary_client.deployments.delete(project_id="<id>", deployment_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 
@@ -185,13 +182,13 @@ Cancel a deployment by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.deployments.cancel(project_id="<id>", deployment_id="<id>")
+    emissary_client.deployments.cancel(project_id="<id>", deployment_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 

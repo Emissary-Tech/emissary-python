@@ -22,7 +22,7 @@ class FileTypedDict(TypedDict):
 
 class File(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="file"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -51,9 +51,7 @@ class CreateDatasetRequestBody(BaseModel):
     r"""Provide your project name if you want to specify it."""
 
     file: Annotated[
-        Optional[File],
-        pydantic.Field(alias=""),
-        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
+        Optional[File], FieldMetadata(multipart=MultipartFormMetadata(file=True))
     ] = None
     r"""The dataset file to upload"""
 

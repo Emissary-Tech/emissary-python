@@ -22,18 +22,23 @@ Emissary - OpenAPI 3.1: This is a Emissary Platform API specification.
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [emissary-client-sdk](#emissary-client-sdk)
+  * [SDK Installation](#sdk-installation)
+  * [IDE Support](#ide-support)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [File uploads](#file-uploads)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
 
-* [SDK Installation](#sdk-installation)
-* [IDE Support](#ide-support)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [File uploads](#file-uploads)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -78,15 +83,14 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list()
+    res = emissary_client.base_models.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -99,13 +103,14 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 async def main():
-    s = EmissaryClient(
+    async with EmissaryClient(
         api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-    )
-    res = await s.base_models.list_async()
-    if res is not None:
-        # handle response
-        pass
+    ) as emissary_client:
+
+        res = await emissary_client.base_models.list_async()
+
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```
@@ -190,22 +195,21 @@ Certain SDK methods accept file objects as part of a request body or multi-part 
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.datasets.create(project_id="<id>", request_body={
-    "file": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-        "content_type": "<value>",
-    },
-    "name": "my_dataset",
-})
+    res = emissary_client.datasets.create(project_id="<id>", request_body={
+        "file": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+            "content_type": "<value>",
+        },
+        "name": "my_dataset",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 <!-- End File uploads [file-upload] -->
@@ -218,38 +222,36 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
 from emissary_client_sdk import EmissaryClient
-from emissaryclient.utils import BackoffStrategy, RetryConfig
+from emissary_client_sdk.utils import BackoffStrategy, RetryConfig
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list(,
-    RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
+    res = emissary_client.base_models.list(,
+        RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
 from emissary_client_sdk import EmissaryClient
-from emissaryclient.utils import BackoffStrategy, RetryConfig
+from emissary_client_sdk.utils import BackoffStrategy, RetryConfig
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list()
+    res = emissary_client.base_models.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 <!-- End Retries [retries] -->
@@ -270,11 +272,11 @@ By default, an API error will raise a models.SDKError exception, which has the f
 
 When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `list_async` method may raise the following exceptions:
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models.APIErrorInvalidInput | 400                         | application/json            |
-| models.APIErrorUnauthorized | 401                         | application/json            |
-| models.SDKError             | 4XX, 5XX                    | \*/\*                       |
+| Error Type                  | Status Code | Content Type     |
+| --------------------------- | ----------- | ---------------- |
+| models.APIErrorInvalidInput | 400         | application/json |
+| models.APIErrorUnauthorized | 401         | application/json |
+| models.SDKError             | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -282,60 +284,31 @@ When custom error responses are specified for an operation, the SDK may also rai
 from emissary_client_sdk import EmissaryClient, models
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
+    res = None
+    try:
 
-res = None
-try:
-    res = s.base_models.list()
+        res = emissary_client.base_models.list()
 
-    if res is not None:
-        # handle response
-        pass
+        # Handle response
+        print(res)
 
-except models.APIErrorInvalidInput as e:
-    # handle e.data: models.APIErrorInvalidInputData
-    raise(e)
-except models.APIErrorUnauthorized as e:
-    # handle e.data: models.APIErrorUnauthorizedData
-    raise(e)
-except models.SDKError as e:
-    # handle exception
-    raise(e)
+    except models.APIErrorInvalidInput as e:
+        # handle e.data: models.APIErrorInvalidInputData
+        raise(e)
+    except models.APIErrorUnauthorized as e:
+        # handle e.data: models.APIErrorUnauthorizedData
+        raise(e)
+    except models.SDKError as e:
+        # handle exception
+        raise(e)
 ```
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
-
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://d1d3-4-4-33-74.ngrok-free.app` | None |
-
-#### Example
-
-```python
-from emissary_client_sdk import EmissaryClient
-import os
-
-s = EmissaryClient(
-    server_idx=0,
-    api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
-
-res = s.base_models.list()
-
-if res is not None:
-    # handle response
-    pass
-
-```
-
 
 ### Override Server URL Per-Client
 
@@ -344,16 +317,15 @@ The default server can also be overridden globally by passing a URL to the `serv
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     server_url="https://d1d3-4-4-33-74.ngrok-free.app",
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list()
+    res = emissary_client.base_models.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 <!-- End Server Selection [server] -->
@@ -446,24 +418,23 @@ s = EmissaryClient(async_client=CustomClient(httpx.AsyncClient()))
 
 This SDK supports the following security scheme globally:
 
-| Name                      | Type                      | Scheme                    | Environment Variable      |
-| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
-| `api_key`                 | apiKey                    | API key                   | `EMISSARY_CLIENT_API_KEY` |
+| Name      | Type   | Scheme  | Environment Variable      |
+| --------- | ------ | ------- | ------------------------- |
+| `api_key` | apiKey | API key | `EMISSARY_CLIENT_API_KEY` |
 
 To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
 ```python
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list()
+    res = emissary_client.base_models.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 <!-- End Authentication [security] -->

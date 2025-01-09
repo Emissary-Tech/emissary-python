@@ -4,15 +4,14 @@
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.base_models.list()
+    res = emissary_client.base_models.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -25,13 +24,14 @@ from emissary_client_sdk import EmissaryClient
 import os
 
 async def main():
-    s = EmissaryClient(
+    async with EmissaryClient(
         api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-    )
-    res = await s.base_models.list_async()
-    if res is not None:
-        # handle response
-        pass
+    ) as emissary_client:
+
+        res = await emissary_client.base_models.list_async()
+
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```

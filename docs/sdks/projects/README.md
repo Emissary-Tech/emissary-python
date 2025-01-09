@@ -20,17 +20,16 @@ Create a new project which will be used as an your Fine-Tuning workspace.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.projects.create(request={
-    "name": "my_project",
-})
+    res = emissary_client.projects.create(request={
+        "name": "my_project",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -63,15 +62,14 @@ Fetching a list of projects,
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.projects.list()
+    res = emissary_client.projects.list()
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -102,15 +100,14 @@ Retrieve a project by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.projects.get(project_id="<id>")
+    res = emissary_client.projects.get(project_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -142,13 +139,13 @@ Delete a project by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.projects.delete(project_id="<id>")
+    emissary_client.projects.delete(project_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 

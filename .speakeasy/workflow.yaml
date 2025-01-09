@@ -17,5 +17,5 @@ targets:
                 token: $pypi_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-code-samples
+                location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-python-code-samples
             blocking: false

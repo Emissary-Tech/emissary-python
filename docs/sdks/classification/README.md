@@ -17,17 +17,16 @@ Get classification from a deployment using the provided input.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.classification.create(project_id="<id>", deployment_id="<id>", request_body={
-    "source_sentence": "What is the capital of France?",
-})
+    res = emissary_client.deployments.classification.create(project_id="<id>", deployment_id="<id>", request_body={
+        "source_sentence": "What is the capital of France?",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 

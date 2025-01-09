@@ -22,26 +22,25 @@ Create a new training job for the project.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.training_jobs.create(project_id="<id>", request_body={
-    "base_model": "Llama-3.2-1B-Instruct",
-    "train_dataset_id": "ds-12345",
-    "test_dataset_id": "ds-67890",
-    "train_test_split_ratio": 0.2,
-    "name": "training-1",
-    "description": "Fine-tuning the model on my dataset",
-    "parameters": {
-        "key": "<value>",
-    },
-    "hf_model_link": "https://huggingface.co/my_model",
-})
+    res = emissary_client.training_jobs.create(project_id="<id>", request_body={
+        "base_model": "Llama-3.2-1B-Instruct",
+        "train_dataset_id": "ds-12345",
+        "test_dataset_id": "ds-67890",
+        "train_test_split_ratio": 0.2,
+        "name": "training-1",
+        "description": "Fine-tuning the model on my dataset",
+        "parameters": {
+            "key": "<value>",
+        },
+        "hf_model_link": "https://huggingface.co/my_model",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -74,15 +73,14 @@ Fetching a list of training jobs
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.training_jobs.list(project_id="<id>")
+    res = emissary_client.training_jobs.list(project_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -114,15 +112,14 @@ Retrieve a training job by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.training_jobs.get(project_id="<id>", training_job_id="<id>")
+    res = emissary_client.training_jobs.get(project_id="<id>", training_job_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -155,13 +152,13 @@ Delete a training job by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.training_jobs.delete(project_id="<id>", training_job_id="<id>")
+    emissary_client.training_jobs.delete(project_id="<id>", training_job_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 
@@ -190,13 +187,13 @@ Cancel a training job by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
+    emissary_client.training_jobs.cancel(project_id="<id>", training_job_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 
@@ -225,15 +222,14 @@ Fetching a list of checkpoints for a training job
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.training_jobs.list_checkpoints(project_id="<id>", training_job_id="<id>")
+    res = emissary_client.training_jobs.list_checkpoints(project_id="<id>", training_job_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 

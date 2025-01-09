@@ -4,13 +4,13 @@ from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from emissary_client_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing import Dict, Optional, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-ParametersTypedDict = Union[str, float, int]
+ParametersTypedDict = TypeAliasType("ParametersTypedDict", Union[str, float, int])
 
 
-Parameters = Union[str, float, int]
+Parameters = TypeAliasType("Parameters", Union[str, float, int])
 
 
 class CreateTrainingJobRequestBodyTypedDict(TypedDict):

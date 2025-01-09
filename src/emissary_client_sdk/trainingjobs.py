@@ -5,7 +5,7 @@ from emissary_client_sdk import models, utils
 from emissary_client_sdk._hooks import HookContext
 from emissary_client_sdk.types import OptionalNullable, UNSET
 from emissary_client_sdk.utils import get_security_from_env
-from typing import Any, List, Optional, Union
+from typing import Any, List, Mapping, Optional, Union
 
 
 class TrainingJobs(BaseSDK):
@@ -20,6 +20,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TrainingJobSummary:
         r"""Create a new Training Job
 
@@ -30,6 +31,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -46,7 +48,7 @@ class TrainingJobs(BaseSDK):
             ),
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/v1/projects/{project_id}/training-jobs",
             base_url=base_url,
@@ -57,6 +59,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -121,6 +124,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TrainingJobSummary:
         r"""Create a new Training Job
 
@@ -131,6 +135,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -147,7 +152,7 @@ class TrainingJobs(BaseSDK):
             ),
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/v1/projects/{project_id}/training-jobs",
             base_url=base_url,
@@ -158,6 +163,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body,
@@ -218,6 +224,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> List[models.TrainingJobSummary]:
         r"""List of Training Jobs
 
@@ -227,6 +234,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -240,7 +248,7 @@ class TrainingJobs(BaseSDK):
             project_id=project_id,
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs",
             base_url=base_url,
@@ -251,6 +259,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -304,6 +313,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> List[models.TrainingJobSummary]:
         r"""List of Training Jobs
 
@@ -313,6 +323,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -326,7 +337,7 @@ class TrainingJobs(BaseSDK):
             project_id=project_id,
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs",
             base_url=base_url,
@@ -337,6 +348,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -391,6 +403,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TrainingJobDetail:
         r"""Retrieve a training job by ID
 
@@ -401,6 +414,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -415,7 +429,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}",
             base_url=base_url,
@@ -426,6 +440,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -480,6 +495,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TrainingJobDetail:
         r"""Retrieve a training job by ID
 
@@ -490,6 +506,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -504,7 +521,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}",
             base_url=base_url,
@@ -515,6 +532,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -569,6 +587,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ):
         r"""Delete a training job by ID
 
@@ -579,6 +598,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -593,7 +613,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="DELETE",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}",
             base_url=base_url,
@@ -604,6 +624,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -658,6 +679,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ):
         r"""Delete a training job by ID
 
@@ -668,6 +690,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -682,7 +705,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="DELETE",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}",
             base_url=base_url,
@@ -693,6 +716,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -747,6 +771,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ):
         r"""Cancel a training job by ID
 
@@ -757,6 +782,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -771,7 +797,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel",
             base_url=base_url,
@@ -782,6 +808,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -836,6 +863,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ):
         r"""Cancel a training job by ID
 
@@ -846,6 +874,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -860,7 +889,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}/cancel",
             base_url=base_url,
@@ -871,6 +900,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -925,6 +955,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> List[models.TrainingJobCheckpoint]:
         r"""List of Checkpoints
 
@@ -935,6 +966,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -949,7 +981,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request(
+        req = self._build_request(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}/checkpoints",
             base_url=base_url,
@@ -960,6 +992,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )
@@ -1016,6 +1049,7 @@ class TrainingJobs(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> List[models.TrainingJobCheckpoint]:
         r"""List of Checkpoints
 
@@ -1026,6 +1060,7 @@ class TrainingJobs(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1040,7 +1075,7 @@ class TrainingJobs(BaseSDK):
             training_job_id=training_job_id,
         )
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="GET",
             path="/v1/projects/{project_id}/training-jobs/{training_job_id}/checkpoints",
             base_url=base_url,
@@ -1051,6 +1086,7 @@ class TrainingJobs(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             timeout_ms=timeout_ms,
         )

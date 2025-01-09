@@ -18,29 +18,28 @@ import emissary_client_sdk
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.chat.completions.create(project_id="<id>", deployment_id="<id>", request_body={
-    "messages": [
-        {
-            "role": emissary_client_sdk.Role.USER,
-            "content": "Hello, how are you?",
-        },
-    ],
-    "streaming": False,
-    "temperature": 0.7,
-    "max_new_tokens": 500,
-    "top_p": 0.9,
-    "top_k": 50,
-    "no_repeat_ngram_size": 2,
-    "do_sample": True,
-})
+    res = emissary_client.deployments.chat.completions.create(project_id="<id>", deployment_id="<id>", request_body={
+        "messages": [
+            {
+                "role": emissary_client_sdk.Role.USER,
+                "content": "Hello, how are you?",
+            },
+        ],
+        "streaming": False,
+        "temperature": 0.7,
+        "max_new_tokens": 500,
+        "top_p": 0.9,
+        "top_k": 50,
+        "no_repeat_ngram_size": 2,
+        "do_sample": True,
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 

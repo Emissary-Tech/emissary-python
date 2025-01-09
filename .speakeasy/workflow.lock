@@ -1,20 +1,21 @@
-speakeasyVersion: 1.423.5
+speakeasyVersion: 1.465.1
 sources:
     EmissaryClient-OAS:
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:108a000dac8b4a4f86cdb7323edcd4ca3e191146c5b80fe3eb8c873487710468
-        sourceBlobDigest: sha256:34080e7ffcdf9fd64ea40ec59407f83a073d7b4147d2978ce8d69ada688076d6
+        sourceRevisionDigest: sha256:ec5f5ac4d1b8f66ebf35c75711a034e9c87398e592e3a2657951639ecf288b86
+        sourceBlobDigest: sha256:2f50881297cb0ca56d53eba192350da5fa1b3131facd6e72028efd0b6bc4d8b5
         tags:
             - latest
-            - main
+            - speakeasy-sdk-regen-1731973295
+            - 0.1.0
 targets:
     emissary-client:
         source: EmissaryClient-OAS
         sourceNamespace: emissary-client-oas
-        sourceRevisionDigest: sha256:108a000dac8b4a4f86cdb7323edcd4ca3e191146c5b80fe3eb8c873487710468
-        sourceBlobDigest: sha256:34080e7ffcdf9fd64ea40ec59407f83a073d7b4147d2978ce8d69ada688076d6
-        codeSamplesNamespace: emissary-client-oas-code-samples
-        codeSamplesRevisionDigest: sha256:0eaae622441abf5b1f3f3883203aff58065a06c31826d09d01c8d4b4d3782fa2
+        sourceRevisionDigest: sha256:ec5f5ac4d1b8f66ebf35c75711a034e9c87398e592e3a2657951639ecf288b86
+        sourceBlobDigest: sha256:2f50881297cb0ca56d53eba192350da5fa1b3131facd6e72028efd0b6bc4d8b5
+        codeSamplesNamespace: emissary-client-oas-python-code-samples
+        codeSamplesRevisionDigest: sha256:cc12bcc983afde416d32d483cbecd5324822a90df92076e702bf18c99bd36445
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -35,5 +36,5 @@ workflow:
                     token: $pypi_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-code-samples
+                    location: registry.speakeasyapi.dev/emissary/emissary/emissary-client-oas-python-code-samples
                 blocking: false

@@ -17,23 +17,22 @@ Get completions from a deployment using the provided input.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.completions.create(project_id="<id>", deployment_id="<id>", request_body={
-    "prompt": "What is the capital of France?",
-    "temperature": 0.7,
-    "max_new_tokens": 500,
-    "top_p": 0.9,
-    "top_k": 50,
-    "no_repeat_ngram_size": 2,
-    "do_sample": True,
-})
+    res = emissary_client.deployments.completions.create(project_id="<id>", deployment_id="<id>", request_body={
+        "prompt": "What is the capital of France?",
+        "temperature": 0.7,
+        "max_new_tokens": 500,
+        "top_p": 0.9,
+        "top_k": 50,
+        "no_repeat_ngram_size": 2,
+        "do_sample": True,
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 

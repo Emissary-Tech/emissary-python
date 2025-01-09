@@ -3,34 +3,33 @@ id: 65580a77-97f6-4def-b468-bd8444f16661
 management:
   docChecksum: 89025dc46997c7ee9b6bff65744a2335
   docVersion: 0.1.0
-  speakeasyVersion: 1.423.5
-  generationVersion: 2.445.1
-  releaseVersion: 0.4.4
-  configChecksum: 014b76c449b6d405fa73f0f60362b936
+  speakeasyVersion: 1.465.1
+  generationVersion: 2.488.4
+  releaseVersion: 0.5.0
+  configChecksum: 69d2de5b5256ed7447f7c18e01b5bb4e
   repoURL: https://github.com/Emissary-Tech/emissary-python.git
   installationURL: https://github.com/Emissary-Tech/emissary-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.6.1
+    core: 5.7.6
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
-    envVarSecurityUsage: 0.3.1
+    envVarSecurityUsage: 0.3.2
     flattening: 3.1.0
     globalSecurity: 3.0.2
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.0.0
+    globalServerURLs: 3.1.0
     groups: 3.0.0
     methodArguments: 1.0.2
     multipartFileContentType: 1.0.0
-    nameOverrides: 3.0.0
+    nameOverrides: 3.0.1
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
-    tests: 1.6.0
-    unions: 3.0.2
+    unions: 3.0.4
     uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
@@ -118,7 +117,6 @@ generatedFiles:
   - py.typed
   - pylintrc
   - pyproject.toml
-  - scripts/compile.sh
   - scripts/prepare-readme.py
   - scripts/publish.sh
   - src/emissary_client_sdk/__init__.py
@@ -467,3 +465,4 @@ examples:
           application/json: {"name": "Llama-3.2-1B-Instruct", "type": "completion", "parameter_template": {"key": "<value>"}, "support_serverless": false}
         "404":
           application/json: {"status": 404, "error": "Not found", "code": "object_not_found"}
+generatedTests: {}

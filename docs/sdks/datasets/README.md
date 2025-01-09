@@ -20,22 +20,21 @@ Create a new dataset which will be used in the project.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.datasets.create(project_id="<id>", request_body={
-    "file": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-        "content_type": "<value>",
-    },
-    "name": "my_dataset",
-})
+    res = emissary_client.datasets.create(project_id="<id>", request_body={
+        "file": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+            "content_type": "<value>",
+        },
+        "name": "my_dataset",
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -68,15 +67,14 @@ Fetching a list of datasets
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.datasets.list(project_id="<id>")
+    res = emissary_client.datasets.list(project_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -108,15 +106,14 @@ Retrieve a dataset by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.datasets.get(project_id="<id>", dataset_id="<id>")
+    res = emissary_client.datasets.get(project_id="<id>", dataset_id="<id>")
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 
@@ -149,13 +146,13 @@ Delete a dataset by its unique identifier.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-s.datasets.delete(project_id="<id>", dataset_id="<id>")
+    emissary_client.datasets.delete(project_id="<id>", dataset_id="<id>")
 
-# Use the SDK ...
+    # Use the SDK ...
 
 ```
 

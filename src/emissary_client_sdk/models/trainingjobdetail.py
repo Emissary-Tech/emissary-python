@@ -5,7 +5,7 @@ from .datasetsummary import DatasetSummary, DatasetSummaryTypedDict
 from emissary_client_sdk.types import BaseModel
 from enum import Enum
 from typing import Dict, List, Optional, Union
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 class TrainingJobDetailStatus(str, Enum):
@@ -30,10 +30,12 @@ class TrainingLoss(BaseModel):
     loss: Optional[float] = None
 
 
-HyperParametersTypedDict = Union[str, float, int]
+HyperParametersTypedDict = TypeAliasType(
+    "HyperParametersTypedDict", Union[str, float, int]
+)
 
 
-HyperParameters = Union[str, float, int]
+HyperParameters = TypeAliasType("HyperParameters", Union[str, float, int])
 
 
 class TrainingJobDetailTypedDict(TypedDict):

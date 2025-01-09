@@ -17,21 +17,20 @@ Get embeddings from a deployment using the provided input.
 from emissary_client_sdk import EmissaryClient
 import os
 
-s = EmissaryClient(
+with EmissaryClient(
     api_key=os.getenv("EMISSARY_CLIENT_API_KEY", ""),
-)
+) as emissary_client:
 
-res = s.deployments.embeddings.create(project_id="<id>", deployment_id="<id>", request_body={
-    "source_sentence": "What is the capital of France?",
-    "target_sentence": "Paris is the capital of France.",
-    "cosine": True,
-    "manhattan": False,
-    "euclidean": False,
-})
+    res = emissary_client.deployments.embeddings.create(project_id="<id>", deployment_id="<id>", request_body={
+        "source_sentence": "What is the capital of France?",
+        "target_sentence": "Paris is the capital of France.",
+        "cosine": True,
+        "manhattan": False,
+        "euclidean": False,
+    })
 
-if res is not None:
-    # handle response
-    pass
+    # Handle response
+    print(res)
 
 ```
 

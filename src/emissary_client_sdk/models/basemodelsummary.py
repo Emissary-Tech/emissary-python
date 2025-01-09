@@ -4,7 +4,7 @@ from __future__ import annotations
 from emissary_client_sdk.types import BaseModel
 from enum import Enum
 from typing import Dict, Optional, Union
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 class Type(str, Enum):
@@ -14,10 +14,12 @@ class Type(str, Enum):
     CHAT = "chat"
 
 
-ParameterTemplateTypedDict = Union[str, float, int]
+ParameterTemplateTypedDict = TypeAliasType(
+    "ParameterTemplateTypedDict", Union[str, float, int]
+)
 
 
-ParameterTemplate = Union[str, float, int]
+ParameterTemplate = TypeAliasType("ParameterTemplate", Union[str, float, int])
 
 
 class BaseModelSummaryTypedDict(TypedDict):

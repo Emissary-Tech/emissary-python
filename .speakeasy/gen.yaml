@@ -10,9 +10,10 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
   auth:
-    oAuth2ClientCredentialsEnabled: true
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 python:
-  version: 0.4.4
+  version: 0.5.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -20,6 +21,7 @@ python:
   authors:
     - Emissary
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Python Client SDK for emissary.dev.
   enumFormat: enum
   envVarPrefix: EMISSARY_CLIENT
